@@ -1,0 +1,48 @@
+﻿<telerik:RadRibbonWindow x:Class="Games.GameWindow"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                         xmlns:flipem="clr-namespace:FlipEm;assembly=FlipEm"
+                         Title="Игра"
+                         Height="400"
+                         Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <telerik:RadRibbonView Grid.Row="0"
+                               Title="FlipEm"
+                               ApplicationName="Игра"
+                               ApplicationButtonContent="Файл">
+            <telerik:RadRibbonView.Backstage>
+                <telerik:RadRibbonBackstage>
+                    
+                </telerik:RadRibbonBackstage>
+            </telerik:RadRibbonView.Backstage>
+
+            <telerik:RadRibbonTab Header="Игра">
+                <telerik:RadRibbonGroup Header="Настройки">
+                    <telerik:RadRibbonButton Text="Настройки"/>
+                    <telerik:RadRibbonButton Text="Рестарт"/>
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="Шаг">
+                    <telerik:RadRibbonButton Text="Отменить"/>
+                    <telerik:RadRibbonButton Text="Повторить"/>
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+
+            <telerik:RadRibbonTab Header="Решение">
+                <telerik:RadRibbonGroup Header="Решение">
+                    <telerik:RadRibbonButton Text="Старт"/>
+                    <telerik:RadRibbonButton Text="Пауза"/>
+                    <telerik:RadRibbonButton Text="Стоп"/>
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+        </telerik:RadRibbonView>
+
+        <flipem:FlipEmView Grid.Row="1"/>
+    </Grid>
+</telerik:RadRibbonWindow>
