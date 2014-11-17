@@ -20,8 +20,10 @@ namespace FlipEm
     /// <summary>
     /// Логика взаимодействия для FlipEmView.xaml
     /// </summary>
-    public partial class FlipEmView : UserControl, IGame
+    public partial class FlipEmView : IGame
     {
+        public event GameStepEventHandler GameStep;
+
         public static readonly DependencyProperty FieldProperty =
             DependencyProperty.Register("Field", typeof(Field), typeof(FlipEmView), new PropertyMetadata(null));
         
@@ -29,7 +31,7 @@ namespace FlipEm
         {
             InitializeComponent();
 
-            Field = new Field(10, StepType.Cross);
+            Field = new Field(6, StepType.BorderCross);
         }
 
         public Field Field
@@ -38,7 +40,19 @@ namespace FlipEm
             set { SetValue(FieldProperty, value); }
         }
 
-        public event GameStepEventHandler GameStep;
+        public FrameworkElement View
+        {
+            get { return this; }
+        }
+        
+        public object Settings
+        {
+            set
+            {
+                var settings = (FlipEmSettings)value;
+                Field = new Field(settings.Size, settings.Step);
+            }
+        }
 
         public void OnGameStep()
         {
@@ -68,6 +82,12 @@ namespace FlipEm
         public void Undo()
         {
             ;
+        }
+
+        private void OnChipClicked(object sender, ExecutedRoutedEventArgs e)
+        {
+            Field.Click(e.Parameter as Chip);
+            e.Handled = true;
         }
     }
 }

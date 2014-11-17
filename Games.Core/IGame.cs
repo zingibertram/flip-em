@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Games.Core
 {
-    public interface IGame
+    public interface IGame : IView
     {
         event GameStepEventHandler GameStep;
         void OnGameStep();
@@ -15,5 +15,6 @@ namespace Games.Core
         void SolutionStop();
         void Redo();
         void Undo();
+        object Settings { set; }
     }
 }

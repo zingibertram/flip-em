@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="FlipEm.FlipEmSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:vm="clr-namespace:Games.Core;assembly=Games.Core"
+             xmlns:local_core="clr-namespace:FlipEm.Core"
+             x:Name="Control"
+             mc:Ignorable="d"
+             Width="Auto"
+             Height="Auto">
+    <UserControl.Resources>
+        <vm:EnumViewModel x:Key="EnumValues"
+                          EnumType="local_core:StepType"/>
+    </UserControl.Resources>
+    <UniformGrid DataContext="{Binding ElementName=Control, Path=Settings}"
+                 Columns="2">
+        <TextBlock Text="Тип хода"/>
+        <telerik:RadComboBox ItemsSource="{Binding Source={StaticResource EnumValues}, Path=Values}"
+                             SelectedItem="{Binding Step, Mode=TwoWay}"/>
+
+        <TextBlock Text="Размер поля"/>
+        <telerik:RadNumericUpDown Minimum="3"
+                                  Maximum="12"
+                                  IsInteger="True"
+                                  Value="{Binding Size, Mode=TwoWay}"/>
+    </UniformGrid>
+</UserControl>

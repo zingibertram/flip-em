@@ -2,35 +2,59 @@
                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-                         xmlns:flipem="clr-namespace:FlipEm;assembly=FlipEm"
+                         x:Name="Window"
                          Title="Игра"
+                         Icon="/GamesWpf;component/Images/64x64/Table.png"
                          Height="400"
                          Width="600">
-    <Grid>
+    <Grid DataContext="{Binding ElementName=Window, Path=GamesViews}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <telerik:RadRibbonView Grid.Row="0"
+                               x:Name="Ribbon"
                                Title="FlipEm"
                                ApplicationName="Игра"
                                ApplicationButtonContent="Файл">
             <telerik:RadRibbonView.Backstage>
                 <telerik:RadRibbonBackstage>
-                    
+                    <telerik:RadRibbonBackstageItem Header="Игры"
+                                                    IsSelectable="True"
+                                                    IsDefault="True"
+                                                    CloseOnClick="True">
+                        <telerik:RadListBox ItemsSource="{Binding}"
+                                            >
+                            <telerik:RadListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Text}"/>
+                                </DataTemplate>
+                            </telerik:RadListBox.ItemTemplate>
+                        </telerik:RadListBox>
+                    </telerik:RadRibbonBackstageItem>
                 </telerik:RadRibbonBackstage>
             </telerik:RadRibbonView.Backstage>
 
-            <telerik:RadRibbonTab Header="Игра">
+            <telerik:RadRibbonTab Header="Игра"
+                                  x:Name="MainTab">
                 <telerik:RadRibbonGroup Header="Настройки">
-                    <telerik:RadRibbonButton Text="Настройки"/>
-                    <telerik:RadRibbonButton Text="Рестарт"/>
+                    <telerik:RadRibbonButton Text="Настройки" 
+                                             LargeImage="/GamesWpf;component/Images/32x32/Design.png"
+                                             Size="Large"
+                                             Click="OnOpenSettingsClick"/>
+                    <telerik:RadRibbonButton Text="Рестарт"
+                                             LargeImage="/GamesWpf;component/Images/32x32/Repeat.png"
+                                             Size="Large"/>
                 </telerik:RadRibbonGroup>
 
                 <telerik:RadRibbonGroup Header="Шаг">
-                    <telerik:RadRibbonButton Text="Отменить"/>
-                    <telerik:RadRibbonButton Text="Повторить"/>
+                    <telerik:RadRibbonButton Text="Отменить"
+                                             LargeImage="/GamesWpf;component/Images/32x32/Undo.png"
+                                             Size="Large"/>
+                    <telerik:RadRibbonButton Text="Повторить"
+                                             LargeImage="/GamesWpf;component/Images/32x32/Redo.png"
+                                             Size="Large"/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 
@@ -43,6 +67,26 @@
             </telerik:RadRibbonTab>
         </telerik:RadRibbonView>
 
-        <flipem:FlipEmView Grid.Row="1"/>
+        <ContentControl x:Name="GameView"
+                        Grid.Row="1"
+                        Content="{Binding /GameView}"
+                        Visibility="Collapsed"/>
+
+        <Grid x:Name="SettingsView"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ContentControl Grid.Row="0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Content="{Binding /SettingsView}"/>
+
+            <Button Grid.Row="1"
+                    Content="Ok"
+                    Click="OnApplySettingsButtonClick"/>
+        </Grid>
     </Grid>
 </telerik:RadRibbonWindow>
