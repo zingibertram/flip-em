@@ -1959,6 +1959,7 @@
                     FontFamily="{TemplateBinding FontFamily}"
                     FontSize="{TemplateBinding FontSize}"
                     Foreground="{TemplateBinding Foreground}"
+                    Background="Transparent"
                     ClickMode="Press"/>
             <Border x:Name="FocusBorder"
                     IsHitTestVisible="False"
