@@ -53,6 +53,28 @@ namespace Games
 
             var view = (IGameViews)GamesViews.View.CurrentItem;
             view.GameView.Settings = view.SettingsView.Settings;
+
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/System.Windows.xaml")
+            });
+            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/Telerik.Windows.Controls.xaml")
+            });
+            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/Telerik.Windows.Controls.Input.xaml")
+            });
+            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/Telerik.Windows.Controls.Navigation.xaml")
+            });
+            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/Telerik.Windows.Controls.RibbonView.xaml"),
+            });
         }
 
         private void OnOpenSettingsClick(object sender, RoutedEventArgs e)
