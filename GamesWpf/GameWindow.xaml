@@ -24,8 +24,7 @@
                                                     IsSelectable="True"
                                                     IsDefault="True"
                                                     CloseOnClick="True">
-                        <telerik:RadListBox ItemsSource="{Binding}"
-                                            >
+                        <telerik:RadListBox ItemsSource="{Binding}">
                             <telerik:RadListBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Text}"/>
@@ -33,36 +32,61 @@
                             </telerik:RadListBox.ItemTemplate>
                         </telerik:RadListBox>
                     </telerik:RadRibbonBackstageItem>
+
+                    <telerik:RadRibbonBackstageItem Header="Separator"
+                                                    IsGroupSeparator="True"/>
+
+                    <telerik:RadRibbonBackstageItem Header="Выход"
+                                                    Click="OnCloseClick"/>
                 </telerik:RadRibbonBackstage>
             </telerik:RadRibbonView.Backstage>
 
             <telerik:RadRibbonTab Header="Игра"
                                   x:Name="MainTab">
+                <telerik:RadRibbonGroup Header="Игра">
+                    <telerik:RadRibbonButton Text="Игра"
+                                             LargeImage="/GamesWpf;component/Images/64x64/Table.png"
+                                             Size="Large"
+                                             Click="OnOpenGameCkick"/>
+                    <telerik:RadRibbonButton Text="Рестарт"
+                                             LargeImage="/GamesWpf;component/Images/32x32/Repeat.png"
+                                             Size="Large"
+                                             Click="OnRestartClick"/>
+                </telerik:RadRibbonGroup>
+
                 <telerik:RadRibbonGroup Header="Настройки">
                     <telerik:RadRibbonButton Text="Настройки" 
                                              LargeImage="/GamesWpf;component/Images/32x32/Design.png"
                                              Size="Large"
                                              Click="OnOpenSettingsClick"/>
-                    <telerik:RadRibbonButton Text="Рестарт"
-                                             LargeImage="/GamesWpf;component/Images/32x32/Repeat.png"
-                                             Size="Large"/>
                 </telerik:RadRibbonGroup>
 
                 <telerik:RadRibbonGroup Header="Шаг">
                     <telerik:RadRibbonButton Text="Отменить"
                                              LargeImage="/GamesWpf;component/Images/32x32/Undo.png"
-                                             Size="Large"/>
+                                             Size="Large"
+                                             Click="OnUndoClick"/>
                     <telerik:RadRibbonButton Text="Повторить"
                                              LargeImage="/GamesWpf;component/Images/32x32/Redo.png"
-                                             Size="Large"/>
+                                             Size="Large"
+                                             Click="OnRedoClick"/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 
             <telerik:RadRibbonTab Header="Решение">
                 <telerik:RadRibbonGroup Header="Решение">
-                    <telerik:RadRibbonButton Text="Старт"/>
-                    <telerik:RadRibbonButton Text="Пауза"/>
-                    <telerik:RadRibbonButton Text="Стоп"/>
+                    <telerik:RadRibbonButton Text="Старт"
+                                             LargeImage="/GamesWpf;component/Images/32x32/Play.png"
+                                             Size="Large"
+                                             Click="OnPlayClick"/>
+                    <telerik:RadRibbonButton Text="Пауза"
+                                             LargeImage="/GamesWpf;component/Images/32x32/Pause.png"
+                                             Size="Large"
+                                             Click="OnPauseClick"/>
+                    <telerik:RadRibbonButton Text="Стоп"
+                                             LargeImage="/GamesWpf;component/Images/32x32/Stop.png"
+                                             Size="Large"
+                                             Click="OnStopClick"/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
         </telerik:RadRibbonView>
@@ -77,6 +101,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <ContentControl Grid.Row="0"
@@ -84,7 +109,21 @@
                             HorizontalAlignment="Left"
                             Content="{Binding /SettingsView}"/>
 
-            <Button Grid.Row="1"
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0"
+                           Text="Стиль"/>
+
+                <telerik:RadComboBox Grid.Column="1"
+                                     ItemsSource="{Binding Styles, ElementName=Window}"
+                                     SelectedItem="{Binding CurrentStyle, ElementName=Window}"/>
+            </Grid>
+
+            <Button Grid.Row="2"
                     Content="Ok"
                     Click="OnApplySettingsButtonClick"/>
         </Grid>

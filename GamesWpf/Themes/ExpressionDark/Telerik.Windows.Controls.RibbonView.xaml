@@ -13,9 +13,7 @@
         xmlns:c="http://schemas.telerik.com/2008/xaml/compile"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="c"
-        xmlns:shell="clr-namespace:Telerik.Windows.Controls.RibbonView.Shell;assembly=Telerik.Windows.Controls.RibbonView"
-        xmlns:external="clr-namespace:Telerik.Windows.Controls.External">
-    <external:Expression_DarkThemeExternal x:Key="Theme"/>
+        xmlns:shell="clr-namespace:Telerik.Windows.Controls.RibbonView.Shell;assembly=Telerik.Windows.Controls.RibbonView">
     <SolidColorBrush x:Key="DialogLauncher_Fill1" Color="#FFB0B0B0"/>
     <SolidColorBrush x:Key="DialogLauncher_Fill2" Color="Black"/>
     <SolidColorBrush x:Key="ApplicationMenu_OuterBorder" Color="#FF707070"/>
@@ -93,7 +91,7 @@
     <CornerRadius x:Key="RibbonTabOuterCornerRadius">3.5</CornerRadius>
     <CornerRadius x:Key="RibbonTabInnerCornerRadius">2.5</CornerRadius>
     <SolidColorBrush x:Key="RibbonBackgroundBrush" Color="#FF212224"/>
-    <SolidColorBrush x:Key="RibbonForegroundBrush" Color="#464646"/>
+    <SolidColorBrush x:Key="RibbonForegroundBrush" Color="#FFDDDDDD"/>
     <SolidColorBrush x:Key="RibbonTitlebarBorderBrush" Color="#FF828282"/>
     <SolidColorBrush x:Key="RibbonTitlebarBackgroundBrush" Color="#FF5B5A5A"/>
     <SolidColorBrush x:Key="RibbonTabstripBorderBrush" Color="#FF5B5A5A"/>
@@ -224,7 +222,7 @@
     <Color x:Key="RibbonGroupNormalInnerBorderColor2">#CCFFFFFF</Color>
     <Color x:Key="RibbonGroupNormalTrayBackgroundColor1">#FF575656</Color>
     <Color x:Key="RibbonGroupNormalTrayBackgroundColor2">#FF575656</Color>
-    <SolidColorBrush x:Key="RibbonGroupHeaderBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="RibbonGroupHeaderBrush" Color="#FFDDDDDD"/>
     <Color x:Key="RibbonGroupBackground1">#FF3D3D3D</Color>
     <Color x:Key="RibbonGroupBackground2">#FF3D3D3D</Color>
     <Color x:Key="RibbonGroupBackground3">#FF3D3D3D</Color>
@@ -378,7 +376,7 @@
     <SolidColorBrush x:Key="QatAboveBorderBrush" Color="#19FFFFFF"/>
     <SolidColorBrush x:Key="QatAboveHighlightBrush" Color="#4C000000"/>
     <SolidColorBrush x:Key="QatButtonArrow" Color="#000000"/>
-    <SolidColorBrush x:Key="QatButtonArrowHighlight" Color="#CDCDCD"/>
+    <SolidColorBrush x:Key="QatButtonArrowHighlight" Color="#FFE0E1E2"/>
     <SolidColorBrush x:Key="QatChevronPopupBorderBrush" Color="#3764A0"/>
     <SolidColorBrush x:Key="QatChevronPopupBackgroundBrush" Color="#C2DCFF"/>
     <SolidColorBrush x:Key="TabPageScrollViewerButtonBackgroundBrush" Color="#FF2D2E32"/>
@@ -565,12 +563,16 @@
     <SolidColorBrush Color="#CCFFFFFF" x:Key="RibbonBarKeyTips_InnerBorderBrush"/>
     <SolidColorBrush Color="#00FFFFFF" x:Key="RibbonWindow_Resize_Background"/>
     <SolidColorBrush Color="#000000" x:Key="RibbonWindow_OuterBorder"/>
-    <SolidColorBrush Color="#262626" x:Key="RibbonWindow_Background"/>
+    <SolidColorBrush Color="#FF494A4D" x:Key="RibbonWindow_Background"/>
     <SolidColorBrush x:Key="RibbonWindow_ContentBackground" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="RibbonWindow_TitlebarTitleBrush" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="RibbonWindow_TitlebarApplicationNameBrush" Color="#FFFFFF"/>
-    <SolidColorBrush Color="#282828" x:Key="RibbonWindow_Path_InnerBorder"/>
-    <SolidColorBrush Color="#939ca8" x:Key="RibbonWindow_Path_Background"/>
+    <SolidColorBrush x:Key="RibbonWindow_TitlebarApplicationNameBrush" Color="#FFFFFFFF"/>
+    <LinearGradientBrush x:Key="RibbonWindow_Path_InnerBorder" EndPoint="0.9,0.5" StartPoint="0.1,0.5">
+        <GradientStop Color="#FFB0B0B0" Offset="0"/>
+        <GradientStop Color="#FFB0B0B0" Offset="1"/>
+        <GradientStop Color="#FFE0E1E2" Offset="0.5"/>
+    </LinearGradientBrush>
+    <SolidColorBrush Color="#FF262626" x:Key="RibbonWindow_Path_Background"/>
     <LinearGradientBrush x:Key="RibbonWindow_Button_OuterBorder_MouseOver" EndPoint="0.971000015735626,0.5" StartPoint="0.0399999991059303,0.5">
         <GradientStop Color="#FFB0B0B0" Offset="0"/>
         <GradientStop Color="#FFB0B0B0" Offset="1"/>
@@ -588,6 +590,13 @@
         <GradientStop Color="#FFCDCDCD" Offset="0.14"/>
     </LinearGradientBrush>
     <SolidColorBrush x:Key="RibbonWindow_Separator_Background" Color="#FF595959"/>
+    <SolidColorBrush Color="Black" x:Key="RibbonWindow_InnerBorder"/>
+    <SolidColorBrush Color="#FF878787" x:Key="RibbonWindow_Button_InnerBorder_MouseOver"/>
+    <LinearGradientBrush x:Key="RibbonWindow_Button_InnerBorder_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF2E2D2D" Offset="0"/>
+        <GradientStop Color="#FF424242" Offset="1"/>
+        <GradientStop Color="#FF424242" Offset="0.14"/>
+    </LinearGradientBrush>
     <SolidColorBrush x:Key="ApplicationButtonType2010_Foreground" Color="#FFDDDDDD"/>
     <SolidColorBrush x:Key="ApplicationButtonType2010_OuterBorder" Color="#FF707070"/>
     <LinearGradientBrush x:Key="ApplicationButtonType2010_Background" EndPoint="0.5,1" StartPoint="0.5,0">
@@ -693,6 +702,8 @@
     <SolidColorBrush x:Key="GroupChrome_BorderBrush" Color="#FF707070"/>
     <SolidColorBrush x:Key="GroupChrome_TrayBackground" Color="#FF525151"/>
     <SolidColorBrush x:Key="ApplicationMenu_ClippingRectangleFill" Color="Transparent"/>
+    <SolidColorBrush x:Key="RibbonWindowButtonsHoverColor" Color="#FFE0E1E2"/>
+    <SolidColorBrush x:Key="RibbonWindowButtonsPressedColor" Color="#FFE0E1E2"/>
     <telerik:BooleanToVisibilityConverter x:Key="RibbonBooleanToVisibilityConverter"/>
     <telerik:InvertedBooleanToVisibilityConverter x:Key="InvertBoolToVisConverter"/>
     <telerikRibbonView:BooleanToWindowStateConverter x:Key="BooleanToWindowStateConverter"/>
@@ -732,19 +743,19 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
-                    CornerRadius="2"/>
+                    CornerRadius="{TemplateBinding CornerRadius}"/>
             <Border x:Name="ButtonBackgroundPressed"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    Background="{StaticResource RadRibbonBarButtonPressedBackground}"
-                    BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     Opacity="0"
-                    CornerRadius="2"/>
+                    Background="{StaticResource RadRibbonBarButtonPressedBackground}"
+                    BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"/>
             <Border x:Name="ButtonBackgroundHover"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    Background="{StaticResource RadRibbonBarButtonOverBackground}"
-                    BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     Opacity="0"
-                    CornerRadius="2"/>
+                    Background="{StaticResource RadRibbonBarButtonOverBackground}"
+                    BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"/>
             <Grid
                     Margin="{TemplateBinding Padding}"
                     x:Name="ContentGrid"
@@ -785,24 +796,24 @@
         <Setter Property="Template" Value="{StaticResource RadRibbonButtonTemplate}"/>
         <Setter Property="Padding" Value="3"/>
         <Setter Property="IsTabStop" Value="False"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource RadRibbonBarButtonNormalForegroundBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="MinHeight" Value="22"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="CornerRadius" Value="2"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Foreground" Value="{StaticResource RadRibbonBarButtonNormalForegroundBrush}"/>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonButton" BasedOn="{StaticResource RadRibbonButtonStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonButton}}" TargetType="telerikRibbonView:RadRibbonButton" BasedOn="{StaticResource RadRibbonButtonStyle}"/>
-    <Style TargetType="telerik:RadToggleButton" x:Key="ToogleButtonStyle">
+    <Style TargetType="telerik:RadToggleButton" x:Key="ToggleButtonStyle">
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource RibbonComboBoxBorderBrush}"/>
         <Setter Property="Background" Value="{StaticResource RibbonComboBoxButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource RibbonComboBoxBorderBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="telerik:RadToggleButton">
@@ -859,18 +870,10 @@
                         <Border x:Name="ChromeCheck"
                                 Visibility="Collapsed"
                                 Background="{StaticResource RadRibbonBarButtonPressedBackground}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"/>
+                                BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"
+                                BorderThickness="{TemplateBinding BorderThickness}"/>
                         <Border>
-                            <Path x:Name="Path"
-                                    Data="M-0.7,0.45 L6.2,0.45 L2.814,5.509 L2.814,5.509 z"
-                                    VerticalAlignment="Center"
-                                    Stretch="Fill"
-                                    HorizontalAlignment="Right"
-                                    Width="5"
-                                    Height="3"
-                                    Fill="{TemplateBinding Foreground}"
-                                    Margin="5 0"/>
+                            <Path x:Name="Path" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5 0" Width="5" Height="3" Fill="{TemplateBinding Foreground}" Data="M0,0L5,0L2.5,3z"/>
                         </Border>
                         <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
                     </Grid>
@@ -880,6 +883,10 @@
     </Style>
     <ControlTemplate x:Key="EditableRibbonComboBox" TargetType="telerikRibbonView:RadRibbonComboBox">
         <Grid x:Name="ContentPresenterBorder" Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Normal">
@@ -925,10 +932,6 @@
                     <VisualState x:Name="WatermarkInvisible"/>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
             <Border x:Name="Background" IsHitTestVisible="False" Background="{StaticResource RibbonRibbonRibbonPickerBackground_Normal}"/>
             <Border x:Name="Border"
                     Grid.ColumnSpan="2"
@@ -945,10 +948,26 @@
                     Background="Transparent"
                     VerticalAlignment="Center"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                <TextBox.Template>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <ScrollViewer
+                                    Padding="{TemplateBinding Padding}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}"
+                                    IsTabStop="False"
+                                    VerticalScrollBarVisibility="Auto"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Name="PART_ContentHost"/>
+                        </Grid>
+                    </ControlTemplate>
+                </TextBox.Template>
+            </TextBox>
             <telerik:RadToggleButton x:Name="PART_DropDownButton"
                     Grid.Column="1"
-                    Style="{StaticResource ToogleButtonStyle}"
+                    Style="{StaticResource ToggleButtonStyle}"
                     IsTabStop="False"
                     IsChecked="{TemplateBinding IsDropDownOpen}"
                     IsEnabled="{TemplateBinding IsEnabled}"
@@ -968,8 +987,8 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             MinWidth="{TemplateBinding MinDropDownWidth}"
                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                            Background="{StaticResource RibbonPickerPopupBackground}"
-                            Margin="0 -1 0 0">
+                            Margin="0 -1 0 0"
+                            Background="{StaticResource RibbonPickerPopupBackground}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -979,15 +998,13 @@
                                     Margin="-1 -1 -1 0"
                                     CornerRadius="0"
                                     Visibility="{TemplateBinding ClearSelectionButtonVisibility}"
-                                    Content="{TemplateBinding ClearSelectionButtonContent}"
-                                    telerik:StyleManager.Theme="{StaticResource Theme}"/>
+                                    Content="{TemplateBinding ClearSelectionButtonContent}"/>
                             <ScrollViewer x:Name="PART_ScrollViewer"
                                     Grid.Row="1"
                                     Padding="0 1 0 0"
                                     BorderThickness="0"
                                     VerticalScrollBarVisibility="Auto"
                                     Foreground="{TemplateBinding Foreground}"
-                                    telerik:StyleManager.Theme="{StaticResource Theme}"
                                     CanContentScroll="True">
                                 <ItemsPresenter/>
                             </ScrollViewer>
@@ -999,6 +1016,10 @@
     </ControlTemplate>
     <ControlTemplate x:Key="NonEditableRibbonComboBox" TargetType="telerikRibbonView:RadRibbonComboBox">
         <Grid x:Name="ContentPresenterBorder" Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Normal">
@@ -1020,12 +1041,10 @@
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
+                    <VisualState x:Name="DropDownOpen"/>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+            <Border x:Name="Background" IsHitTestVisible="False" Background="{StaticResource RibbonRibbonRibbonPickerBackground_Normal}"/>
             <Border x:Name="Border"
                     Grid.ColumnSpan="2"
                     IsHitTestVisible="False"
@@ -1033,10 +1052,11 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"/>
             <telerik:RadToggleButton
-                    Grid.Column="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
                     x:Name="PART_DropDownButton"
                     Foreground="{TemplateBinding Foreground}"
-                    Style="{StaticResource ToogleButtonStyle}"
+                    Style="{StaticResource ToggleButtonStyle}"
                     ClickMode="Press"
                     IsChecked="{TemplateBinding IsDropDownOpen}"
                     IsEnabled="{TemplateBinding IsEnabled}"
@@ -1056,18 +1076,14 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             MinWidth="{TemplateBinding MinDropDownWidth}"
                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                            Background="{StaticResource RibbonPickerPopupBackground}"
-                            Margin="0 -1 0 0">
+                            Margin="0 -1 0 0"
+                            Background="{StaticResource RibbonPickerPopupBackground}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <telerik:RadButton x:Name="PART_ClearButton"
-                                    Margin="-1 -1 -1 0"
-                                    Visibility="{TemplateBinding ClearSelectionButtonVisibility}"
-                                    Content="{TemplateBinding ClearSelectionButtonContent}"
-                                    telerik:StyleManager.Theme="{StaticResource Theme}"/>
+                            <telerik:RadButton x:Name="PART_ClearButton" Margin="-1 -1 -1 0" Visibility="{TemplateBinding ClearSelectionButtonVisibility}" Content="{TemplateBinding ClearSelectionButtonContent}"/>
                             <ScrollViewer x:Name="PART_ScrollViewer"
                                     Grid.Row="1"
                                     Foreground="{TemplateBinding Foreground}"
@@ -1075,7 +1091,6 @@
                                     BorderThickness="0"
                                     VerticalScrollBarVisibility="Auto"
                                     Margin="0"
-                                    telerik:StyleManager.Theme="{StaticResource Theme}"
                                     CanContentScroll="True">
                                 <ItemsPresenter/>
                             </ScrollViewer>
@@ -1087,12 +1102,12 @@
     </ControlTemplate>
     <Style x:Key="RadRibbonComboBoxStyle" TargetType="telerikRibbonView:RadRibbonComboBox">
         <Setter Property="Template" Value="{StaticResource EditableRibbonComboBox}"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Padding" Value="6 2"/>
-        <Setter Property="BorderBrush" Value="{StaticResource RibbonComboBoxBorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Foreground" Value="{StaticResource RibbonComboBoxForegroundBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{StaticResource RibbonComboBoxBorderBrush}"/>
         <Setter Property="MinHeight" Value="24"/>
+        <Setter Property="Padding" Value="6 2"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="IsEditable" Value="True"/>
         <Setter Property="Margin" Value="0 0 1 0"/>
@@ -1146,14 +1161,13 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{StaticResource PickerForeground}"/>
         <Setter Property="Padding" Value="6 2"/>
         <Setter Property="MinHeight" Value="20"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonComboBoxItem" BasedOn="{StaticResource RadRibbonComboBoxItemStyle}"/>
     <Style TargetType="telerikRibbonView:RadRibbonComboBox" BasedOn="{StaticResource RadRibbonComboBoxStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonComboBoxItem}}" TargetType="telerikRibbonView:RadRibbonComboBoxItem" BasedOn="{StaticResource RadRibbonComboBoxItemStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonComboBox}}" TargetType="telerikRibbonView:RadRibbonComboBox" BasedOn="{StaticResource RadRibbonComboBoxStyle}"/>
     <ControlTemplate x:Key="RadRibbonDropDownButtonTemplate" TargetType="telerikRibbonView:RadRibbonDropDownButton">
         <Grid>
             <VisualStateManager.VisualStateGroups>
@@ -1161,13 +1175,12 @@
                     <VisualState x:Name="Normal"/>
                     <VisualState x:Name="MouseOver">
                         <Storyboard>
-                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ButtonBackgroundHover"/>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverVisual"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Pressed">
                         <Storyboard>
-                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ButtonBackgroundHover"/>
-                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ButtonBackgroundPressed"/>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedVisual"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Disabled">
@@ -1184,16 +1197,16 @@
                     <VisualState x:Name="Closed"/>
                     <VisualState x:Name="Opened">
                         <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ButtonBackgroundHover">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MouseOverVisual">
                                 <DiscreteObjectKeyFrame KeyTime="0">
                                     <DiscreteObjectKeyFrame.Value>
                                         <Visibility>Collapsed</Visibility>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
-                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ButtonBackgroundChecked"/>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckedVisual"/>
                             <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(TextBlock.Foreground)">
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource RadRibbonBarButtonSelectedForegroundBrush}"/>
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonSelectedForegroundBrush}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DropDownIndicator" Storyboard.TargetProperty="Fill">
                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonSelectedForegroundBrush}"/>
@@ -1325,29 +1338,29 @@
                     <VisualState x:Name="WithoutShadow"/>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Border x:Name="ButtonBackgroundDecorator"
+            <Border x:Name="NormalVisual"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
-                    CornerRadius="2"/>
-            <Border x:Name="ButtonBackgroundPressed"
-                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"/>
+            <Border x:Name="PressedVisual"
                     Background="{StaticResource RadRibbonBarButtonPressedBackground}"
                     BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"
-                    Opacity="0"
-                    CornerRadius="2"/>
-            <Border x:Name="ButtonBackgroundChecked"
                     BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Opacity="0"/>
+            <Border x:Name="CheckedVisual"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Opacity="0"
                     Background="{StaticResource RadRibbonBarButtonSelectedBackground}"
                     BorderBrush="{StaticResource RadRibbonBarButtonSelectedBorder}"
-                    Opacity="0"
-                    CornerRadius="2"/>
-            <Border x:Name="ButtonBackgroundHover"
+                    BorderThickness="{TemplateBinding BorderThickness}"/>
+            <Border x:Name="MouseOverVisual"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    Background="{StaticResource RadRibbonBarButtonOverBackground}"
-                    BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     Opacity="0"
-                    CornerRadius="2"/>
+                    Background="{StaticResource RadRibbonBarButtonOverBackground}"
+                    BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"/>
             <Grid x:Name="ContentGrid" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -1378,17 +1391,15 @@
                             VerticalAlignment="Center"
                             Visibility="{TemplateBinding DropDownIndicatorVisibility}"
                             Fill="{StaticResource RibbonButtonDropDownFill}"
-                            Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z"
                             Width="5"
                             Height="3"
-                            Margin="3 6"/>
+                            Margin="3 6"
+                            Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z"/>
                 </StackPanel>
             </Grid>
             <Popup x:Name="DropDownPopup" AllowsTransparency="True" StaysOpen="False" Focusable="False" Placement="Bottom">
                 <Grid>
                     <Border x:Name="DropDownPopupBorder"
-                            BorderBrush="{StaticResource DropDownPopupBorderBrush}"
-                            Background="{StaticResource DropDownPopupBackgroundBrush}"
                             BorderThickness="1"
                             Padding="1"
                             Margin="0"
@@ -1397,7 +1408,9 @@
                             Width="{TemplateBinding DropDownWidth}"
                             Height="{TemplateBinding DropDownHeight}"
                             MaxWidth="{TemplateBinding DropDownMaxWidth}"
-                            MaxHeight="{TemplateBinding DropDownMaxHeight}">
+                            MaxHeight="{TemplateBinding DropDownMaxHeight}"
+                            Background="{StaticResource DropDownPopupBackgroundBrush}"
+                            BorderBrush="{StaticResource DropDownPopupBorderBrush}">
                         <ContentControl x:Name="DropDownPopupContent"
                                 Content="{TemplateBinding DropDownContent}"
                                 ContentTemplate="{TemplateBinding DropDownContentTemplate}"
@@ -1412,21 +1425,21 @@
     <Style x:Key="RadRibbonDropDownButtonStyle" TargetType="telerikRibbonView:RadRibbonDropDownButton">
         <Setter Property="Template" Value="{StaticResource RadRibbonDropDownButtonTemplate}"/>
         <Setter Property="Padding" Value="3"/>
+        <Setter Property="CornerRadius" Value="2"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="DropDownButtonPosition" Value="Bottom"/>
         <Setter Property="MinHeight" Value="22"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="DropDownButtonPosition" Value="Bottom"/>
         <Setter Property="Foreground" Value="{StaticResource RadRibbonBarButtonNormalForegroundBrush}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonDropDownButton" BasedOn="{StaticResource RadRibbonDropDownButtonStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonDropDownButton}}" TargetType="telerikRibbonView:RadRibbonDropDownButton" BasedOn="{StaticResource RadRibbonDropDownButtonStyle}"/>
     <ControlTemplate x:Key="RadRibbonRadioButtonTemplate" TargetType="telerikRibbonView:RadRibbonRadioButton">
         <Grid>
             <VisualStateManager.VisualStateGroups>
@@ -1434,13 +1447,12 @@
                     <VisualState x:Name="Normal"/>
                     <VisualState x:Name="MouseOver">
                         <Storyboard>
-                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ButtonBackgroundHover"/>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverVisual"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Pressed">
                         <Storyboard>
-                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ButtonBackgroundHover"/>
-                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ButtonBackgroundPressed"/>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedVisual"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Disabled">
@@ -1457,14 +1469,14 @@
                     <VisualState x:Name="Unchecked"/>
                     <VisualState x:Name="Checked">
                         <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ButtonBackgroundHover">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MouseOverVisual">
                                 <DiscreteObjectKeyFrame KeyTime="0">
                                     <DiscreteObjectKeyFrame.Value>
                                         <Visibility>Collapsed</Visibility>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
-                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ButtonBackgroundChecked"/>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckedVisual"/>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(TextBlock.Foreground)">
                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonSelectedForegroundBrush}"/>
                             </ObjectAnimationUsingKeyFrames>
@@ -1478,29 +1490,29 @@
                     </VisualState>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Border x:Name="ButtonBackgroundDecorator"
+            <Border x:Name="NormalVisual"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
-                    CornerRadius="2"/>
-            <Border x:Name="ButtonBackgroundPressed"
-                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"/>
+            <Border x:Name="PressedVisual"
                     Background="{StaticResource RadRibbonBarButtonPressedBackground}"
                     BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"
-                    Opacity="0"
-                    CornerRadius="2"/>
-            <Border x:Name="ButtonBackgroundChecked"
                     BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Opacity="0"/>
+            <Border x:Name="CheckedVisual"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Opacity="0"
                     Background="{StaticResource RadRibbonBarButtonSelectedBackground}"
-                    BorderBrush="{StaticResource RadRibbonBarButtonSelectedBorder}"
-                    Opacity="0"
-                    CornerRadius="2"/>
-            <Border x:Name="ButtonBackgroundHover"
+                    BorderBrush="{StaticResource RadRibbonBarButtonSelectedBorder}"/>
+            <Border x:Name="MouseOverVisual"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    Background="{StaticResource RadRibbonBarButtonOverBackground}"
-                    BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     Opacity="0"
-                    CornerRadius="2"/>
+                    Background="{StaticResource RadRibbonBarButtonOverBackground}"
+                    BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"/>
             <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" x:Name="ContentGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -1535,6 +1547,7 @@
     </ControlTemplate>
     <Style x:Key="RadRibbonRadioButtonStyle" TargetType="telerikRibbonView:RadRibbonRadioButton">
         <Setter Property="Padding" Value="3"/>
+        <Setter Property="CornerRadius" Value="2"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="IsTabStop" Value="False"/>
@@ -1549,7 +1562,6 @@
         <Setter Property="Template" Value="{StaticResource RadRibbonRadioButtonTemplate}"/>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonRadioButton" BasedOn="{StaticResource RadRibbonRadioButtonStyle}"/>
-    <Style TargetType="telerikRibbonView:RadRibbonRadioButton" BasedOn="{StaticResource RadRibbonRadioButtonStyle}" x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonRadioButton}}"/>
     <ControlTemplate x:Key="RadRibbonSplitButtonTemplate" TargetType="telerikRibbonView:RadRibbonSplitButton">
         <Grid>
             <VisualStateManager.VisualStateGroups>
@@ -1590,6 +1602,27 @@
                     <VisualState x:Name="Disabled">
                         <Storyboard Duration="0">
                             <DoubleAnimation Duration="0" To="0.5" Storyboard.TargetName="ContentGrid" Storyboard.TargetProperty="Opacity"/>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPart" Storyboard.TargetProperty="BorderThickness">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Thickness>0</Thickness>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPart" Storyboard.TargetProperty="IsBackgroundVisible">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <sys:Boolean>False</sys:Boolean>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DropDownPart" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Collapsed</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
                 </VisualStateGroup>
@@ -1851,7 +1884,7 @@
                     <VisualState x:Name="OpenOrChecked">
                         <Storyboard>
                             <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ButtonPart" Storyboard.TargetProperty="Background">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonPressedBackground}"/>
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonSelectedBackground}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <DoubleAnimation Storyboard.TargetName="checkedDecorator" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ButtonPart" Storyboard.TargetProperty="IsBackgroundVisible">
@@ -1876,9 +1909,9 @@
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
             <Border x:Name="backgroundDecorator"
-                    BorderThickness="{TemplateBinding BorderThickness}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     Background="{TemplateBinding Background}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="2"/>
             <Grid x:Name="ContentGrid">
                 <Grid.RowDefinitions>
@@ -1927,7 +1960,7 @@
                         IsTabStop="False"
                         Visibility="{TemplateBinding DropDownIndicatorVisibility}"
                         HorizontalAlignment="Stretch"
-                        Padding="7"
+                        Padding="6"
                         CornerRadius="0 0 3 3"
                         IsChecked="{Binding Path=IsOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
                 <Rectangle x:Name="SeparatorPart"
@@ -1940,12 +1973,13 @@
                         VerticalAlignment="Bottom"
                         Fill="{StaticResource RadRibbonBarButtonOverBorder}"
                         SnapsToDevicePixels="True"/>
-                <Image Name="Image" IsHitTestVisible="False" Margin="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+                <Image Name="Image" IsHitTestVisible="False" Margin="{TemplateBinding Padding}" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
                 <TextBlock
                         Name="textRow1"
                         Grid.Row="1"
                         Grid.ColumnSpan="2"
                         IsHitTestVisible="False"
+                        Padding="3 0"
                         Text="{TemplateBinding TextRow1}"
                         TextAlignment="Center"
                         Foreground="{TemplateBinding Foreground}"/>
@@ -1957,20 +1991,18 @@
                         Grid.RowSpan="2"
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
-                        Margin="0 -3 0 0"
+                        Margin="3 -3 3 0"
                         IsHitTestVisible="False">
                     <TextBlock Name="textRow2" Text="{TemplateBinding TextRow2}" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}"/>
-                    <Path
-                            Name="DropDownIndicator"
-                            IsHitTestVisible="False"
-                            VerticalAlignment="Center"
-                            Visibility="{TemplateBinding DropDownIndicatorVisibility}"
-                            Fill="{StaticResource RibbonButtonDropDownFill}"
-                            SnapsToDevicePixels="True"
-                            Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z"
-                            Width="5"
-                            Height="3"
-                            Margin="3 6"/>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Path x:Name="DropDownIndicator"
+                                IsHitTestVisible="False"
+                                Visibility="{TemplateBinding DropDownIndicatorVisibility}"
+                                SnapsToDevicePixels="True"
+                                Fill="{StaticResource RibbonButtonDropDownFill}"
+                                Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z"
+                                Margin="3 6"/>
+                    </Grid>
                 </StackPanel>
             </Grid>
             <Border x:Name="mouseOverDecorator"
@@ -1980,8 +2012,8 @@
                     CornerRadius="2"/>
             <Border x:Name="checkedDecorator"
                     Opacity="0"
-                    BorderThickness="{TemplateBinding BorderThickness}"
                     BorderBrush="{StaticResource RadRibbonBarButtonSelectedBorder}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="2"/>
             <Popup x:Name="DropDownPopup"
                     AllowsTransparency="True"
@@ -1991,17 +2023,16 @@
                     IsOpen="{Binding Path=IsOpen, RelativeSource={RelativeSource TemplatedParent}}">
                 <Grid>
                     <Border x:Name="DropDownPopupBorder"
-                            BorderBrush="{StaticResource DropDownPopupBorderBrush}"
-                            Background="{StaticResource DropDownPopupBackgroundBrush}"
                             BorderThickness="1"
-                            Padding="1"
-                            Margin="0"
                             MinWidth="3"
                             MinHeight="3"
                             Width="{TemplateBinding DropDownWidth}"
                             Height="{TemplateBinding DropDownHeight}"
                             MaxWidth="{TemplateBinding DropDownMaxWidth}"
-                            MaxHeight="{TemplateBinding DropDownMaxHeight}">
+                            MaxHeight="{TemplateBinding DropDownMaxHeight}"
+                            Background="{StaticResource DropDownPopupBackgroundBrush}"
+                            BorderBrush="{StaticResource DropDownPopupBorderBrush}"
+                            Padding="1">
                         <ContentControl x:Name="DropDownPopupContent"
                                 IsTabStop="False"
                                 Content="{TemplateBinding DropDownContent}"
@@ -2033,7 +2064,6 @@
         <Setter Property="Template" Value="{StaticResource RadRibbonSplitButtonTemplate}"/>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonSplitButton" BasedOn="{StaticResource RadRibbonSplitButtonStyle}"/>
-    <Style TargetType="telerikRibbonView:RadRibbonSplitButton" BasedOn="{StaticResource RadRibbonSplitButtonStyle}" x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonSplitButton}}"/>
     <ControlTemplate x:Key="RadRibbonToggleButtonTemplate" TargetType="telerikRibbonView:RadRibbonToggleButton">
         <Grid>
             <VisualStateManager.VisualStateGroups>
@@ -2041,13 +2071,12 @@
                     <VisualState x:Name="Normal"/>
                     <VisualState x:Name="MouseOver">
                         <Storyboard>
-                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ButtonBackgroundHover"/>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverVisual"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Pressed">
                         <Storyboard>
-                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ButtonBackgroundHover"/>
-                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ButtonBackgroundPressed"/>
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedVisual"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Disabled">
@@ -2060,14 +2089,14 @@
                     <VisualState x:Name="Unchecked"/>
                     <VisualState x:Name="Checked">
                         <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ButtonBackgroundHover">
+                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckedVisual"/>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="MouseOverVisual">
                                 <DiscreteObjectKeyFrame KeyTime="0">
                                     <DiscreteObjectKeyFrame.Value>
                                         <Visibility>Collapsed</Visibility>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
-                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ButtonBackgroundChecked"/>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(TextBlock.Foreground)">
                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonSelectedForegroundBrush}"/>
                             </ObjectAnimationUsingKeyFrames>
@@ -2085,29 +2114,29 @@
                     <VisualState x:Name="Unfocused"/>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Border x:Name="ButtonBackgroundDecorator"
+            <Border x:Name="NormalVisual"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
-                    CornerRadius="2"/>
-            <Border x:Name="ButtonBackgroundPressed"
-                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"/>
+            <Border x:Name="PressedVisual"
                     Background="{StaticResource RadRibbonBarButtonPressedBackground}"
                     BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"
-                    Opacity="0"
-                    CornerRadius="2"/>
-            <Border x:Name="ButtonBackgroundChecked"
                     BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Opacity="0"/>
+            <Border x:Name="CheckedVisual"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Opacity="0"
                     Background="{StaticResource RadRibbonBarButtonSelectedBackground}"
-                    BorderBrush="{StaticResource RadRibbonBarButtonSelectedBorder}"
-                    Opacity="0"
-                    CornerRadius="2"/>
-            <Border x:Name="ButtonBackgroundHover"
+                    BorderBrush="{StaticResource RadRibbonBarButtonSelectedBorder}"/>
+            <Border x:Name="MouseOverVisual"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    Background="{StaticResource RadRibbonBarButtonOverBackground}"
-                    BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     Opacity="0"
-                    CornerRadius="2"/>
+                    Background="{StaticResource RadRibbonBarButtonOverBackground}"
+                    BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"/>
             <Grid x:Name="ContentGrid" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -2144,20 +2173,105 @@
     <Style x:Key="RadRibbonToggleButtonStyle" TargetType="telerikRibbonView:RadRibbonToggleButton">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="3"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="IsTabStop" Value="False"/>
-        <Setter Property="MinHeight" Value="22"/>
         <Setter Property="Foreground" Value="{StaticResource RadRibbonBarButtonNormalForegroundBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="MinHeight" Value="22"/>
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Template" Value="{StaticResource RadRibbonToggleButtonTemplate}"/>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonToggleButton" BasedOn="{StaticResource RadRibbonToggleButtonStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonToggleButton}}" TargetType="telerikRibbonView:RadRibbonToggleButton" BasedOn="{StaticResource RadRibbonToggleButtonStyle}"/>
+    <ControlTemplate x:Key="ApplicationDropDownButtonTemplate" TargetType="telerikRibbonViewPrimitives:RadRibbonApplicationDropDownButton">
+        <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <Storyboard>
+                            <DoubleAnimation Duration="00:00:00.3" Storyboard.TargetName="MouseOverPart" Storyboard.TargetProperty="Opacity" To="0"/>
+                            <DoubleAnimation Duration="00:00:00.3" Storyboard.TargetName="PressedPart" Storyboard.TargetProperty="Opacity" To="0"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <DoubleAnimation Duration="00:00:00.1" Storyboard.TargetName="MouseOverPart" Storyboard.TargetProperty="Opacity" To="1"/>
+                            <DoubleAnimation Duration="00:00:00.3" Storyboard.TargetName="PressedPart" Storyboard.TargetProperty="Opacity" To="0"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <DoubleAnimation Duration="00:00:00.1" Storyboard.TargetName="PressedPart" Storyboard.TargetProperty="Opacity" To="1"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Disabled"/>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="IsOpenState">
+                    <VisualState x:Name="Closed"/>
+                    <VisualState x:Name="Opened">
+                        <Storyboard>
+                            <DoubleAnimation Duration="00:00:00.1" Storyboard.TargetName="isOpenIndicator" Storyboard.TargetProperty="Opacity" To="1"/>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2 2 0 0"/>
+            <Border x:Name="MouseOverPart"
+                    Background="{StaticResource ApplicationButtonType2010_Background_MouseOver}"
+                    BorderBrush="{StaticResource ApplicationButtonType2010_OuterBorder_MouseOver}"
+                    BorderThickness="1 1 1 0"
+                    CornerRadius="2 2 0 0"
+                    Opacity="0"/>
+            <Border x:Name="PressedPart"
+                    Background="{StaticResource ApplicationButtonType2010_Background_Selected}"
+                    BorderBrush="{StaticResource ApplicationButtonType2010_OuterBorder_Selected}"
+                    BorderThickness="1 1 1 0"
+                    CornerRadius="2 2 0 0"
+                    Opacity="0"/>
+            <Border x:Name="isOpenIndicator"
+                    Background="{StaticResource ApplicationButtonType2010_Background_Selected}"
+                    BorderBrush="{StaticResource ApplicationButtonType2010_OuterBorder_Selected}"
+                    BorderThickness="1 1 1 0"
+                    CornerRadius="2 2 0 0"
+                    Opacity="0"/>
+            <Grid x:Name="ContentGrid" Margin="{TemplateBinding Padding}">
+                <ContentPresenter
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                <Image x:Name="Image" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Stretch="None"/>
+                <TextBlock x:Name="textRow1" Margin="0 2 0 0" Text="{TemplateBinding TextRow1}" TextAlignment="Center"/>
+            </Grid>
+            <Popup x:Name="DropDownPopup" VerticalOffset="-1" AllowsTransparency="True" StaysOpen="True" Focusable="False">
+                <Border x:Name="DropDownPopupBorder">
+                    <ContentControl x:Name="DropDownPopupContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{TemplateBinding DropDownContent}"/>
+                </Border>
+            </Popup>
+            <Rectangle x:Name="Background_Disabled" Fill="#99FFFFFF" Visibility="Collapsed"/>
+        </Grid>
+    </ControlTemplate>
+    <Style x:Key="RadRibbonApplicationDropDownButtonStyle" TargetType="telerikRibbonViewPrimitives:RadRibbonApplicationDropDownButton">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Foreground" Value="{StaticResource ApplicationButtonType2010_Foreground}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ApplicationButtonType2010_OuterBorder}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="MinWidth" Value="46"/>
+        <Setter Property="Margin" Value="1 0 0 0"/>
+        <Setter Property="DropDownPlacement" Value="Relative"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="DropDownIndicatorVisibility" Value="Collapsed"/>
+        <Setter Property="IsAutoSize" Value="False"/>
+        <Setter Property="Template" Value="{StaticResource ApplicationDropDownButtonTemplate}"/>
+    </Style>
+    <Style BasedOn="{StaticResource RadRibbonApplicationDropDownButtonStyle}" TargetType="telerikRibbonViewPrimitives:RadRibbonApplicationDropDownButton"/>
     <Style x:Key="RadGalleryStyle" TargetType="telerikRibbonView:RadGallery">
         <Setter Property="ItemWidth" Value="156"/>
         <Setter Property="ItemHeight" Value="26"/>
@@ -2174,7 +2288,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="telerikRibbonView:RadGallery">
-                    <ScrollViewer x:Name="PART_ScrollViewer" telerik:StyleManager.Theme="{StaticResource Theme}" Padding="0" VerticalAlignment="Stretch" IsTabStop="False" BorderThickness="0">
+                    <ScrollViewer x:Name="PART_ScrollViewer" Padding="0" VerticalAlignment="Stretch" IsTabStop="False" BorderThickness="0">
                         <ItemsPresenter Width="{TemplateBinding ViewportWidth}" HorizontalAlignment="Left"/>
                     </ScrollViewer>
                 </ControlTemplate>
@@ -2182,7 +2296,6 @@
         </Setter>
     </Style>
     <Style TargetType="telerikRibbonView:RadGallery" BasedOn="{StaticResource RadGalleryStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadGallery}}" TargetType="telerikRibbonView:RadGallery" BasedOn="{StaticResource RadGalleryStyle}"/>
     <ControlTemplate x:Key="RadGalleryItemTemplate" TargetType="telerikRibbonView:RadGalleryItem">
         <Grid>
             <VisualStateManager.VisualStateGroups>
@@ -2239,10 +2352,10 @@
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
             <Border x:Name="Header_Background"
-                    Height="22"
                     Opacity="0"
-                    BorderBrush="{StaticResource RibbonGalleryHeaderBorderBrush}"
+                    Height="22"
                     Background="{StaticResource RibbonGalleryHeaderBackground}"
+                    BorderBrush="{StaticResource RibbonGalleryHeaderBorderBrush}"
                     BorderThickness="{StaticResource RibbonGalleryHeaderBorderThickness}"/>
             <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="1">
                 <Grid Margin="{TemplateBinding Padding}">
@@ -2281,7 +2394,6 @@
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
     <Style TargetType="telerikRibbonView:RadGalleryItem" BasedOn="{StaticResource RadGalleryItemStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadGalleryItem}}" TargetType="telerikRibbonView:RadGalleryItem" BasedOn="{StaticResource RadGalleryItemStyle}"/>
     <ControlTemplate x:Key="RadRibbonGalleryTemplate" TargetType="telerikRibbonView:RadRibbonGallery">
         <Grid>
             <Border x:Name="ExpandedBorder"
@@ -2307,8 +2419,8 @@
                         </ContentPresenter>
                     </ScrollViewer>
                     <telerikRibbonView:RadRibbonButton x:Name="ScrollUpButton"
-                            telerik:StyleManager.Theme="{StaticResource Theme}"
                             telerikRibbonView:ScreenTip.Title="{TemplateBinding UpDownButtonTitle}"
+                            CornerRadius="0 1 0 0"
                             HorizontalAlignment="Stretch"
                             Grid.Column="1"
                             Grid.Row="0"
@@ -2316,14 +2428,14 @@
                             IsTabStop="False"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             VerticalContentAlignment="Center"
-                            Background="{StaticResource RibbonGalleryItemBackgroundBrush}"
                             Padding="0"
-                            Margin="0 0 -1 0">
-                        <Path HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{StaticResource RibbonGroupButtonArrow}" Data="M 0,3.5 L 3.5,0 L 7,3.5"/>
+                            Margin="-1 -1 -1 0"
+                            Background="{StaticResource RibbonGalleryItemBackgroundBrush}">
+                        <Path HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{StaticResource RibbonGroupButtonArrow}" Data="M 0,4 L4,0 L 8,4"/>
                     </telerikRibbonView:RadRibbonButton>
                     <telerikRibbonView:RadRibbonButton x:Name="ScrollDownButton"
-                            telerik:StyleManager.Theme="{StaticResource Theme}"
                             telerikRibbonView:ScreenTip.Title="{TemplateBinding UpDownButtonTitle}"
+                            CornerRadius="0"
                             HorizontalAlignment="Stretch"
                             Grid.Column="1"
                             Grid.Row="1"
@@ -2331,58 +2443,47 @@
                             IsTabStop="False"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             VerticalContentAlignment="Center"
-                            Background="{StaticResource RibbonGalleryItemBackgroundBrush}"
                             Padding="0"
-                            Margin="0 0 -1 0">
-                        <Path HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0,0 L 3.5,3.5 L 7,0" Fill="{StaticResource RibbonGroupButtonArrow}"/>
+                            Margin="-1 0 -1 0"
+                            Background="{StaticResource RibbonGalleryItemBackgroundBrush}">
+                        <Path HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{StaticResource RibbonGroupButtonArrow}" Data="M0,0 L8,0 4,4z"/>
                     </telerikRibbonView:RadRibbonButton>
                     <telerikRibbonView:RadRibbonDropDownButton x:Name="PopupButton"
-                            telerik:StyleManager.Theme="{StaticResource Theme}"
                             telerikRibbonView:ScreenTip.Title="{TemplateBinding MoreButtonTitle}"
                             HorizontalAlignment="Stretch"
                             DropDownIndicatorVisibility="Collapsed"
                             VerticalContentAlignment="Center"
+                            CornerRadius="0 0 1 0"
+                            MinHeight="20"
                             Visibility="{TemplateBinding PopupLaunchButtonVisibility}"
                             Grid.Column="1"
                             Grid.Row="2"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsOpen, Mode=TwoWay}"
-                            Background="{StaticResource RibbonGalleryItemBackgroundBrush}"
                             Padding="0"
-                            Margin="0 0 -1 -1">
+                            Margin="-1 0 -1 0"
+                            Background="{StaticResource RibbonGalleryItemBackgroundBrush}">
                         <Path
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Fill="{StaticResource RibbonGroupButtonArrow}"
                                 Stretch="None"
-                                Data="M 0,-2.5 L 0,-1.5 L 7,-1.5 L 7,-2.5 M 0,0 L 3.5,3.5 L 7,0"
+                                Fill="{StaticResource RibbonGroupButtonArrow}"
+                                Data="M0,0 L0,1 L6,1 L6,0 M0,2 L3,6 L6,2"
                                 Margin="0 2 0 0"/>
                     </telerikRibbonView:RadRibbonDropDownButton>
                 </Grid>
             </Border>
-            <telerikRibbonView:RadRibbonDropDownButton x:Name="CollapsedButton"
-                    telerik:StyleManager.Theme="{StaticResource Theme}"
-                    Size="Large"
-                    LargeImage="{TemplateBinding Icon}"
-                    Text="{TemplateBinding Title}"
-                    Visibility="Collapsed">
+            <telerikRibbonView:RadRibbonDropDownButton x:Name="CollapsedButton" Size="Large" LargeImage="{TemplateBinding Icon}" Text="{TemplateBinding Title}" Visibility="Collapsed">
                 <telerikRibbonView:RadRibbonDropDownButton.DropDownContent>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <ScrollViewer
-                                telerik:StyleManager.Theme="{StaticResource Theme}"
-                                Padding="0"
-                                HorizontalScrollBarVisibility="Hidden"
-                                IsTabStop="False"
-                                Height="{TemplateBinding PopupViewportHeight}"
-                                VerticalScrollBarVisibility="Visible">
+                        <ScrollViewer Padding="0" HorizontalScrollBarVisibility="Hidden" IsTabStop="False" Height="{TemplateBinding PopupViewportHeight}" VerticalScrollBarVisibility="Visible">
                             <ContentPresenter x:Name="PopupHost" Width="{TemplateBinding PopupViewportWidth}"/>
                         </ScrollViewer>
-                        <ItemsControl HorizontalContentAlignment="Stretch" Grid.Row="1" ItemsSource="{TemplateBinding PopupMenuItems}" BorderThickness="0 1 0 0"/>
+                        <ItemsControl HorizontalContentAlignment="Stretch" Grid.Row="1" ItemsSource="{TemplateBinding PopupMenuItems}" Foreground="{TemplateBinding Foreground}" BorderThickness="0 1 0 0"/>
                     </Grid>
                 </telerikRibbonView:RadRibbonDropDownButton.DropDownContent>
             </telerikRibbonView:RadRibbonDropDownButton>
@@ -2416,17 +2517,16 @@
         </Setter>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonGallery" BasedOn="{StaticResource RadRibbonGalleryStyle}"/>
-    <Style TargetType="telerikRibbonView:RadRibbonGallery" BasedOn="{StaticResource RadRibbonGalleryStyle}" x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonGallery}}"/>
     <ItemsPanelTemplate x:Key="ButtonGroupPanel">
         <telerikRibbonViewPrimitives:ButtonGroupPanel/>
     </ItemsPanelTemplate>
     <Style x:Key="RadButtonGroupStyle" TargetType="telerikRibbonView:RadButtonGroup">
         <Setter Property="Background" Value="{StaticResource ButtonGroupBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource ButtonGroupOuterBorderBrush}"/>
-        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="MinHeight" Value="24"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupPanel}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Template">
@@ -2460,7 +2560,7 @@
             </VisualStateManager.VisualStateGroups>
             <StackPanel Orientation="Horizontal">
                 <Border x:Name="ButtonItemsSeparator" Visibility="Collapsed" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"/>
-                <ContentControl Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                <ContentControl Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"/>
             </StackPanel>
         </Grid>
     </ControlTemplate>
@@ -2471,8 +2571,6 @@
     </Style>
     <Style TargetType="telerikRibbonView:RadButtonGroup" BasedOn="{StaticResource RadButtonGroupStyle}"/>
     <Style TargetType="telerikRibbonView:RadButtonGroupItem" BasedOn="{StaticResource RadButtonGroupItemStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadButtonGroup}}" TargetType="telerikRibbonView:RadButtonGroup" BasedOn="{StaticResource RadButtonGroupStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadButtonGroupItem}}" TargetType="telerikRibbonView:RadButtonGroupItem" BasedOn="{StaticResource RadButtonGroupItemStyle}"/>
     <ControlTemplate x:Key="GroupChromeTemplate" TargetType="telerikRibbonViewPrimitives:GroupChrome">
         <Grid Background="Transparent">
             <Grid.RowDefinitions>
@@ -2495,16 +2593,15 @@
                         Content="{TemplateBinding Header}"
                         ContentTemplate="{TemplateBinding HeaderTemplate}"
                         HorizontalAlignment="Center"
-                        IsTabStop="False"
-                        Foreground="{StaticResource RibbonGroupHeaderBrush}"
                         VerticalAlignment="Center"
-                        Margin="3 0"/>
+                        IsTabStop="False"
+                        Margin="3 0"
+                        Foreground="{StaticResource RibbonGroupHeaderBrush}"/>
                 <telerikRibbonView:RadRibbonButton
-                        telerik:StyleManager.Theme="{StaticResource Theme}"
                         MinHeight="0"
                         MinWidth="0"
                         Visibility="{TemplateBinding DialogLauncherVisibility}"
-                        Name="DialogLauncher"
+                        x:Name="DialogLauncher"
                         Grid.Column="1"
                         IsAutoSize="False"
                         TabIndex="1"
@@ -2517,8 +2614,8 @@
                         Height="14">
                     <telerikRibbonView:RadRibbonButton.Content>
                         <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="8" Height="8">
-                            <Path Fill="{StaticResource DialogLauncher_Fill1}" Data="M6,3 L7,3 L7,6 L7,6.9999981 L3,7 L3,6 L6,6 z M3,3 L4,3 L4,3.9999983 L5.999999,3.9999983 L5.999999,5.9999981 L3.999999,5.9999981 L3.999999,4 L3,4 z M0,0 L1,0 L6,0 L6,1 L1,1 L1,6 L0,6 L0,1 z" Margin="0 0 1 1"/>
-                            <Path Margin="1 1 0 0" Data="M6.0000005,2 L7.0000005,2 L7.0000005,6 L7,7 L3.0000005,7 L3.0000005,6 L6.0000005,6 z M3.000001,2 L4.000001,2 L4.000001,3 L3.000001,3 z M0,0 L1,0 L5,0 L5,1 L1,1 L1,5 L0,5 L0,1 z" Fill="{StaticResource DialogLauncher_Fill2}"/>
+                            <Path Fill="{StaticResource DialogLauncher_Fill1}" Data="M6,3 L7,3 L7,6 L7,7 L3,7 L3,6 L6,6 z M3,3 L4,3 L4,4 L6,4 L6,6 L4,6 L4,4 L3,4 z M0,0 L1,0 L6,0 L6,1 L1,1 L1,6 L0,6 L0,1 z" Margin="0 0 1 1"/>
+                            <Path Margin="1 1 0 0" Data="M6,2 L7,2 L7,6 L7,7 L3,7 L3,6 L6,6 z M3,2 L4,2 L4,3 L3,3 z M0,0 L1,0 L5,0 L5,1 L1,1 L1,5 L0,5 L0,1 z" Fill="{StaticResource DialogLauncher_Fill2}"/>
                         </Grid>
                     </telerikRibbonView:RadRibbonButton.Content>
                 </telerikRibbonView:RadRibbonButton>
@@ -2528,16 +2625,15 @@
     </ControlTemplate>
     <Style x:Key="GroupChromeStyle" TargetType="telerikRibbonViewPrimitives:GroupChrome">
         <Setter Property="Template" Value="{StaticResource GroupChromeTemplate}"/>
+        <Setter Property="Foreground" Value="{StaticResource RibbonGroupHeaderBrush}"/>
         <Setter Property="Background" Value="{StaticResource GroupChrome_Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource GroupChrome_BorderBrush}"/>
-        <Setter Property="Foreground" Value="{StaticResource RibbonGroupHeaderBrush}"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Padding" Value="4 2"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
     <Style TargetType="telerikRibbonViewPrimitives:GroupChrome" BasedOn="{StaticResource GroupChromeStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonViewPrimitives:GroupChrome}}" TargetType="telerikRibbonViewPrimitives:GroupChrome" BasedOn="{StaticResource GroupChromeStyle}"/>
     <ControlTemplate x:Key="RadGroupHeaderTemplate" TargetType="telerikRibbonView:RadGroupHeader">
         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
             <ContentControl
@@ -2553,9 +2649,9 @@
     <Style x:Key="RadGroupHeaderStyle" TargetType="telerikRibbonView:RadGroupHeader">
         <Setter Property="Template" Value="{StaticResource RadGroupHeaderTemplate}"/>
         <Setter Property="Background" Value="{StaticResource GroupHeaderBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource RibbonPopupForegroundBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource GroupHeaderBorderBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
-        <Setter Property="Foreground" Value="{StaticResource RibbonPopupForegroundBrush}"/>
         <Setter Property="Padding" Value="11 1 5 1"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -2564,20 +2660,23 @@
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
     <Style TargetType="telerikRibbonView:RadGroupHeader" BasedOn="{StaticResource RadGroupHeaderStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadGroupHeader}}" TargetType="telerikRibbonView:RadGroupHeader" BasedOn="{StaticResource RadGroupHeaderStyle}"/>
     <ControlTemplate x:Key="RadRibbonGroupDropDownButtonTemplate" TargetType="telerikRibbonView:RadRibbonDropDownButton">
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Normal"/>
                     <VisualState x:Name="MouseOver">
                         <Storyboard>
-                            <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Background_Over" To="1"/>
+                            <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="MouseOverVisual" To="1"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Pressed">
                         <Storyboard>
-                            <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Background_Pressed" To="1"/>
+                            <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PressedVisual" To="1"/>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Disabled">
@@ -2596,7 +2695,7 @@
                     </VisualState>
                     <VisualState x:Name="Opened">
                         <Storyboard>
-                            <DoubleAnimation Duration="0" Storyboard.TargetName="Background_Pressed" Storyboard.TargetProperty="Opacity" To="1"/>
+                            <DoubleAnimation Duration="0" Storyboard.TargetName="PressedVisual" Storyboard.TargetProperty="Opacity" To="1"/>
                         </Storyboard>
                     </VisualState>
                 </VisualStateGroup>
@@ -2690,18 +2789,18 @@
                     <VisualState x:Name="WithoutShadow"/>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Border x:Name="ButtonBackground"
+            <Border x:Name="NormalVisual"
                     Background="{TemplateBinding Background}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     CornerRadius="2"/>
-            <Border x:Name="Background_Over"
+            <Border x:Name="MouseOverVisual"
                     Opacity="0"
                     Background="{StaticResource RadRibbonGroupOverBackground}"
                     BorderBrush="{StaticResource RadRibbonGroupOverBorder}"
                     BorderThickness="1"
                     CornerRadius="2"/>
-            <Border x:Name="Background_Pressed"
+            <Border x:Name="PressedVisual"
                     Opacity="0"
                     Background="{StaticResource RadRibbonGroupPressedBackground}"
                     BorderBrush="{StaticResource RadRibbonGroupPressedBorder}"
@@ -2728,14 +2827,14 @@
                 <Border x:Name="Image"
                         Margin="3"
                         Background="{StaticResource RibbonGroupButtonBackgroundBrush}"
-                        Width="31"
-                        Height="31"
                         BorderBrush="{StaticResource RibbonGroupButtonBorderBrush}"
                         BorderThickness="1"
-                        CornerRadius="4">
+                        CornerRadius="4"
+                        Width="31"
+                        Height="31">
                     <Grid>
                         <Border VerticalAlignment="Bottom" Height="7" CornerRadius="0 0 3 3" Background="{StaticResource RibbonGroupButtonBottomBrush}"/>
-                        <Image VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 7" Source="{TemplateBinding SmallImage}" Stretch="None" Width="16" Height="16"/>
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Center" Source="{TemplateBinding SmallImage}" Stretch="None" Margin="0 0 0 7" Width="16" Height="16"/>
                     </Grid>
                 </Border>
                 <TextBlock Name="textRow1" Grid.Row="1" Text="{TemplateBinding TextRow1}" TextAlignment="Center" Foreground="{TemplateBinding Foreground}"/>
@@ -2745,10 +2844,10 @@
                             Name="DropDownIndicator"
                             IsHitTestVisible="False"
                             Visibility="{TemplateBinding DropDownIndicatorVisibility}"
-                            Fill="{StaticResource RibbonButtonDropDownFill}"
                             Margin="2"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Center"
+                            Fill="{StaticResource RibbonButtonDropDownFill}"
                             Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z"
                             SnapsToDevicePixels="True"/>
                 </StackPanel>
@@ -2761,9 +2860,6 @@
                     IsOpen="{Binding Path=IsOpen, RelativeSource={RelativeSource TemplatedParent}}">
                 <Grid>
                     <Border x:Name="DropDownPopupBorder"
-                            BorderBrush="{StaticResource DropDownPopupBorderBrush}"
-                            Background="{StaticResource DropDownPopupBackgroundBrush}"
-                            BorderThickness="0"
                             Padding="0"
                             Margin="0"
                             MinWidth="3"
@@ -2771,7 +2867,10 @@
                             Width="{TemplateBinding DropDownWidth}"
                             Height="{TemplateBinding DropDownHeight}"
                             MaxWidth="{TemplateBinding DropDownMaxWidth}"
-                            MaxHeight="{TemplateBinding DropDownMaxHeight}">
+                            MaxHeight="{TemplateBinding DropDownMaxHeight}"
+                            Background="{StaticResource DropDownPopupBackgroundBrush}"
+                            BorderBrush="{StaticResource DropDownPopupBorderBrush}"
+                            BorderThickness="0">
                         <ContentControl x:Name="DropDownPopupContent"
                                 Content="{TemplateBinding DropDownContent}"
                                 ContentTemplate="{TemplateBinding DropDownContentTemplate}"
@@ -2786,23 +2885,23 @@
     </ControlTemplate>
     <Style x:Key="RadRibbonGroupDropDownButtonStyle" TargetType="telerikRibbonView:RadRibbonDropDownButton">
         <Setter Property="Template" Value="{StaticResource RadRibbonGroupDropDownButtonTemplate}"/>
-        <Setter Property="Padding" Value="3 1"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="DropDownButtonPosition" Value="Bottom"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource RibbonGroupButtonBorderBrush}"/>
         <Setter Property="Background" Value="{StaticResource RibbonGroupButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource RibbonGroupButtonBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="3 1"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
     <Style x:Key="SeparatorStyle" TargetType="telerikRibbonView:Separator">
         <Setter Property="Background" Value="{StaticResource RibbonGroupSeparatorLightBrush}"/>
-        <Setter Property="BorderThickness" Value="0 0 1 0"/>
         <Setter Property="BorderBrush" Value="{StaticResource RibbonGroupButtonBorderBrush}"/>
-        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Width" Value="2"/>
+        <Setter Property="BorderThickness" Value="0 0 1 0"/>
+        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Margin" Value="0 5 0 6"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -2837,9 +2936,7 @@
                     <VisualState x:Name="CollapsedGroupPushed"/>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <telerikRibbonViewPrimitives:GroupChrome
-                    telerik:StyleManager.Theme="{StaticResource Theme}"
-                    x:Name="ExpandedChrome"
+            <telerikRibbonViewPrimitives:GroupChrome x:Name="ExpandedChrome"
                     Foreground="{TemplateBinding Foreground}"
                     DialogLauncherCommand="{TemplateBinding DialogLauncherCommand}"
                     DialogLauncherCommandParameter="{TemplateBinding DialogLauncherCommandParameter}"
@@ -2873,7 +2970,6 @@
         <Setter Property="Template" Value="{StaticResource RadRibbonGroupTemplate}"/>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonGroup" BasedOn="{StaticResource RadRibbonGroupStyle}"/>
-    <Style TargetType="telerikRibbonView:RadRibbonGroup" BasedOn="{StaticResource RadRibbonGroupStyle}" x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonGroup}}"/>
     <ControlTemplate x:Key="ApplicationRibbonButtonTemplate" TargetType="telerikRibbonView:RadRibbonButton">
         <Grid>
             <VisualStateManager.VisualStateGroups>
@@ -2949,8 +3045,8 @@
                         ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                         ContentStringFormat="{TemplateBinding ContentStringFormat}"
                         Grid.ColumnSpan="2"/>
-                <Image Name="Image"/>
-                <TextBlock Name="textRow1" Grid.Column="1" Text="{TemplateBinding Text}" TextAlignment="Left" VerticalAlignment="Center" Margin="4 0 1 0"/>
+                <Image x:Name="Image"/>
+                <TextBlock x:Name="textRow1" Grid.Column="1" Text="{TemplateBinding Text}" TextAlignment="Left" VerticalAlignment="Center" Margin="4 0 1 0"/>
             </Grid>
             <Rectangle x:Name="Background_Disabled" Visibility="Collapsed" Fill="#99FFFFFF"/>
         </Grid>
@@ -3039,7 +3135,7 @@
                     <VisualState x:Name="HasDropDownContent"/>
                     <VisualState x:Name="WithoutDropDownContent">
                         <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="DropDownIndicator">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="DropDownPanel">
                                 <DiscreteObjectKeyFrame KeyTime="0">
                                     <DiscreteObjectKeyFrame.Value>
                                         <Visibility>Collapsed</Visibility>
@@ -3074,19 +3170,15 @@
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"/>
-                <Image Name="Image"/>
-                <TextBlock Name="textRow1" Grid.Column="1" Text="{TemplateBinding Text}" TextAlignment="Left" VerticalAlignment="Center" Margin="4 0 1 0"/>
-                <Border Name="DropDownPanel" Grid.Column="2" VerticalAlignment="Stretch">
-                    <Path
-                            Name="DropDownIndicator"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Center"
-                            Data="M 0,0 L 3.5,3.5 L 0,7"
-                            Margin="2 0 0 0"
+                <Image x:Name="Image"/>
+                <TextBlock x:Name="textRow1" Grid.Column="1" Text="{TemplateBinding Text}" TextAlignment="Left" VerticalAlignment="Center" Margin="4 0 1 0"/>
+                <Grid x:Name="DropDownPanel" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="2 0 0 0">
+                    <Path x:Name="DropDownIndicator"
                             Visibility="{TemplateBinding DropDownIndicatorVisibility}"
                             Fill="{StaticResource RibbonButtonDropDownArrow}"
+                            Data="M 0,0 L 3.5,3.5 L 0,7"
                             Stroke="{StaticResource RibbonButtonDropDownArrowBorder}"/>
-                </Border>
+                </Grid>
             </Grid>
             <Popup x:Name="DropDownPopup"
                     HorizontalOffset="1"
@@ -3098,11 +3190,11 @@
                     IsOpen="{Binding Path=IsOpen, RelativeSource={RelativeSource TemplatedParent}}">
                 <Grid>
                     <Border x:Name="DropDownPopupBorder"
+                            Width="{TemplateBinding DropDownWidth}"
+                            Height="{TemplateBinding DropDownHeight}"
                             Background="{StaticResource DropDownPopupBackgroundBrush}"
                             BorderBrush="{StaticResource DropDownPopupBorderBrush}"
-                            BorderThickness="1"
-                            Width="{TemplateBinding DropDownWidth}"
-                            Height="{TemplateBinding DropDownHeight}">
+                            BorderThickness="1">
                         <ContentControl x:Name="DropDownPopupContent" Content="{TemplateBinding DropDownContent}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </Border>
                 </Grid>
@@ -3197,7 +3289,7 @@
                     <VisualState x:Name="HasDropDownContent"/>
                     <VisualState x:Name="WithoutDropDownContent">
                         <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="DropDownIndicator">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="DropDownPanel">
                                 <DiscreteObjectKeyFrame KeyTime="0">
                                     <DiscreteObjectKeyFrame.Value>
                                         <Visibility>Collapsed</Visibility>
@@ -3244,17 +3336,15 @@
                         VerticalAlignment="Stretch"
                         Fill="{StaticResource RadRibbonBarDropDownButtonPressedBorder}"/>
                 <Image x:Name="Image" IsHitTestVisible="False" Margin="4"/>
-                <TextBlock Name="textRow1" Grid.Column="1" IsHitTestVisible="False" Text="{TemplateBinding Text}" TextAlignment="Left" VerticalAlignment="Center" Margin="12 11 1 11"/>
-                <Grid Name="DropDownPanel" Grid.Column="2" Margin="0" Width="22" IsHitTestVisible="False">
-                    <Path
-                            Name="DropDownIndicator"
+                <TextBlock x:Name="textRow1" Grid.Column="1" IsHitTestVisible="False" Text="{TemplateBinding Text}" TextAlignment="Left" VerticalAlignment="Center" Margin="12 11 1 11"/>
+                <Grid x:Name="DropDownPanel" Grid.Column="2" Width="22" IsHitTestVisible="False">
+                    <Path x:Name="DropDownIndicator"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
-                            Data="M 0,0 L 3.5,3.5 L 0,7"
-                            Margin="0"
                             IsHitTestVisible="False"
                             Visibility="{TemplateBinding DropDownIndicatorVisibility}"
                             Fill="{StaticResource RibbonButtonDropDownArrow}"
+                            Data="M 0,0 L 3.5,3.5 L 0,7"
                             Stroke="{StaticResource RibbonButtonDropDownArrowBorder}"/>
                 </Grid>
             </Grid>
@@ -3274,13 +3364,13 @@
                     IsOpen="{Binding Path=IsOpen, RelativeSource={RelativeSource TemplatedParent}}">
                 <Grid>
                     <Border x:Name="DropDownPopupBorder"
-                            BorderBrush="{StaticResource DropDownPopupBorderBrush}"
-                            Background="{StaticResource DropDownPopupBackgroundBrush}"
-                            BorderThickness="1"
                             MinWidth="3"
-                            Width="{TemplateBinding DropDownWidth}"
                             MinHeight="3"
-                            Height="{TemplateBinding DropDownHeight}">
+                            Width="{TemplateBinding DropDownWidth}"
+                            Height="{TemplateBinding DropDownHeight}"
+                            Background="{StaticResource DropDownPopupBackgroundBrush}"
+                            BorderBrush="{StaticResource DropDownPopupBorderBrush}"
+                            BorderThickness="1">
                         <ContentControl x:Name="DropDownPopupContent" Content="{TemplateBinding DropDownContent}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </Border>
                 </Grid>
@@ -3326,25 +3416,25 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Border x:Name="clippingRectangle" Background="{StaticResource ApplicationMenu_ClippingRectangleFill}" MinHeight="24"/>
-                    <Rectangle x:Name="buttonRectangle" MinHeight="24" HorizontalAlignment="Left" Fill="Transparent"/>
+                    <Rectangle x:Name="buttonRectangle" HorizontalAlignment="Left" Fill="Transparent" MinHeight="24"/>
                     <Border Grid.Row="1" Background="{StaticResource ApplicationMenuMiddleBorderBrush}">
                         <Border Margin="2 0" BorderThickness="1" BorderBrush="{StaticResource ApplicationMenuContentOuterBorderBrush}"/>
                     </Border>
-                    <Border BorderBrush="{StaticResource ApplicationMenu_OuterBorder}" BorderThickness="0 1 0 0" Grid.ColumnSpan="3" VerticalAlignment="Bottom"/>
+                    <Border BorderThickness="0 1 0 0" BorderBrush="{StaticResource ApplicationMenu_OuterBorder}" Grid.ColumnSpan="3" VerticalAlignment="Bottom"/>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Border Name="LeftPane" MinWidth="164" Padding="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0 0 1 0">
+                        <Border x:Name="LeftPane" MinWidth="164" Padding="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0 0 1 0">
                             <ItemsPresenter/>
                         </Border>
-                        <Border Name="RightPane" Visibility="{TemplateBinding RightPaneVisibility}" Grid.Column="1" Background="{TemplateBinding Background}">
+                        <Border x:Name="RightPane" Visibility="{TemplateBinding RightPaneVisibility}" Grid.Column="1" Background="{TemplateBinding Background}">
                             <ContentPresenter Content="{TemplateBinding Content}" x:Name="ContentPresenter" MinWidth="125"/>
                         </Border>
                     </Grid>
-                    <Border Grid.Row="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0 1" Padding="3">
-                        <ContentPresenter Content="{TemplateBinding FooterContent}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Border Grid.Row="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0 1">
+                        <ContentPresenter Content="{TemplateBinding FooterContent}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3"/>
                     </Border>
                 </Grid>
             </Border>
@@ -3354,9 +3444,9 @@
         <Setter Property="Template" Value="{StaticResource ApplicationMenuTemplate}"/>
         <Setter Property="Background" Value="{StaticResource ApplicationMenu_Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource ApplicationMenu_OuterBorder}"/>
+        <Setter Property="Foreground" Value="{StaticResource ApplicationMenu_Foreground}"/>
         <Setter Property="BorderThickness" Value="1 0 1 1"/>
         <Setter Property="Margin" Value="0 1 0 0"/>
-        <Setter Property="Foreground" Value="{StaticResource ApplicationMenu_Foreground}"/>
         <Setter Property="ItemContainerStyleSelector">
             <Setter.Value>
                 <telerikRibbonView:CustomContainerStyleSelector>
@@ -3371,7 +3461,6 @@
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
     <Style TargetType="telerikRibbonView:ApplicationMenu" BasedOn="{StaticResource ApplicationMenuStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:ApplicationMenu}}" TargetType="telerikRibbonView:ApplicationMenu" BasedOn="{StaticResource ApplicationMenuStyle}"/>
     <ControlTemplate x:Key="DropShadowTemplate" TargetType="telerikRibbonViewPrimitives:DropShadow">
         <Grid>
             <Rectangle Name="Left" HorizontalAlignment="Left" VerticalAlignment="Stretch" IsHitTestVisible="False"/>
@@ -3441,13 +3530,6 @@
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TitlePresenter" Storyboard.TargetProperty="Margin">
-                                <DiscreteObjectKeyFrame KeyTime="0">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <Thickness>0 4 0 0</Thickness>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                            </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootElement" Storyboard.TargetProperty="Width">
                                 <DiscreteObjectKeyFrame KeyTime="0">
                                     <DiscreteObjectKeyFrame.Value>
@@ -3463,13 +3545,6 @@
                                 <DiscreteObjectKeyFrame KeyTime="0">
                                     <DiscreteObjectKeyFrame.Value>
                                         <Visibility>Visible</Visibility>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TitlePresenter" Storyboard.TargetProperty="Margin">
-                                <DiscreteObjectKeyFrame KeyTime="0">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <Thickness>0 4 0 0</Thickness>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
@@ -3501,16 +3576,16 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBlock x:Name="TitlePresenter" Grid.ColumnSpan="2" Text="{TemplateBinding Title}" TextWrapping="Wrap" FontWeight="Bold"/>
-                    <Image x:Name="Image" Grid.Row="1" Source="{TemplateBinding Icon}" Stretch="None" Margin="29 10 21 6" VerticalAlignment="Top" Visibility="Collapsed"/>
+                    <TextBlock x:Name="TitlePresenter" Grid.ColumnSpan="2" Text="{TemplateBinding Title}" Margin="0 0 0 5" TextWrapping="Wrap" FontWeight="Bold"/>
+                    <Image x:Name="Image" Grid.Row="1" Source="{TemplateBinding Icon}" Stretch="None" Margin="0 5 10 6" VerticalAlignment="Top" Visibility="Collapsed"/>
                     <TextBlock x:Name="DescriptionPresenter"
                             Grid.Row="1"
                             Grid.Column="1"
                             TextWrapping="Wrap"
+                            FontWeight="Normal"
                             Text="{TemplateBinding Description}"
                             VerticalAlignment="Top"
-                            Visibility="Collapsed"
-                            Margin="8 7 8 2"/>
+                            Visibility="Collapsed"/>
                 </Grid>
             </Border>
         </Grid>
@@ -3522,18 +3597,16 @@
         <Setter Property="Foreground" Value="{StaticResource QuickAccessKeyHintForegroundBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="4 2"/>
-        <Setter Property="MinHeight" Value="50"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
-    <Style x:Key="PathStyle" TargetType="Path">
+    <Style x:Key="RibbonScrollViewerPathStyle" TargetType="Path">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Fill" Value="{StaticResource PageScrollViewerButtonForegroundBrush}"/>
-        <Setter Property="Stretch" Value="Uniform"/>
-        <Setter Property="Width" Value="3"/>
-        <Setter Property="Height" Value="5"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
-    <ControlTemplate x:Key="ScrollButtonTemplate" TargetType="RepeatButton">
+    <ControlTemplate x:Key="RibbonScrollButtonTemplate" TargetType="RepeatButton">
         <Grid>
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
@@ -3562,18 +3635,16 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="3 0 0 3"/>
-            <Path
-                    Data="F1 M 110.692,342.252L 110.692,352.682L 104.594,347.467L 110.692,342.252 Z"
+            <Path x:Name="Path"
+                    Style="{StaticResource RibbonScrollViewerPathStyle}"
                     Fill="{StaticResource PageScrollViewerButtonForegroundBrush}"
-                    Stretch="Uniform"
-                    Width="3"
-                    Height="5"
+                    Data="F1M3,0L3,5 0,2.5 3,0z"
                     SnapsToDevicePixels="True"
                     FocusVisualStyle="{x:Null}"/>
         </Grid>
     </ControlTemplate>
-    <Style x:Key="ScrollButtonStyle" TargetType="RepeatButton">
-        <Setter Property="Template" Value="{StaticResource ScrollButtonTemplate}"/>
+    <Style x:Key="RibbonScrollButtonStyle" TargetType="RepeatButton">
+        <Setter Property="Template" Value="{StaticResource RibbonScrollButtonTemplate}"/>
         <Setter Property="Background" Value="{StaticResource PageScrollViewerButtonBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource PageScrollViewerButtonOuterBorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -3582,15 +3653,15 @@
     </Style>
     <ControlTemplate x:Key="RibbonScrollViewerTemplate" TargetType="telerikRibbonViewPrimitives:RibbonScrollViewer">
         <Grid>
-            <ContentPresenter x:Name="Content"/>
+            <ContentPresenter x:Name="Content" Margin="1 0 1 0"/>
             <Grid x:Name="ButtonsGrid" HorizontalAlignment="Left">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <RepeatButton x:Name="LeftScrollButtonElement" Style="{StaticResource ScrollButtonStyle}"/>
-                <RepeatButton x:Name="RightScrollButtonElement" RenderTransformOrigin="0.5 0.5" Grid.Column="2" Style="{StaticResource ScrollButtonStyle}">
+                <RepeatButton x:Name="LeftScrollButtonElement" Style="{StaticResource RibbonScrollButtonStyle}"/>
+                <RepeatButton x:Name="RightScrollButtonElement" RenderTransformOrigin="0.5 0.5" Grid.Column="2" Style="{StaticResource RibbonScrollButtonStyle}">
                     <RepeatButton.RenderTransform>
                         <ScaleTransform ScaleX="-1"/>
                     </RepeatButton.RenderTransform>
@@ -3606,10 +3677,6 @@
     <Style TargetType="telerikKeyTips:KeyTipControl" BasedOn="{StaticResource KeyTipControlStyle}"/>
     <Style TargetType="telerikRibbonView:ScreenTip" BasedOn="{StaticResource ScreenTipStyle}"/>
     <Style TargetType="telerikRibbonViewPrimitives:RibbonScrollViewer" BasedOn="{StaticResource RibbonScrollViewerStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonViewPrimitives:DropShadow}}" TargetType="telerikRibbonViewPrimitives:DropShadow" BasedOn="{StaticResource DropShadowStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikKeyTips:KeyTipControl}}" TargetType="telerikKeyTips:KeyTipControl" BasedOn="{StaticResource KeyTipControlStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:ScreenTip}}" TargetType="telerikRibbonView:ScreenTip" BasedOn="{StaticResource ScreenTipStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonViewPrimitives:RibbonScrollViewer}}" TargetType="telerikRibbonViewPrimitives:RibbonScrollViewer" BasedOn="{StaticResource RibbonScrollViewerStyle}"/>
     <ControlTemplate x:Key="RadRibbonBackstageItemTemplate" TargetType="telerikRibbonView:RadRibbonBackstageItem">
         <Grid x:Name="wrapper" Background="Transparent">
             <VisualStateManager.VisualStateGroups>
@@ -3756,7 +3823,7 @@
         <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
     <ControlTemplate x:Key="TabControlTemplate" TargetType="telerikNavigation:RadTabControl">
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" telerik:StyleManager.Theme="{StaticResource Theme}" Padding="-1">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Padding="-1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -3776,7 +3843,7 @@
                     <Border BorderThickness="0 0 1 0" HorizontalAlignment="Right" Background="{StaticResource RibbonnBackStage_BorderBrushRight}" Width="5" SnapsToDevicePixels="True"/>
                     <ItemsPresenter Margin="0 4 0 0"/>
                 </Grid>
-                <Grid x:Name="ContentBorder" Grid.Column="1" Grid.Row="1" Background="{StaticResource RibbonnBackStage_BackgroundContent}" Margin="{TemplateBinding Padding}">
+                <Grid x:Name="ContentBorder" Grid.Column="1" Grid.Row="1" Margin="{TemplateBinding Padding}" Background="{StaticResource RibbonnBackStage_BackgroundContent}">
                     <Grid x:Name="Corner_Offices" Height="163" Margin="0 0 0 -4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="363">
                         <Rectangle Margin="38 0 1 5" Height="158" Fill="{StaticResource RibbonnBackStage_CornerBackground}"/>
                         <Path
@@ -3858,7 +3925,7 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <ContentPresenter x:Name="ContentPanel" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" Margin="20 5 0 5" VerticalAlignment="Center"/>
-                        <Rectangle Height="1" Fill="{StaticResource RibbonnBackStage_DottedLineBrush}" Margin="18 0 10 4"/>
+                        <Rectangle Height="1" Margin="18 0 10 4" Fill="{StaticResource RibbonnBackStage_DottedLineBrush}"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -3896,23 +3963,11 @@
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonBackstage" BasedOn="{StaticResource RadRibbonBackstageStyle}"/>
     <Style TargetType="telerikRibbonView:RadRibbonBackstageItem" BasedOn="{StaticResource RadRibbonBackstageItemStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonBackstage}}" TargetType="telerikRibbonView:RadRibbonBackstage" BasedOn="{StaticResource RadRibbonBackstageStyle}"/>
-    <Style x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonBackstageItem}}" TargetType="telerikRibbonView:RadRibbonBackstageItem" BasedOn="{StaticResource RadRibbonBackstageItemStyle}"/>
     <ControlTemplate x:Key="RadRibbonTabTemplate" TargetType="telerikRibbonView:RadRibbonTab">
         <Grid x:Name="RootPanel">
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal">
-                        <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background_Over" Storyboard.TargetProperty="Visibility">
-                                <DiscreteObjectKeyFrame KeyTime="0">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <Visibility>Collapsed</Visibility>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </VisualState>
+                    <VisualState x:Name="Normal"/>
                     <VisualState x:Name="MouseOver">
                         <Storyboard>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background_Over" Storyboard.TargetProperty="Visibility">
@@ -3998,15 +4053,15 @@
                 <Border Background="{TemplateBinding Background}"/>
                 <Border x:Name="Background_Over"
                         Visibility="Collapsed"
-                        BorderBrush="{StaticResource TabMouseOverOuterBorder}"
                         Background="{StaticResource TabMouseOverBackground}"
+                        BorderBrush="{StaticResource TabMouseOverOuterBorder}"
                         BorderThickness="1 1 1 0"
                         CornerRadius="3 3 0 0"/>
                 <Border x:Name="Background_Selected"
-                        Visibility="Collapsed"
                         BorderThickness="1 1 1 0"
-                        BorderBrush="{StaticResource TabSelectedOuterBorder}"
+                        Visibility="Collapsed"
                         Background="{StaticResource TabSelectedBackground}"
+                        BorderBrush="{StaticResource TabSelectedOuterBorder}"
                         CornerRadius="3 3 0 0"/>
                 <ContentControl x:Name="HeaderElement"
                         Content="{TemplateBinding Header}"
@@ -4015,18 +4070,19 @@
                         Foreground="{TemplateBinding Foreground}"
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        Margin="{TemplateBinding Padding}"/>
+                        Margin="{TemplateBinding Padding}"
+                        ContentStringFormat="{TemplateBinding HeaderStringFormat}"/>
             </Grid>
             <Grid x:Name="ContentPanel" Width="0" Height="0">
                 <Border
                         Name="OuterBorder"
                         BorderThickness="1"
-                        BorderBrush="{StaticResource RibbonTabOuterBorderBrush}"
                         Background="{StaticResource RibbonTabBackgroundBrush}"
+                        BorderBrush="{StaticResource RibbonTabOuterBorderBrush}"
                         CornerRadius="{StaticResource RibbonTabOuterCornerRadius}">
                     <Border Name="InnerBorder" CornerRadius="{StaticResource RibbonTabInnerCornerRadius}" BorderThickness="1" BorderBrush="{StaticResource RibbonTabInnerBorderBrush}"/>
                 </Border>
-                <telerikRibbonViewPrimitives:RibbonScrollViewer telerik:StyleManager.Theme="{StaticResource Theme}" x:Name="TabItemsScrollViewer">
+                <telerikRibbonViewPrimitives:RibbonScrollViewer x:Name="TabItemsScrollViewer">
                     <ItemsPresenter HorizontalAlignment="Left" Margin="2"/>
                 </telerikRibbonViewPrimitives:RibbonScrollViewer>
             </Grid>
@@ -4034,11 +4090,11 @@
     </ControlTemplate>
     <Style x:Key="RadRibbonTabStyle" TargetType="telerikRibbonView:RadRibbonTab">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Padding" Value="6 2"/>
-        <Setter Property="Margin" Value="2 3 3,0"/>
+        <Setter Property="Foreground" Value="{StaticResource TabStripTabNormalForegroundBrush}"/>
+        <Setter Property="Padding" Value="13 4"/>
         <Setter Property="MinHeight" Value="23"/>
         <Setter Property="BorderThickness" Value="1 0 0 0"/>
-        <Setter Property="Foreground" Value="{StaticResource TabStripTabNormalForegroundBrush}"/>
+        <Setter Property="Margin" Value="0 0 3 0"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="FocusVisualStyle">
             <Setter.Value>
@@ -4057,90 +4113,6 @@
         </Setter>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonTab" BasedOn="{StaticResource RadRibbonTabStyle}"/>
-    <Style TargetType="telerikRibbonView:RadRibbonTab" BasedOn="{StaticResource RadRibbonTabStyle}" x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonTab}}"/>
-    <ControlTemplate x:Key="ApplicationButtonStyleOffice2010Template" TargetType="telerikRibbonView:RadRibbonDropDownButton">
-        <Grid>
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal">
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="MouseOverPart" Storyboard.TargetProperty="Opacity" To="0" Duration="00:00:00.3"/>
-                            <DoubleAnimation Storyboard.TargetName="PressedPart" Storyboard.TargetProperty="Opacity" To="0" Duration="00:00:00.3"/>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="MouseOver">
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="MouseOverPart" Storyboard.TargetProperty="Opacity" To="1" Duration="00:00:00.1"/>
-                            <DoubleAnimation Storyboard.TargetName="PressedPart" Storyboard.TargetProperty="Opacity" To="0" Duration="00:00:00.3"/>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Pressed">
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="PressedPart" Storyboard.TargetProperty="Opacity" To="1" Duration="00:00:00.1"/>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Disabled"/>
-                </VisualStateGroup>
-                <VisualStateGroup x:Name="IsOpenState">
-                    <VisualState x:Name="Closed"/>
-                    <VisualState x:Name="Opened">
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="isOpenIndicator" Storyboard.TargetProperty="Opacity" To="1" Duration="00:00:00.1"/>
-                        </Storyboard>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-            <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" CornerRadius="2 2 0 0"/>
-            <Border x:Name="MouseOverPart"
-                    Opacity="0"
-                    BorderThickness="1 1 1 0"
-                    CornerRadius="2 2 0 0"
-                    Background="{StaticResource ApplicationButtonType2010_Background_MouseOver}"
-                    BorderBrush="{StaticResource ApplicationButtonType2010_OuterBorder_MouseOver}"/>
-            <Border x:Name="PressedPart"
-                    Opacity="0"
-                    BorderThickness="1 1 1 0"
-                    CornerRadius="2 2 0 0"
-                    Background="{StaticResource ApplicationButtonType2010_Background_Selected}"
-                    BorderBrush="{StaticResource ApplicationButtonType2010_OuterBorder_Selected}"/>
-            <Border x:Name="isOpenIndicator"
-                    Opacity="0"
-                    BorderThickness="1 1 1 0"
-                    CornerRadius="2 2 0 0"
-                    Background="{StaticResource ApplicationButtonType2010_Background_Selected}"
-                    BorderBrush="{StaticResource ApplicationButtonType2010_OuterBorder_Selected}"/>
-            <Grid x:Name="ContentGrid" Margin="{TemplateBinding Padding}">
-                <ContentPresenter
-                        Content="{TemplateBinding Content}"
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}"/>
-                <Image x:Name="Image" Stretch="None" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                <TextBlock x:Name="textRow1" Margin="0 2 0 0" Text="{TemplateBinding TextRow1}" TextAlignment="Center"/>
-            </Grid>
-            <Popup x:Name="DropDownPopup" VerticalOffset="-1" AllowsTransparency="True" StaysOpen="True" Focusable="False">
-                <Border x:Name="DropDownPopupBorder">
-                    <ContentControl x:Name="DropDownPopupContent" Content="{TemplateBinding DropDownContent}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                </Border>
-            </Popup>
-            <Rectangle x:Name="Background_Disabled" Visibility="Collapsed" Fill="#99FFFFFF"/>
-        </Grid>
-    </ControlTemplate>
-    <Style x:Key="ApplicationButtonStyleOffice2010" TargetType="telerikRibbonView:RadRibbonDropDownButton">
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="MinWidth" Value="46"/>
-        <Setter Property="DropDownPlacement" Value="Relative"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ApplicationButtonType2010_OuterBorder}"/>
-        <Setter Property="Foreground" Value="{StaticResource ApplicationButtonType2010_Foreground}"/>
-        <Setter Property="IsTabStop" Value="False"/>
-        <Setter Property="DropDownIndicatorVisibility" Value="Collapsed"/>
-        <Setter Property="IsAutoSize" Value="False"/>
-        <Setter Property="Template" Value="{StaticResource ApplicationButtonStyleOffice2010Template}"/>
-    </Style>
     <ControlTemplate x:Key="ContextualTabsTemplate" TargetType="telerikRibbonView:RadRibbonTab">
         <Grid x:Name="RootPanel">
             <VisualStateManager.VisualStateGroups>
@@ -4225,11 +4197,92 @@
                         </Storyboard>
                     </VisualState>
                 </VisualStateGroup>
+                <VisualStateGroup x:Name="ContextualGroupStates">
+                    <VisualState x:Name="DefaultContextualGroupTab"/>
+                    <VisualState x:Name="IsSingleTabInContextualGroup">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContextualGroupRightBorder" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Visible</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContextualGroupLeftBorder" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Visible</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="IsLastTabInContextualGroup">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContextualGroupRightBorder" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Visible</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background_Over" Storyboard.TargetProperty="Margin">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Thickness>0</Thickness>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Background_Selected" Storyboard.TargetProperty="Margin">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Thickness>0</Thickness>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="IsFirstTabInContextualGroup">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContextualGroupLeftBorder" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <Visibility>Visible</Visibility>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
             <Rectangle x:Name="TabSeparator" Visibility="Collapsed" Margin="0 0 -3 0" HorizontalAlignment="Right" Fill="{TemplateBinding BorderBrush}" VerticalAlignment="Stretch" Width="1"/>
             <Grid x:Name="HeaderPanel" Background="Transparent" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HeaderVisibility, Mode=TwoWay}">
-                <Border x:Name="Background_Over" Visibility="Collapsed" BorderBrush="{TemplateBinding Background}" BorderThickness="1 1 1 0" CornerRadius="2,2,0,0"/>
-                <Border x:Name="Background_Selected" Visibility="Collapsed" BorderBrush="#FF707070" Background="#FF2D2E32" BorderThickness="1 1 1 0" CornerRadius="2 2 0 0"/>
+                <Border Background="{TemplateBinding Background}">
+                    <Border.OpacityMask>
+                        <RadialGradientBrush Center="0.5,1" GradientOrigin="0.5,1" RadiusX="1" RadiusY="1">
+                            <GradientStop Offset="1" Color="#4D000000"/>
+                            <GradientStop Color="#80FFFFFF" Offset="0.19"/>
+                        </RadialGradientBrush>
+                    </Border.OpacityMask>
+                </Border>
+                <Border x:Name="Background_Over" Visibility="Collapsed" Margin="0 0 3 0" BorderBrush="{TemplateBinding Background}" BorderThickness="1 1 1 0" CornerRadius="2 2 0 0"/>
+                <Border x:Name="Background_Selected" Visibility="Collapsed" Margin="0 0 3 0" BorderBrush="#FF707070" Background="#FF2D2E32" BorderThickness="1 1 1 0" CornerRadius="2 2 0 0"/>
+                <Border BorderThickness="1 0 0 0" x:Name="ContextualGroupLeftBorder" Grid.ColumnSpan="2" Visibility="Collapsed" BorderBrush="Black" Margin="0 0 0 0">
+                    <Border.OpacityMask>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#A5FFFFFF" Offset="0"/>
+                            <GradientStop Color="#4CFFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.OpacityMask>
+                </Border>
+                <Border BorderThickness="0 0 1 0" x:Name="ContextualGroupRightBorder" Grid.ColumnSpan="2" BorderBrush="Black" Visibility="Collapsed" Margin="0 0 0 0">
+                    <Border.OpacityMask>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#A5FFFFFF" Offset="0"/>
+                            <GradientStop Color="#4CFFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.OpacityMask>
+                </Border>
                 <ContentControl x:Name="HeaderElement"
                         Content="{TemplateBinding Header}"
                         IsTabStop="False"
@@ -4237,16 +4290,17 @@
                         Foreground="{TemplateBinding Foreground}"
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        Margin="{TemplateBinding Padding}"/>
+                        Margin="{TemplateBinding Padding}"
+                        ContentStringFormat="{TemplateBinding HeaderStringFormat}"/>
             </Grid>
             <Grid x:Name="ContentPanel" Width="0" Height="0">
                 <Border
                         Name="OuterBorder"
                         BorderThickness="1"
                         Background="{StaticResource RibbonTabBackgroundBrush}"
-                        CornerRadius="{StaticResource RibbonTabOuterCornerRadius}"
-                        BorderBrush="{TemplateBinding Background}">
-                    <telerikRibbonViewPrimitives:RibbonScrollViewer x:Name="TabItemsScrollViewer" telerik:StyleManager.Theme="{StaticResource Theme}">
+                        BorderBrush="{TemplateBinding Background}"
+                        CornerRadius="{StaticResource RibbonTabOuterCornerRadius}">
+                    <telerikRibbonViewPrimitives:RibbonScrollViewer x:Name="TabItemsScrollViewer">
                         <ItemsPresenter HorizontalAlignment="Left"/>
                     </telerikRibbonViewPrimitives:RibbonScrollViewer>
                 </Border>
@@ -4255,8 +4309,11 @@
     </ControlTemplate>
     <Style x:Key="ContextualTabsStyle" TargetType="telerikRibbonView:RadRibbonTab">
         <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle">
             <Setter.Value>
                 <Style TargetType="Control">
@@ -4264,11 +4321,10 @@
                 </Style>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Margin" Value="1 2 2 0"/>
-        <Setter Property="MinHeight" Value="23"/>
-        <Setter Property="Padding" Value="6 2"/>
         <Setter Property="Foreground" Value="{StaticResource TabStripTabNormalForegroundBrush}"/>
+        <Setter Property="BorderThickness" Value="1 0 0 0"/>
+        <Setter Property="Padding" Value="13 4"/>
+        <Setter Property="MinHeight" Value="23"/>
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -4279,12 +4335,12 @@
         <Setter Property="Template" Value="{StaticResource ContextualTabsTemplate}"/>
     </Style>
     <ControlTemplate x:Key="ContextualGroupsTemplate" TargetType="telerikRibbonView:RadRibbonContextualGroup">
-        <Grid x:Name="HeaderGrid" Background="Transparent" Margin="-1 0 1 0">
+        <Grid x:Name="HeaderGrid" Background="Transparent" Margin="0">
             <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding Color}"/>
             <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="Black" Opacity="0.5"/>
             <Border Background="{TemplateBinding Color}" BorderThickness="1 0">
                 <Border.OpacityMask>
-                    <RadialGradientBrush Center="0.507,1.136" GradientOrigin="0.5,1.136" RadiusX="0.736" RadiusY="0.895">
+                    <RadialGradientBrush Center="0.5,1.136" GradientOrigin="0.5,1.136" RadiusX="0.736" RadiusY="0.895">
                         <GradientStop Offset="1" Color="#4D000000"/>
                         <GradientStop Color="#80FFFFFF" Offset="0.19"/>
                     </RadialGradientBrush>
@@ -4301,13 +4357,15 @@
         </Grid>
     </ControlTemplate>
     <Style x:Key="ContextualGroupsStyle" TargetType="telerikRibbonView:RadRibbonContextualGroup">
-        <Setter Property="BorderThickness" Value="0 2 0 0"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ContextualGroup_BorderBrush}"/>
+        <Setter Property="Margin" Value="0 0 3 0"/>
         <Setter Property="Foreground" Value="{StaticResource ContextualGroup_Foreground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ContextualGroup_BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0 2 0 0"/>
         <Setter Property="VerticalContentAlignment" Value="Top"/>
         <Setter Property="HeaderAlignment" Value="Center"/>
         <Setter Property="Padding" Value="5 5 5 2"/>
         <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Template" Value="{StaticResource ContextualGroupsTemplate}"/>
     </Style>
@@ -4352,7 +4410,7 @@
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TogglePositionMenuItem" Storyboard.TargetProperty="Header">
-                                <DiscreteObjectKeyFrame KeyTime="0" telerik:LocalizationManager.ResourceKey="RibbonViewQATShowAbove"/>
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:LocalizableResource Key=RibbonViewQATShowAbove}"/>
                             </ObjectAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
@@ -4362,7 +4420,7 @@
                     <VisualState x:Name="Minimized">
                         <Storyboard>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MinimizeMenuItem" Storyboard.TargetProperty="Header">
-                                <DiscreteObjectKeyFrame KeyTime="0" telerik:LocalizationManager.ResourceKey="RibbonViewQATRestore"/>
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:LocalizableResource Key=RibbonViewQATRestore}"/>
                             </ObjectAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
@@ -4383,25 +4441,23 @@
             <telerikToolBar:RadToolBarPanel x:Name="PART_StripPanel" Margin="3 0 0 0" Orientation="Horizontal"/>
             <telerikRibbonView:RadRibbonDropDownButton
                     MinWidth="0"
-                    telerik:StyleManager.Theme="{StaticResource Theme}"
                     Visibility="{TemplateBinding CustomizationMenuVisibility}"
-                    IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsOverflowOpen, Mode=TwoWay}"
                     DropDownIndicatorVisibility="Collapsed"
+                    IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsOverflowOpen, Mode=TwoWay}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"
+                    VerticalContentAlignment="Center"
                     Width="15"
                     Height="22"
-                    HorizontalAlignment="Left"
-                    Grid.Column="1"
-                    VerticalAlignment="Top"
-                    VerticalContentAlignment="Center"
-                    CornerRadius="0"
                     Padding="0 2">
                 <ToolTipService.ToolTip>
-                    <TextBlock telerik:LocalizationManager.ResourceKey="RibbonViewQATCustomize"/>
+                    <TextBlock Text="{telerik:LocalizableResource Key=RibbonViewQATCustomize}"/>
                 </ToolTipService.ToolTip>
                 <telerikRibbonView:RadRibbonDropDownButton.DropDownContent>
                     <StackPanel>
-                        <telerikRibbonView:RadGroupHeader telerik:StyleManager.Theme="{StaticResource Theme}" telerik:LocalizationManager.ResourceKey="RibbonViewQATCustomize"/>
-                        <telerikNavigation:RadMenuItem Template="{StaticResource OverflowMenuItemTemplate}" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasOverflowItems, Converter={StaticResource RibbonBooleanToVisibilityConverter}}">
+                        <telerikRibbonView:RadGroupHeader Content="{telerik:LocalizableResource Key=RibbonViewQATCustomize}"/>
+                        <telerikNavigation:RadMenuItem SubmenuItemTemplateKey="{StaticResource OverflowMenuItemTemplate}" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasOverflowItems, Converter={StaticResource RibbonBooleanToVisibilityConverter}}" Foreground="{TemplateBinding Foreground}">
                             <telerikNavigation:RadMenuItem.Header>
                                 <telerikToolBar:RadToolBarPanel x:Name="PART_OverflowPanel" Orientation="Vertical" VerticalAlignment="Top"/>
                             </telerikNavigation:RadMenuItem.Header>
@@ -4411,21 +4467,27 @@
                                 Padding="0"
                                 Margin="0"
                                 MinHeight="0"
-                                Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasOverflowItems, Converter={StaticResource RibbonBooleanToVisibilityConverter}}"/>
-                        <telerikNavigation:RadMenuItem x:Name="TogglePositionMenuItem" telerik:LocalizationManager.ResourceKey="RibbonViewQATShowBelow" Command="{x:Static telerikRibbonView:RibbonCommands.ToggleQATPositionCommand}"/>
+                                Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasOverflowItems, Converter={StaticResource RibbonBooleanToVisibilityConverter}}"
+                                Foreground="{TemplateBinding Foreground}"/>
+                        <telerikNavigation:RadMenuItem x:Name="TogglePositionMenuItem"
+                                Header="{telerik:LocalizableResource Key=RibbonViewQATShowBelow}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Command="{x:Static telerikRibbonView:RibbonCommands.ToggleQATPositionCommand}"/>
                         <telerikNavigation:RadMenuItem IsSeparator="True" Padding="0" Margin="0" MinHeight="0"/>
-                        <telerikNavigation:RadMenuItem x:Name="MinimizeMenuItem" telerik:LocalizationManager.ResourceKey="RibbonViewQATMinimize" Command="{x:Static telerikRibbonView:RibbonCommands.MinimizeRibbonCommand}"/>
+                        <telerikNavigation:RadMenuItem x:Name="MinimizeMenuItem"
+                                Header="{telerik:LocalizableResource Key=RibbonViewQATMinimize}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Command="{x:Static telerikRibbonView:RibbonCommands.MinimizeRibbonCommand}"/>
                     </StackPanel>
                 </telerikRibbonView:RadRibbonDropDownButton.DropDownContent>
-                <Path x:Name="MainPopupButtonPath"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Margin="2 3 0 0"
-                        UseLayoutRounding="True"
-                        Fill="{StaticResource QatButtonArrow}"
-                        Data="M 0,-2.5 L 0,-1.5 L 7,-1.5 L 7,-2.5 M 0,0 L 3.5,3.5 L 7,0"
-                        SnapsToDevicePixels="True"
-                        Stroke="{StaticResource QatButtonArrowHighlight}"/>
+                <Grid>
+                    <Path
+                            Stroke="{x:Null}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Data="M0,3 L5,3 5,4 4,4 4,5 3,5 3,6 2,6 2,5 1,5 1,4 0,4 z M0,0 L5,0 5,1 0,1 z"
+                            Fill="{Binding (TextElement.Foreground), RelativeSource={RelativeSource AncestorType=ContentPresenter}}"/>
+                </Grid>
             </telerikRibbonView:RadRibbonDropDownButton>
         </Grid>
     </ControlTemplate>
@@ -4441,7 +4503,7 @@
     <Style x:Key="WindowTitleStyle" TargetType="telerikRibbonViewPrimitives:WindowTitle">
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Margin" Value="0 6"/>
-        <Setter Property="Background" Value="Orange"/>
+        <Setter Property="Foreground" Value="{StaticResource RibbonTitlebarApplicationNameBrush}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="IsHitTestVisible" Value="false"/>
         <Setter Property="IsActive" Value="True"/>
@@ -4449,15 +4511,14 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="telerikRibbonViewPrimitives:WindowTitle">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalAlignment}">
-                        <TextBlock x:Name="Title" Text="{TemplateBinding Title}" Foreground="{StaticResource RibbonTitlebarTitleBrush}" TextTrimming="WordEllipsis"/>
+                    <telerikRibbonViewPrimitives:WindowTitlePanel>
+                        <TextBlock x:Name="Title" Text="{TemplateBinding Title}" Foreground="{TemplateBinding Foreground}" TextTrimming="CharacterEllipsis"/>
                         <TextBlock x:Name="Divider"
-                                Text="-"
+                                Text="{telerik:LocalizableResource Key=RibbonViewWindowTitleDivider}"
                                 Visibility="{TemplateBinding DividerVisibility}"
-                                telerik:LocalizationManager.ResourceKey="RibbonViewWindowTitleDivider"
-                                Foreground="{StaticResource RibbonTitlebarApplicationNameBrush}"/>
-                        <TextBlock x:Name="ApplicationName" Text="{TemplateBinding ApplicationName}" Foreground="{StaticResource RibbonTitlebarApplicationNameBrush}" TextTrimming="WordEllipsis"/>
-                    </StackPanel>
+                                Foreground="{TemplateBinding Foreground}"/>
+                        <TextBlock x:Name="ApplicationName" Text="{TemplateBinding ApplicationName}" Foreground="{TemplateBinding Foreground}" TextTrimming="CharacterEllipsis"/>
+                    </telerikRibbonViewPrimitives:WindowTitlePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -4473,14 +4534,14 @@
                     <VisualState x:Name="Normal"/>
                     <VisualState x:Name="MouseOver">
                         <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="OuterBorder">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonOverBackground}"/>
+                            </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="OuterBorder">
                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonOverBorder}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="InnerBorder">
                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonOverBorderInner}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="OuterBorder">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RadRibbonBarButtonOverBackground}"/>
                             </ObjectAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
@@ -4507,7 +4568,7 @@
                     <VisualState x:Name="Unchecked">
                         <Storyboard>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootElement" Storyboard.TargetProperty="(telerikRibbonView:ScreenTip.Title)">
-                                <DiscreteObjectKeyFrame KeyTime="0" telerik:LocalizationManager.ResourceKey="RibbonViewMinimizeRibbon"/>
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:LocalizableResource Key=RibbonViewMinimizeRibbon}"/>
                             </ObjectAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
@@ -4522,7 +4583,7 @@
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootElement" Storyboard.TargetProperty="(telerikRibbonView:ScreenTip.Title)">
-                                <DiscreteObjectKeyFrame KeyTime="0" telerik:LocalizationManager.ResourceKey="RibbonViewExpandRibbon"/>
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik:LocalizableResource Key=RibbonViewExpandRibbon}"/>
                             </ObjectAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
@@ -4573,7 +4634,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Rectangle Grid.Row="1" Grid.RowSpan="2" Fill="{TemplateBinding Background}"/>
-            <ContentPresenter x:Name="SelectedTabContent" Grid.Row="1" Height="{TemplateBinding ContentHeight}" Margin="0 0 1 0"/>
+            <ContentPresenter x:Name="SelectedTabContent" Grid.Row="1" Height="{TemplateBinding ContentHeight}" Margin="1 0 1 0"/>
             <Grid x:Name="TopGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -4593,9 +4654,9 @@
                             telerikRibbonViewPrimitives:RibbonTitleBarPanel.Element="WindowTitle"
                             ApplicationName="{TemplateBinding ApplicationName}"
                             Style="{TemplateBinding WindowTitleStyle}"/>
-                    <StackPanel x:Name="ContextualGroupsHeaders" Orientation="Horizontal" telerikRibbonViewPrimitives:RibbonTitleBarPanel.Element="ContextualGroupsPanel"/>
+                    <StackPanel x:Name="ContextualGroupsHeaders" Margin="1 0 0 0" Orientation="Horizontal" telerikRibbonViewPrimitives:RibbonTitleBarPanel.Element="ContextualGroupsPanel"/>
                 </telerikRibbonViewPrimitives:RibbonTitleBarPanel>
-                <telerikRibbonView:RadRibbonDropDownButton x:Name="ApplicationButton"
+                <telerikRibbonViewPrimitives:RadRibbonApplicationDropDownButton x:Name="ApplicationButton"
                         Grid.Row="1"
                         IsEnabled="{TemplateBinding IsApplicationButtonEnabled}"
                         IsOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsApplicationMenuOpen, Mode=TwoWay}"
@@ -4603,7 +4664,7 @@
                         Content="{TemplateBinding ApplicationButtonContent}"
                         Visibility="{TemplateBinding ApplicationButtonVisibility}"
                         Style="{TemplateBinding ApplicationButtonStyle}"/>
-                <telerikRibbonViewPrimitives:RibbonScrollViewer Grid.Column="1" Grid.Row="1" Margin="0,0,0,-1" x:Name="TabsScrollViewer" telerik:StyleManager.Theme="{StaticResource Theme}">
+                <telerikRibbonViewPrimitives:RibbonScrollViewer Grid.Column="1" Grid.Row="1" Margin="0 0 0 -1" x:Name="TabsScrollViewer">
                     <ItemsPresenter/>
                 </telerikRibbonViewPrimitives:RibbonScrollViewer>
                 <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="1">
@@ -4619,18 +4680,21 @@
                             x:Name="HelpButton"
                             Visibility="{TemplateBinding HelpButtonVisibility}"
                             SmallImage="{TemplateBinding HelpButtonImageSource}"
-                            Style="{TemplateBinding HelpButtonStyle}"/>
+                            Style="{TemplateBinding HelpButtonStyle}"
+                            telerikRibbonView:ScreenTip.Title="{telerik:LocalizableResource Key=RibbonViewHelp}"/>
                     <ContentPresenter Content="{TemplateBinding TabStripAdditionalContent}"/>
                 </StackPanel>
+                <Rectangle Fill="Transparent" VerticalAlignment="Bottom" Height="2" Margin="0 0 0 -1" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
             </Grid>
             <ContentPresenter x:Name="BelowToolBarHost" Grid.Row="2"/>
-            <Popup x:Name="TabContentPopup" VerticalOffset="-2" PlacementTarget="{Binding ElementName=TopGrid}" AllowsTransparency="True">
+            <Popup x:Name="TabContentPopup" VerticalOffset="-1" PlacementTarget="{Binding ElementName=TopGrid}" AllowsTransparency="True">
                 <ContentPresenter x:Name="SelectedTabContentPopup" Height="{TemplateBinding ContentHeight}"/>
             </Popup>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsHostedInRibbonWindow" Value="true">
                 <Setter TargetName="titleBarBackground" Property="Visibility" Value="Collapsed"/>
+                <Setter TargetName="WindowTitle" Property="Foreground" Value="{StaticResource RibbonWindow_TitlebarApplicationNameBrush}"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -4646,17 +4710,16 @@
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusManager.IsFocusScope" Value="True"/>
         <Setter Property="Foreground" Value="{StaticResource RibbonForegroundBrush}"/>
-        <Setter Property="ContentHeight" Value="96"/>
-        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Background" Value="{StaticResource RibbonBackgroundBrush}"/>
         <Setter Property="TitleBarBackground" Value="{StaticResource RibbonTitlebarBackgroundBrush}"/>
+        <Setter Property="ContentHeight" Value="96"/>
+        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="ApplicationButtonStyle" Value="{StaticResource ApplicationButtonStyleOffice2010}"/>
+        <Setter Property="ApplicationButtonStyle" Value="{StaticResource RadRibbonApplicationDropDownButtonStyle}"/>
         <Setter Property="HelpButtonStyle" Value="{StaticResource HelpButtonStyle}"/>
         <Setter Property="MinimizeButtonStyle" Value="{StaticResource MinimizeButtonStyle}"/>
-        <Setter Property="ContextualGroupsStyle" Value="{StaticResource ContextualGroupsStyle}"/>
         <Setter Property="ContextualTabsStyle" Value="{StaticResource ContextualTabsStyle}"/>
         <Setter Property="WindowTitleStyle" Value="{StaticResource WindowTitleStyle}"/>
         <Setter Property="HelpButtonImageSource">
@@ -4669,9 +4732,7 @@
     <Style TargetType="telerikRibbonView:QuickAccessToolBar" BasedOn="{StaticResource QuickAccessToolBarStyle}"/>
     <Style TargetType="telerikRibbonViewPrimitives:WindowTitle" BasedOn="{StaticResource WindowTitleStyle}"/>
     <Style TargetType="telerikRibbonView:RadRibbonView" BasedOn="{StaticResource RadRibbonViewStyle}"/>
-    <Style TargetType="telerikRibbonView:QuickAccessToolBar" BasedOn="{StaticResource QuickAccessToolBarStyle}" x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:QuickAccessToolBar}}"/>
-    <Style TargetType="telerikRibbonViewPrimitives:WindowTitle" BasedOn="{StaticResource WindowTitleStyle}" x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonViewPrimitives:WindowTitle}}"/>
-    <Style TargetType="telerikRibbonView:RadRibbonView" BasedOn="{StaticResource RadRibbonViewStyle}" x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonView}}"/>
+    <Style TargetType="telerikRibbonView:RadRibbonContextualGroup" BasedOn="{StaticResource ContextualGroupsStyle}"/>
     <Style x:Key="RibbonWindow_TitleStyle" TargetType="telerikRibbonViewPrimitives:WindowTitle">
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Margin" Value="0 5"/>
@@ -4679,62 +4740,167 @@
         <Setter Property="IsHitTestVisible" Value="false"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="IsActive" Value="True"/>
+        <Setter Property="Foreground" Value="Lime"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="telerikRibbonViewPrimitives:WindowTitle">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock x:Name="Title" Text="{TemplateBinding Title}" Foreground="{StaticResource RibbonWindow_TitlebarTitleBrush}"/>
+                        <TextBlock x:Name="Title" Text="{TemplateBinding Title}" TextTrimming="CharacterEllipsis" Foreground="{StaticResource RibbonWindow_TitlebarTitleBrush}"/>
                         <TextBlock x:Name="Divider"
-                                Text="-"
+                                Text="{telerik:LocalizableResource Key=RibbonBarWindowTitleDivider}"
                                 Visibility="{TemplateBinding DividerVisibility}"
-                                telerik:LocalizationManager.ResourceKey="RibbonBarWindowTitleDivider"
                                 Foreground="{StaticResource RibbonWindow_TitlebarApplicationNameBrush}"/>
-                        <TextBlock x:Name="ApplicationName" Text="{TemplateBinding ApplicationName}" Foreground="{StaticResource RibbonWindow_TitlebarApplicationNameBrush}"/>
+                        <TextBlock x:Name="ApplicationName"
+                                Text="{TemplateBinding ApplicationName}"
+                                TextTrimming="CharacterEllipsis"
+                                Foreground="{StaticResource RibbonWindow_TitlebarApplicationNameBrush}"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="RadRibbonWindowButtonStyle" TargetType="telerik:RadButton">
+    <Style x:Key="RadRibbonWindowCloseButtonStyle" TargetType="telerik:RadButton">
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="CornerRadius" Value="2"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="Width" Value="22"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="telerik:RadButton">
                     <Grid>
-                        <Grid>
-                            <Border Background="Transparent"/>
-                            <Border x:Name="MouseOverState"
-                                    Opacity="0"
-                                    BorderThickness="1"
-                                    CornerRadius="2"
-                                    BorderBrush="{StaticResource RibbonWindow_Button_OuterBorder_MouseOver}"
-                                    Background="{StaticResource RibbonWindow_Button_Background_MouseOver}"/>
-                            <Border x:Name="PressedState"
-                                    Opacity="0"
-                                    BorderThickness="1"
-                                    CornerRadius="2"
-                                    BorderBrush="{StaticResource RibbonWindow_Button_OuterBorder_Pressed}"
-                                    Background="{StaticResource RibbonWindow_Button_Background_Pressed}"/>
-                            <ContentPresenter x:Name="Content"
-                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                    Content="{TemplateBinding Content}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverVisual"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RibbonWindowButtonsHoverColor}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverVisual"/>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedVisual"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="NormalVisual"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}"/>
+                        <Border x:Name="PressedVisual"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Opacity="0"
+                                Background="{StaticResource RadRibbonBarButtonPressedBackground}"
+                                BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"/>
+                        <Border x:Name="MouseOverVisual"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Opacity="0"
+                                Background="{StaticResource RadRibbonBarButtonOverBackground}"
+                                BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"/>
+                        <ContentPresenter x:Name="Content"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Path
+                                    Fill="{StaticResource RibbonWindow_Path_Background}"
+                                    Margin="1 0 0 0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Data="M1,0L5,4L9,0L10,1L6,5L10,9L9,10L5,6L1,10L0,9L4,5L0,1z"/>
+                            <Path x:Name="Path" Fill="#FFE0E1E2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-1 0 0 0" Data="M1,0L5,4L9,0L10,1L6,5L10,9L9,10L5,6L1,10L0,9L4,5L0,1z"/>
                         </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="MouseOverState" Property="Opacity" Value="1"/>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Content" Property="Opacity" Value="0.5"/>
                         </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="PressedState" Property="Opacity" Value="1"/>
-                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="RadRibbonWindowMinimizeButtonStyle" TargetType="telerik:RadButton">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="Width" Value="22"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadButton">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverVisual"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RibbonWindowButtonsHoverColor}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedVisual"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Path" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RibbonWindowButtonsPressedColor}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="NormalVisual"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}"/>
+                        <Border x:Name="PressedVisual"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Opacity="0"
+                                Background="{StaticResource RadRibbonBarButtonPressedBackground}"
+                                BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"/>
+                        <Border x:Name="MouseOverVisual"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Opacity="0"
+                                Background="{StaticResource RadRibbonBarButtonOverBackground}"
+                                BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"/>
+                        <ContentPresenter x:Name="Content"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Path x:Name="Path"
+                                    Margin="0 4 0 0"
+                                    Data="M0,0 L12,0 12,5 0,5 z M1,1 L11,1 11,4 1,4 z"
+                                    Fill="{StaticResource RibbonWindow_Path_InnerBorder}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"/>
+                            <Path Margin="0 4 0 0" Data="M0,0 L10,0 10,3 0,3 z" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{StaticResource RibbonWindow_Path_Background}"/>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Content" Property="Opacity" Value="0.5"/>
                         </Trigger>
@@ -4744,53 +4910,88 @@
         </Setter>
     </Style>
     <Style x:Key="RadRibbonWindowToggleButtonStyle" TargetType="telerik:RadToggleButton">
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="CornerRadius" Value="2"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="Width" Value="20"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="Width" Value="22"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="telerik:RadToggleButton">
                     <Grid>
-                        <Border Background="Transparent"/>
-                        <Border x:Name="MouseOverState"
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverVisual"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MaximizedPath" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RibbonWindowButtonsHoverColor}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RestoredPath" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RibbonWindowButtonsHoverColor}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedVisual"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MaximizedPath" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RibbonWindowButtonsPressedColor}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RestoredPath" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource RibbonWindowButtonsPressedColor}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard Duration="0">
+                                        <DoubleAnimation Duration="0" To="0.5" Storyboard.TargetName="ContentGrid" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="NormalVisual"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}"/>
+                        <Border x:Name="PressedVisual"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
                                 Opacity="0"
-                                BorderThickness="1"
-                                CornerRadius="2"
-                                BorderBrush="{StaticResource RibbonWindow_Button_OuterBorder_MouseOver}"
-                                Background="{StaticResource RibbonWindow_Button_Background_MouseOver}"/>
-                        <Border x:Name="PressedState"
+                                Background="{StaticResource RadRibbonBarButtonPressedBackground}"
+                                BorderBrush="{StaticResource RadRibbonBarButtonPressedBorder}"/>
+                        <Border x:Name="MouseOverVisual"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
                                 Opacity="0"
-                                BorderThickness="1"
-                                CornerRadius="2"
-                                BorderBrush="{StaticResource RibbonWindow_Button_OuterBorder_Pressed}"
-                                Background="{StaticResource RibbonWindow_Button_Background_Pressed}"/>
-                        <Grid x:Name="Restore" Background="Transparent" ToolTipService.ToolTip="Maximize">
+                                Background="{StaticResource RadRibbonBarButtonOverBackground}"
+                                BorderBrush="{StaticResource RadRibbonBarButtonOverBorder}"/>
+                        <Grid x:Name="Restore" Background="Transparent" ToolTipService.ToolTip="Maximize" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Grid.ToolTip>
-                                <TextBlock telerik:LocalizationManager.ResourceKey="RibbonWindowMaximize"/>
+                                <TextBlock Text="{telerik:LocalizableResource Key=RibbonWindowMaximize}"/>
                             </Grid.ToolTip>
-                            <Path
-                                    Fill="{StaticResource RibbonWindow_Path_Background}"
-                                    StrokeThickness="1"
-                                    Stroke="{StaticResource RibbonWindow_Path_InnerBorder}"
-                                    Width="14"
-                                    Height="14"
-                                    Data="M1.5,2.5 L12.5,2.5 12.5,11.5 1.5,11.5 Z M4.5,5.5 L9.5,5.5 9.5,8.5 4.5,8.5 Z"/>
+                            <Path x:Name="MaximizedPath" Data="M0,0 L12,0 12,10 0,10 z" Fill="{StaticResource RibbonWindow_Path_InnerBorder}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Path Data="M0,0 L10,0 10,8 0,8 z" HorizontalAlignment="Center" Fill="{StaticResource RibbonWindow_Path_Background}" VerticalAlignment="Center"/>
                         </Grid>
-                        <Grid Visibility="Collapsed" x:Name="Collapse" Background="Transparent" ToolTipService.ToolTip="Restore Down">
+                        <Grid Visibility="Collapsed" x:Name="Collapse" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTipService.ToolTip="Restore Down">
                             <Grid.ToolTip>
-                                <TextBlock telerik:LocalizationManager.ResourceKey="RibbonWindowRestoreDown"/>
+                                <TextBlock Text="{telerik:LocalizableResource Key=RibbonWindowRestoreDown}"/>
                             </Grid.ToolTip>
+                            <Path x:Name="RestoredPath"
+                                    Data="M0,3 L3,3 3,0 14,0 14,10 11,10 11,13 0,13 z"
+                                    Fill="{StaticResource RibbonWindow_Path_InnerBorder}"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"/>
                             <Path
-                                    Fill="{StaticResource RibbonWindow_Path_Background}"
-                                    StrokeThickness="1"
-                                    Stroke="{StaticResource RibbonWindow_Path_InnerBorder}"
-                                    Width="14"
-                                    Height="14"
-                                    Data="M0.5,4.5 0.5,11.5 1.5,12.5 8.5,12.5 9.5,11.5 9.5,3.5 1.5,3.5 Z M3.5,6.5 L3.5,9.5 L6.5,9.5 6.5,6.5 Z M3.5,3.5 3.5,1.5 4.5,0.5 11.5,0.5 12.5,1.5 12.5,9.5 11.5,10.5 9.5,10.5 9.5,3.5 Z"/>
+                                    Data="M1,4 L10,4 10,12 1,12 z M4,1 L13,1 13,9 11,9 11,3 4,3 z"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Fill="{StaticResource RibbonWindow_Path_Background}"/>
                         </Grid>
                         <ContentPresenter x:Name="Content"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -4799,15 +5000,6 @@
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="MouseOverState" Property="Opacity" Value="1"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="PressedState" Property="Opacity" Value="1"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="Content" Property="Opacity" Value="0.5"/>
-                        </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="Restore" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="Collapse" Property="Visibility" Value="Visible"/>
@@ -4819,10 +5011,11 @@
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonWindow" x:Key="RadRibbonWindowStyle">
         <Setter Property="TitleBarStyle" Value="{StaticResource WindowTitleStyle}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource RibbonWindow_OuterBorder}"/>
+        <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="WindowBackground" Value="{StaticResource RibbonWindow_Background}"/>
         <Setter Property="Background" Value="{StaticResource RibbonWindow_ContentBackground}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource RibbonWindow_OuterBorder}"/>
+        <Setter Property="shell:WindowChrome.WindowChromeCornerRadius" Value="9"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -4843,42 +5036,42 @@
                                     Grid.ColumnSpan="3"
                                     Grid.RowSpan="3"
                                     Background="{TemplateBinding WindowBackground}"
-                                    CornerRadius="5"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"/>
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="5"/>
                             <Border x:Name="border" Grid.Row="0" Grid.ColumnSpan="3" Height="30"/>
                             <Border Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Background="{TemplateBinding WindowBackground}" BorderThickness="{TemplateBinding BorderThickness}"/>
-                            <StackPanel x:Name="IconPanel"
-                                    Orientation="Horizontal"
-                                    HorizontalAlignment="Left"
-                                    Grid.ColumnSpan="3"
-                                    Visibility="{TemplateBinding IconVisibility}"
-                                    Margin="7 0 0 3"
-                                    VerticalAlignment="Center">
-                                <Image
-                                        Name="PART_Icon"
-                                        shell:WindowChrome.IsHitTestVisibleInChrome="True"
-                                        Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Icon, Converter={StaticResource IconConverter}}"
-                                        Width="{Binding Path=SmallIconSize.Width, Source={x:Static shell:SystemParameters2.Current}}"
-                                        Height="{Binding Path=SmallIconSize.Height, Source={x:Static shell:SystemParameters2.Current}}"/>
-                                <Rectangle Width="1" Fill="{StaticResource RibbonWindow_Separator_Background}" Margin="4 0"/>
-                            </StackPanel>
-                            <StackPanel x:Name="buttonPanel" Orientation="Horizontal" Grid.ColumnSpan="3" HorizontalAlignment="Right" Margin="0 0 7 6" VerticalAlignment="Bottom">
+                            <Grid Grid.ColumnSpan="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel x:Name="IconPanel" Orientation="Horizontal" HorizontalAlignment="Left" Visibility="{TemplateBinding IconVisibility}" VerticalAlignment="Center" Margin="7 7 0 3">
+                                    <Image
+                                            Name="PART_Icon"
+                                            shell:WindowChrome.IsHitTestVisibleInChrome="True"
+                                            Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Icon, Converter={StaticResource IconConverter}}"
+                                            Width="{Binding Path=SmallIconSize.Width, Source={x:Static shell:SystemParameters2.Current}}"
+                                            Height="{Binding Path=SmallIconSize.Height, Source={x:Static shell:SystemParameters2.Current}}"/>
+                                    <Rectangle Width="1" Margin="4 0" Fill="{StaticResource RibbonWindow_Separator_Background}"/>
+                                </StackPanel>
+                                <telerikRibbonViewPrimitives:WindowTitle x:Name="WindowTitle"
+                                        Grid.Column="1"
+                                        Title="{TemplateBinding Title}"
+                                        Style="{TemplateBinding TitleBarStyle}"
+                                        Margin="0 0 65 0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                            </Grid>
+                            <StackPanel x:Name="buttonPanel" Orientation="Horizontal" Grid.ColumnSpan="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 7 2">
                                 <telerik:RadButton x:Name="minimizeButton"
-                                        Margin="0 0 0 -2"
                                         shell:WindowChrome.IsHitTestVisibleInChrome="True"
                                         ToolTipService.ToolTip="Minimize"
                                         Command="{x:Static shell:SystemCommands.MinimizeWindowCommand}"
-                                        Style="{StaticResource RadRibbonWindowButtonStyle}">
+                                        Style="{StaticResource RadRibbonWindowMinimizeButtonStyle}">
                                     <telerik:RadButton.ToolTip>
-                                        <TextBlock telerik:LocalizationManager.ResourceKey="RibbonWindowMinimize"/>
+                                        <TextBlock Text="{telerik:LocalizableResource Key=RibbonWindowMinimize}"/>
                                     </telerik:RadButton.ToolTip>
-                                    <Path
-                                            Fill="{StaticResource RibbonWindow_Path_Background}"
-                                            Stroke="{StaticResource RibbonWindow_Path_InnerBorder}"
-                                            Width="14"
-                                            Height="14"
-                                            Data="M1.5,7.5 L12.5,7.5 12.5,11.5 1.5,11.5 Z"/>
                                 </telerik:RadButton>
                                 <telerik:RadToggleButton x:Name="maximizeButton"
                                         shell:WindowChrome.IsHitTestVisibleInChrome="True"
@@ -4887,23 +5080,22 @@
                                 <telerik:RadButton x:Name="closeButton"
                                         shell:WindowChrome.IsHitTestVisibleInChrome="True"
                                         Command="{x:Static shell:SystemCommands.CloseWindowCommand}"
-                                        Style="{StaticResource RadRibbonWindowButtonStyle}">
+                                        Style="{StaticResource RadRibbonWindowCloseButtonStyle}">
                                     <telerik:RadButton.ToolTip>
-                                        <TextBlock telerik:LocalizationManager.ResourceKey="RibbonWindowClose"/>
+                                        <TextBlock Text="{telerik:LocalizableResource Key=RibbonWindowClose}"/>
                                     </telerik:RadButton.ToolTip>
-                                    <Path
-                                            Fill="{StaticResource RibbonWindow_Path_Background}"
-                                            Stroke="{StaticResource RibbonWindow_Path_InnerBorder}"
-                                            Width="14"
-                                            Height="14"
-                                            Data="M1.5,3.5 L2.5,2.5 4.5,2.5 6.5,4.5 8.5,2.5 10.5,2.5 11.5,3.5 8.5,6.5 8.5,7.5 11.5,10.5 10.5,11.5 8.5,11.5 6.5,9.5 4.5,11.5 2.5,11.5 1.5,10.5 4.5,7.5 4.5,6.5 z"/>
                                 </telerik:RadButton>
                             </StackPanel>
                             <Border x:Name="leftBorder" Grid.Row="1" Width="7" Margin="0 20 0 20"/>
                             <Border x:Name="rightBorder" Grid.Row="1" Grid.Column="2" Width="7" Margin="0 20 0 20"/>
                             <Border Grid.Row="2" x:Name="bottomBorder" Grid.ColumnSpan="3" Height="7" VerticalAlignment="Bottom"/>
-                            <Border Background="{TemplateBinding Background}" Grid.Column="1" Grid.Row="1" x:Name="PART_ClientAreaBorder"/>
-                            <AdornerDecorator Grid.Column="1" Grid.RowSpan="2">
+                            <Border x:Name="PART_ClientAreaBorder"
+                                    Background="{TemplateBinding Background}"
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    BorderBrush="{StaticResource RibbonWindow_OuterBorder}"
+                                    BorderThickness="1"/>
+                            <AdornerDecorator x:Name="Adorner" Grid.Column="1" Grid.RowSpan="2" Margin="1 3 1 1">
                                 <ContentPresenter Canvas.ZIndex="0" Name="PART_RootContentPresenter"/>
                             </AdornerDecorator>
                             <ResizeGrip x:Name="WindowResizeGrip"
@@ -4931,7 +5123,11 @@
                         </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter TargetName="IconPanel" Property="Margin" Value="9 0 0 3"/>
+                            <Setter TargetName="buttonPanel" Property="Margin" Value="0 0 8 3"/>
                             <Setter TargetName="MaximizeWindowDecorator" Property="Margin" Value="0 7 0 0"/>
+                        </Trigger>
+                        <Trigger Property="IsTitleVisible" Value="False">
+                            <Setter TargetName="WindowTitle" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -4939,5 +5135,4 @@
         </Setter>
     </Style>
     <Style TargetType="telerikRibbonView:RadRibbonWindow" BasedOn="{StaticResource RadRibbonWindowStyle}"/>
-    <Style TargetType="telerikRibbonView:RadRibbonWindow" BasedOn="{StaticResource RadRibbonWindowStyle}" x:Key="{telerik:ThemeResourceKey ThemeType={x:Type external:Expression_DarkThemeExternal}, ElementType={x:Type telerikRibbonView:RadRibbonWindow}}"/>
 </ResourceDictionary>

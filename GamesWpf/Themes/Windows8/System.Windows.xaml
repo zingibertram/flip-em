@@ -6,15 +6,16 @@
         mc:Ignorable="c"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         xmlns:telerik1="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:external="clr-namespace:Telerik.Windows.Controls.External">
+        xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <ResourceDictionary.MergedDictionaries>
+        <telerik:Windows8ResourceDictionary/>
+    </ResourceDictionary.MergedDictionaries>
     <telerik:Windows8Colors x:Key="Windows8Colors"/>
-    <external:Windows8ThemeExternal x:Key="Theme"/>
     <CornerRadius x:Key="ValidationTooltip_CornerRadius">0</CornerRadius>
     <ControlTemplate x:Key="ErrorTooltipTemplate" TargetType="ToolTip">
         <Grid x:Name="RootVisual" HorizontalAlignment="Right" RenderTransformOrigin="0 0" Opacity="0" Margin="5 0">
             <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup Name="OpenStates">
+                <VisualStateGroup x:Name="OpenStates">
                     <VisualStateGroup.Transitions>
                         <VisualTransition GeneratedDuration="0"/>
                         <VisualTransition To="Open" GeneratedDuration="0:0:0.2">
@@ -62,132 +63,84 @@
     </ControlTemplate>
     <ControlTemplate x:Key="ValidationTooltipTemplate">
         <Grid SnapsToDevicePixels="True" VerticalAlignment="Top">
-            <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Width="9" Height="9"/>
+            <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Width="3" Height="3"/>
             <AdornedElementPlaceholder x:Name="Holder"/>
             <Border BorderBrush="{telerik1:Windows8Resource ResourceKey=ValidationBrush}" BorderThickness="1" CornerRadius="{StaticResource ValidationTooltip_CornerRadius}"/>
             <Path Data="M0,2 L5,2 5,7 Z" Fill="{telerik1:Windows8Resource ResourceKey=ValidationBrush}" Width="7" Height="7" HorizontalAlignment="Right" VerticalAlignment="Top"/>
             <ToolTipService.ToolTip>
                 <ToolTip x:Name="PART_ToolTip"
-                        Content="{Binding ElementName=Holder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+                        DataContext="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PlacementTarget.DataContext}"
                         Template="{StaticResource ErrorTooltipTemplate}"
-                        PlacementTarget="{Binding ElementName=Holder}"
                         Placement="Right"/>
             </ToolTipService.ToolTip>
         </Grid>
     </ControlTemplate>
     <ControlTemplate x:Key="RepeatButtonLineUpTemplate" TargetType="RepeatButton">
         <Border Background="Transparent">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Disabled">
-                        <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Arrow" Storyboard.TargetProperty="Fill">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Normal"/>
-                    <VisualState x:Name="MouseOver">
-                        <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Arrow" Storyboard.TargetProperty="Fill">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Pressed"/>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
             <Grid>
-                <Path x:Name="Arrow" Width="6" Height="3" Data="M0,3 L6,3 3,0Z" Fill="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
+                <Path x:Name="Arrow" Width="6" Height="4" Data="M0,3 L6,3 3,0Z" Fill="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
             </Grid>
         </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Arrow" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Arrow" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
     </ControlTemplate>
     <ControlTemplate x:Key="RepeatButtonLineDownTemplate" TargetType="RepeatButton">
         <Border Background="Transparent">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Disabled">
-                        <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Arrow" Storyboard.TargetProperty="Fill">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Normal"/>
-                    <VisualState x:Name="MouseOver">
-                        <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Arrow" Storyboard.TargetProperty="Fill">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Pressed"/>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
             <Grid>
-                <Path x:Name="Arrow" Width="6" Height="3" Data="M0,0 L6,0 3,3Z" Fill="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
+                <Path x:Name="Arrow" Width="6" Height="4" Data="M0,0 L6,0 3,3Z" Fill="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
             </Grid>
         </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Arrow" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Arrow" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
     </ControlTemplate>
     <ControlTemplate x:Key="RepeatButtonLineLeftTemplate" TargetType="RepeatButton">
         <Border Background="Transparent">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Disabled">
-                        <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Arrow" Storyboard.TargetProperty="Fill">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Normal"/>
-                    <VisualState x:Name="MouseOver">
-                        <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Arrow" Storyboard.TargetProperty="Fill">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Pressed"/>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
             <Grid>
-                <Path x:Name="Arrow" Width="3" Height="6" Data="M3,0 L3,6 0,3Z" Fill="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
+                <Path x:Name="Arrow" Width="4" Height="6" Data="M0,3 L4,0 L4,6 z" Fill="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
             </Grid>
         </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Arrow" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Arrow" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
     </ControlTemplate>
     <ControlTemplate x:Key="RepeatButtonLineRightTemplate" TargetType="RepeatButton">
         <Border Background="Transparent">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Disabled">
-                        <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Arrow" Storyboard.TargetProperty="Fill">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Normal"/>
-                    <VisualState x:Name="MouseOver">
-                        <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Arrow" Storyboard.TargetProperty="Fill">
-                                <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState x:Name="Pressed"/>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
             <Grid>
-                <Path x:Name="Arrow" Width="3" Height="6" Data="M0,0 L0,6 3,3Z" Fill="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
+                <Path x:Name="Arrow" Width="4" Height="6" Data="M0,0 L4,3 L0,6 z" Fill="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
             </Grid>
         </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Arrow" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Arrow" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
     </ControlTemplate>
     <Style x:Key="RepeatButtonLineBaseStyle" TargetType="RepeatButton">
         <Setter Property="Width" Value="12"/>
         <Setter Property="Height" Value="12"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Focusable" Value="False"/>
     </Style>
     <Style x:Key="RepeatButtonLineUpStyle" TargetType="RepeatButton" BasedOn="{StaticResource RepeatButtonLineBaseStyle}">
         <Setter Property="Template" Value="{StaticResource RepeatButtonLineUpTemplate}"/>
@@ -210,41 +163,20 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
                     <Grid Background="Transparent">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Disabled">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Track" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Normal"/>
-                                <VisualState x:Name="MouseOver">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Track" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Pressed">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Track" Storyboard.TargetProperty="Margin">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <Thickness>0 3 0 3</Thickness>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Track" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
                         <Rectangle x:Name="Track" Margin="0,4" Fill="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Track" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="True">
+                            <Setter TargetName="Track" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                            <Setter TargetName="Track" Property="Margin" Value="0,3,0,3"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Track" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -258,41 +190,20 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
                     <Grid Background="Transparent">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Disabled">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Track" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Normal"/>
-                                <VisualState x:Name="MouseOver">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Track" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Pressed">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Track" Storyboard.TargetProperty="Margin">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <Thickness>3 0 3 0</Thickness>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Track" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
                         <Rectangle x:Name="Track" Margin="4,0" Fill="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Track" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="True">
+                            <Setter TargetName="Track" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                            <Setter TargetName="Track" Property="Margin" Value="3,0"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Track" Property="Fill" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -437,8 +348,6 @@
     </Style>
     <Style BasedOn="{StaticResource ScrollBarStyle}" TargetType="ScrollBar"/>
     <Style BasedOn="{StaticResource ScrollViewerStyle}" TargetType="ScrollViewer"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type ScrollBar}}" TargetType="ScrollBar" BasedOn="{StaticResource ScrollBarStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type ScrollViewer}}" TargetType="ScrollViewer" BasedOn="{StaticResource ScrollViewerStyle}"/>
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="{telerik1:Windows8Resource ResourceKey=MainBrush}"/>
         <Setter Property="BorderBrush" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
@@ -460,9 +369,12 @@
                                 <VisualState x:Name="Normal"/>
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Layer" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Layer" Storyboard.TargetProperty="Opacity">
+                                            <LinearDoubleKeyFrame KeyTime="00:00:00" Value="0.15"/>
+                                        </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Pressed">
@@ -471,7 +383,13 @@
                                             <DiscreteDoubleKeyFrame KeyTime="00:00:00.050" Value="0"/>
                                         </DoubleAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=AccentBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=AccentBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=MainBrush}"/>
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation To="-1" Duration="0:0:0" Storyboard.TargetName="Content" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"/>
                                     </Storyboard>
@@ -508,14 +426,16 @@
                                             </DiscreteObjectKeyFrame>
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity">
-                                            <LinearDoubleKeyFrame KeyTime="00:00:00.115" Value="0.2"/>
+                                            <LinearDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
                                         </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"/>
+                        <Border x:Name="Layer" Opacity="0" Margin="1" Background="{TemplateBinding Background}"/>
                         <ContentPresenter x:Name="Content"
+                                TextBlock.Foreground="{TemplateBinding Foreground}"
                                 Margin="{TemplateBinding Padding}"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -527,7 +447,7 @@
                             </ContentPresenter.RenderTransform>
                         </ContentPresenter>
                         <Border x:Name="CommonStatesWrapper">
-                            <Border x:Name="FocusVisual" Visibility="Collapsed" Opacity="0" BorderThickness="1" BorderBrush="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                            <Border x:Name="FocusVisual" Visibility="Collapsed" Opacity="0" BorderThickness="1" BorderBrush="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
                         </Border>
                     </Grid>
                 </ControlTemplate>
@@ -535,7 +455,6 @@
         </Setter>
     </Style>
     <Style TargetType="Button" BasedOn="{StaticResource ButtonStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type Button}}" TargetType="Button" BasedOn="{StaticResource ButtonStyle}"/>
     <Style x:Key="CheckBoxStyle" TargetType="CheckBox">
         <Setter Property="Background" Value="{telerik1:Windows8Resource ResourceKey=MainBrush}"/>
         <Setter Property="BorderBrush" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
@@ -633,13 +552,13 @@
         </Setter>
     </Style>
     <Style TargetType="CheckBox" BasedOn="{StaticResource CheckBoxStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type CheckBox}}" TargetType="CheckBox" BasedOn="{StaticResource CheckBoxStyle}"/>
     <Style x:Key="TextBoxStyle" TargetType="TextBox">
         <Setter Property="BorderBrush" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
         <Setter Property="Background" Value="{telerik1:Windows8Resource ResourceKey=MainBrush}"/>
         <Setter Property="Foreground" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-        <Setter Property="FontFamily" Value="{telerik1:Windows8Resource ResourceKey=FontFamilyStrong}"/>
+        <Setter Property="FontFamily" Value="{telerik1:Windows8Resource ResourceKey=FontFamily}"/>
         <Setter Property="FontSize" Value="{telerik1:Windows8Resource ResourceKey=FontSize}"/>
+        <Setter Property="MinHeight" Value="22"/>
         <Setter Property="Padding" Value="5 2"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -650,15 +569,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <Grid x:Name="RootElement">
+                    <Grid x:Name="RootElement" UseLayoutRounding="True" SnapsToDevicePixels="True">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal"/>
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
-                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="hover" Storyboard.TargetProperty="Opacity" To="1"/>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
@@ -668,10 +585,17 @@
                                 </VisualState>
                                 <VisualState x:Name="ReadOnly">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderThickness">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="FocusedVisual" Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
                                                 <DiscreteObjectKeyFrame.Value>
-                                                    <Thickness>0</Thickness>
+                                                    <SolidColorBrush Color="Transparent"/>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <SolidColorBrush Color="Transparent"/>
                                                 </DiscreteObjectKeyFrame.Value>
                                             </DiscreteObjectKeyFrame>
                                         </ObjectAnimationUsingKeyFrames>
@@ -682,7 +606,13 @@
                             <VisualStateGroup x:Name="FocusStates">
                                 <VisualState x:Name="Focused">
                                     <Storyboard>
-                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedVisual" Storyboard.TargetProperty="Opacity" From="0" To="0.2"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FocusedVisual" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Unfocused"/>
@@ -690,25 +620,35 @@
                         </VisualStateManager.VisualStateGroups>
                         <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                             <Grid>
-                                <Border x:Name="ReadOnlyVisualElement" Background="Transparent" Opacity="0"/>
+                                <Border x:Name="ReadOnlyVisualElement" BorderThickness="1" BorderBrush="Transparent" Background="Transparent" Opacity="0"/>
                                 <ScrollViewer x:Name="PART_ContentHost"
-                                        telerik1:StyleManager.Theme="{StaticResource Theme}"
                                         Padding="{TemplateBinding Padding}"
                                         BorderThickness="0"
-                                        Background="Transparent"
                                         Foreground="{TemplateBinding Foreground}"
+                                        Background="Transparent"
                                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                             </Grid>
                         </Border>
-                        <Border x:Name="FocusedVisual" Opacity="0" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                        <Border x:Name="FocusedVisual"
+                                Opacity="0.2"
+                                Visibility="Collapsed"
+                                IsHitTestVisible="False"
+                                BorderBrush="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"
+                                Background="Transparent"
+                                BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <Border x:Name="hover"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="Transparent"
+                                BorderBrush="{telerik1:Windows8Resource ResourceKey=StrongBrush}"
+                                Opacity="0"
+                                IsHitTestVisible="False"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
     <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type TextBox}}" TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}"/>
     <Style x:Key="RadioButtonStyle" TargetType="RadioButton">
         <Setter Property="Background" Value="{telerik1:Windows8Resource ResourceKey=MainBrush}"/>
         <Setter Property="BorderBrush" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
@@ -806,12 +746,11 @@
         </Setter>
     </Style>
     <Style TargetType="RadioButton" BasedOn="{StaticResource RadioButtonStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type RadioButton}}" TargetType="RadioButton" BasedOn="{StaticResource RadioButtonStyle}"/>
     <Style x:Key="FocusVisualStyle">
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Margin="1" BorderThickness="1" BorderBrush="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                    <Border BorderThickness="1" BorderBrush="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -835,10 +774,13 @@
                                 <VisualState x:Name="Normal"/>
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="HoverState" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
                                         </ObjectAnimationUsingKeyFrames>
-                                        <DoubleAnimation To="0.1" Duration="0" Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.Opacity)"/>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
@@ -879,6 +821,7 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"/>
+                        <Border x:Name="HoverState" Background="{telerik1:Windows8Resource ResourceKey=StrongBrush}" Visibility="Collapsed" Opacity="0.15"/>
                         <Border x:Name="SelectedState" Opacity="0" Background="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
                         <ContentControl x:Name="contentPresenter"
                                 Margin="{TemplateBinding Padding}"
@@ -891,7 +834,7 @@
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                 ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
-                        <Border x:Name="FocusVisual" CornerRadius="0" Opacity="0" Margin="2,1" BorderThickness="1" BorderBrush="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                        <Border x:Name="FocusVisual" CornerRadius="0" Opacity="0" BorderThickness="1" BorderBrush="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -903,14 +846,13 @@
         <Setter Property="Foreground" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
         <Setter Property="FontFamily" Value="{telerik1:Windows8Resource ResourceKey=FontFamily}"/>
         <Setter Property="FontSize" Value="{telerik1:Windows8Resource ResourceKey=FontSize}"/>
-        <Setter Property="Padding" Value="1"/>
         <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="1"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Top"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemStyle}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
@@ -920,14 +862,13 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <ScrollViewer x:Name="ScrollViewer"
                                 Margin="0"
-                                telerik1:StyleManager.Theme="{StaticResource Theme}"
                                 BorderBrush="{x:Null}"
                                 BorderThickness="0"
                                 Padding="{TemplateBinding Padding}"
                                 ScrollViewer.HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                 ScrollViewer.VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
                                 Background="{TemplateBinding Background}">
-                            <ItemsPresenter Margin="1"/>
+                            <ItemsPresenter/>
                         </ScrollViewer>
                     </Border>
                 </ControlTemplate>
@@ -936,13 +877,11 @@
     </Style>
     <Style TargetType="ListBox" BasedOn="{StaticResource ListBoxStyle}"/>
     <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type ListBox}}" TargetType="ListBox" BasedOn="{StaticResource ListBoxStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type ListBoxItem}}" TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}"/>
     <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
         <Setter Property="BorderBrush" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
         <Setter Property="Background" Value="{telerik1:Windows8Resource ResourceKey=MainBrush}"/>
         <Setter Property="Foreground" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
-        <Setter Property="FontFamily" Value="{telerik1:Windows8Resource ResourceKey=FontFamilyStrong}"/>
+        <Setter Property="FontFamily" Value="{telerik1:Windows8Resource ResourceKey=FontFamily}"/>
         <Setter Property="FontSize" Value="{telerik1:Windows8Resource ResourceKey=FontSize}"/>
         <Setter Property="Padding" Value="5 2"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -954,20 +893,24 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="PasswordBox">
-                    <Grid x:Name="RootElement">
+                    <Grid x:Name="RootElement" UseLayoutRounding="True" SnapsToDevicePixels="True">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal"/>
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
-                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="hover" Storyboard.TargetProperty="Opacity" To="1"/>
                                     </Storyboard>
                                 </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity" To="0.3"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
                                 <VisualState x:Name="Focused">
                                     <Storyboard>
-                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusedVisual" Storyboard.TargetProperty="Opacity" From="0" To="0.2"/>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FocusedVisual" Storyboard.TargetProperty="Visibility">
                                             <DiscreteObjectKeyFrame KeyTime="0:0:0">
                                                 <DiscreteObjectKeyFrame.Value>
@@ -977,35 +920,37 @@
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
-                                <VisualState x:Name="Disabled">
-                                    <Storyboard>
-                                        <DoubleAnimation Duration="0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity" To="0.3"/>
-                                    </Storyboard>
-                                </VisualState>
+                                <VisualState x:Name="Unfocused"/>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                             <ScrollViewer x:Name="PART_ContentHost"
-                                    telerik1:StyleManager.Theme="{StaticResource Theme}"
                                     Padding="{TemplateBinding Padding}"
                                     BorderThickness="0"
-                                    Background="Transparent"
                                     Foreground="{TemplateBinding Foreground}"
+                                    Background="Transparent"
                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                         </Border>
                         <Border x:Name="FocusedVisual"
-                                Opacity="0"
+                                Opacity="0.2"
                                 Visibility="Collapsed"
+                                IsHitTestVisible="False"
+                                BorderBrush="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"
+                                Background="Transparent"
+                                BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <Border x:Name="hover"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                BorderBrush="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                                Background="Transparent"
+                                BorderBrush="{telerik1:Windows8Resource ResourceKey=StrongBrush}"
+                                Opacity="0"
+                                IsHitTestVisible="False"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
     <Style TargetType="PasswordBox" BasedOn="{StaticResource PasswordBoxStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type PasswordBox}}" TargetType="PasswordBox" BasedOn="{StaticResource PasswordBoxStyle}"/>
     <ControlTemplate x:Key="RepeatButton_Template" TargetType="RepeatButton">
         <Grid x:Name="root" Background="Transparent">
             <VisualStateManager.VisualStateGroups>
@@ -1013,9 +958,12 @@
                     <VisualState x:Name="Normal"/>
                     <VisualState x:Name="MouseOver">
                         <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+                            <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Layer" Storyboard.TargetProperty="Background">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
                             </ObjectAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Layer" Storyboard.TargetProperty="Opacity">
+                                <LinearDoubleKeyFrame KeyTime="00:00:00" Value="0.15"/>
+                            </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Pressed">
@@ -1024,7 +972,13 @@
                                 <DiscreteDoubleKeyFrame KeyTime="00:00:00.050" Value="0"/>
                             </DoubleAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=AccentBrush}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Duration="0:0:0" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=AccentBrush}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="Content" Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{telerik1:Windows8Resource ResourceKey=MainBrush}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <DoubleAnimation To="-1" Duration="0:0:0" Storyboard.TargetName="Content" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"/>
                         </Storyboard>
@@ -1061,14 +1015,16 @@
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity">
-                                <LinearDoubleKeyFrame KeyTime="00:00:00.115" Value="0.2"/>
+                                <LinearDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
             <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"/>
+            <Border x:Name="Layer" Opacity="0" Margin="1" Background="{TemplateBinding Background}"/>
             <ContentPresenter x:Name="Content"
+                    TextBlock.Foreground="{TemplateBinding Foreground}"
                     Margin="{TemplateBinding Padding}"
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -1080,7 +1036,7 @@
                 </ContentPresenter.RenderTransform>
             </ContentPresenter>
             <Border x:Name="CommonStatesWrapper">
-                <Border x:Name="FocusVisual" Visibility="Collapsed" Opacity="0" BorderThickness="1" BorderBrush="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+                <Border x:Name="FocusVisual" Visibility="Collapsed" Opacity="0" BorderThickness="1" BorderBrush="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
             </Border>
         </Grid>
     </ControlTemplate>
@@ -1099,7 +1055,6 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
     <Style TargetType="RepeatButton" BasedOn="{StaticResource RepeatButtonStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type RepeatButton}}" TargetType="RepeatButton" BasedOn="{StaticResource RepeatButtonStyle}"/>
     <Style x:Key="ToolTipStyle" TargetType="ToolTip">
         <Setter Property="Background" Value="{telerik1:Windows8Resource ResourceKey=MainBrush}"/>
         <Setter Property="BorderBrush" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
@@ -1124,5 +1079,95 @@
         </Setter>
     </Style>
     <Style TargetType="ToolTip" BasedOn="{StaticResource ToolTipStyle}"/>
-    <Style x:Key="{telerik1:ThemeResourceKey ThemeType={x:Type external:Windows8ThemeExternal}, ElementType={x:Type ToolTip}}" TargetType="ToolTip" BasedOn="{StaticResource ToolTipStyle}"/>
+    <Style x:Key="SeparatorStyle" TargetType="Separator">
+        <Setter Property="Margin" Value="0 2"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="Background" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="MinHeight" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Separator">
+                    <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="{x:Static StatusBar.SeparatorStyleKey}" TargetType="Separator">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Margin" Value="3 2"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="MinWidth" Value="1"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Separator">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="StatusBarItemStyle" TargetType="StatusBarItem">
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="StatusBarItem">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter"
+                                SnapsToDevicePixels="true"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Resources>
+            <Style TargetType="Separator" BasedOn="{StaticResource {x:Static StatusBar.SeparatorStyleKey}}">
+                <Setter Property="Margin" Value="3 -1"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+    <Style x:Key="StatusBarStyle" TargetType="StatusBar">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="BorderThickness" Value="0 1 0 0"/>
+        <Setter Property="BorderBrush" Value="{telerik1:Windows8Resource ResourceKey=BasicBrush}"/>
+        <Setter Property="Background" Value="{telerik1:Windows8Resource ResourceKey=StrongBrush}"/>
+        <Setter Property="Foreground" Value="{telerik1:Windows8Resource ResourceKey=MarkerBrush}"/>
+        <Setter Property="FontFamily" Value="{telerik1:Windows8Resource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:Windows8Resource ResourceKey=FontSize}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="StatusBar">
+                    <Grid>
+                        <Border
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="true"
+                                Opacity="0.15"/>
+                        <ItemsPresenter SnapsToDevicePixels="true"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Resources>
+            <Style TargetType="Separator" BasedOn="{StaticResource {x:Static StatusBar.SeparatorStyleKey}}"/>
+        </Style.Resources>
+    </Style>
+    <Style TargetType="StatusBar" BasedOn="{StaticResource StatusBarStyle}"/>
+    <Style TargetType="StatusBarItem" BasedOn="{StaticResource StatusBarItemStyle}"/>
+    <Style TargetType="Separator" BasedOn="{StaticResource SeparatorStyle}"/>
 </ResourceDictionary>

@@ -22,6 +22,7 @@ namespace FlipEm
     /// </summary>
     public partial class FlipEmView : IGame
     {
+        private FlipEmSettings _settings;
         public event GameStepEventHandler GameStep;
 
         public static readonly DependencyProperty FieldProperty =
@@ -49,8 +50,7 @@ namespace FlipEm
         {
             set
             {
-                var settings = (FlipEmSettings)value;
-                Field = new Field(settings.Size, settings.Step);
+                _settings = (FlipEmSettings)value;
             }
         }
 
@@ -82,6 +82,11 @@ namespace FlipEm
         public void Undo()
         {
             ;
+        }
+
+        public void Start()
+        {
+            Field = new Field(_settings.Size, _settings.Step);
         }
 
         private void OnChipClicked(object sender, ExecutedRoutedEventArgs e)

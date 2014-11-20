@@ -15,6 +15,7 @@ namespace Games.Core
         void SolutionStop();
         void Redo();
         void Undo();
+        void Start();
         object Settings { set; }
     }
 }

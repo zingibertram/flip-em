@@ -22,6 +22,20 @@ namespace Games
     /// </summary>
     public partial class GameWindow : RadRibbonWindow
     {
+        private string _currentStyle;
+        private static List<string> _styles = new List<string>
+        {
+            "ExpressionDark", "Office2013", "OfficeBlack", "OfficeBlue",
+            "OfficeSilver", "Summer", "Tranceparent", "Vista",
+            "VisualStudio2013", "Windows7", "Windows8", "Windows8Touch"
+        };
+
+        private static List<string> _styleDicts = new List<string>
+        {
+            "System.Windows.xaml", "Telerik.Windows.Controls.xaml", "Telerik.Windows.Controls.Input.xaml",
+            "Telerik.Windows.Controls.Navigation.xaml", "Telerik.Windows.Controls.RibbonView.xaml"
+        };
+
         public static readonly DependencyProperty GamesViewsProperty =
             DependencyProperty.Register("GamesViews", typeof(CollectionViewSource),
             typeof(GameWindow), new PropertyMetadata(null));
@@ -45,36 +59,32 @@ namespace Games
             get { return (CollectionViewSource)GetValue(GamesViewsProperty); }
             set { SetValue(GamesViewsProperty, value); }
         }
+
+        public List<string> Styles
+        {
+            get { return _styles; }
+        }
+
+        public string CurrentStyle
+        {
+            get { return _currentStyle; }
+            set
+            {
+                _currentStyle = value;
+                if (value != null)
+                {
+                    ChangeStyle(value);
+                }
+            }
+        }
         
         private void OnApplySettingsButtonClick(object sender, RoutedEventArgs e)
         {
-            GameView.Visibility = Visibility.Visible;
-            SettingsView.Visibility = Visibility.Collapsed;
+            OpenGame();
 
             var view = (IGameViews)GamesViews.View.CurrentItem;
             view.GameView.Settings = view.SettingsView.Settings;
-
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/System.Windows.xaml")
-            });
-            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/Telerik.Windows.Controls.xaml")
-            });
-            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/Telerik.Windows.Controls.Input.xaml")
-            });
-            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/Telerik.Windows.Controls.Navigation.xaml")
-            });
-            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("/GamesWpf;component/Themes/ExpressionDark/Telerik.Windows.Controls.RibbonView.xaml"),
-            });
+            view.GameView.Start();
         }
 
         private void OnOpenSettingsClick(object sender, RoutedEventArgs e)
@@ -88,10 +98,77 @@ namespace Games
             SettingsView.Visibility = Visibility.Visible;
         }
 
+        private void OpenGame()
+        {
+            GameView.Visibility = Visibility.Visible;
+            SettingsView.Visibility = Visibility.Collapsed;
+        }
+
         private void OnCurrentGameChanged(object sender, EventArgs e)
         {
             MainTab.IsSelected = true;
             OpenSettings();
+        }
+
+        private void OnOpenGameCkick(object sender, RoutedEventArgs e)
+        {
+            OpenGame();
+        }
+
+        private void ChangeStyle(string style)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+
+            string file;
+            foreach (var sfile in _styleDicts)
+            {
+                file = string.Format("pack://application:,,,/Themes/{0}/{1}", style, sfile);
+                Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
+                {
+                    Source = new Uri(file)
+                });
+            }
+        }
+
+        private void OnRestartClick(object sender, RoutedEventArgs e)
+        {
+            var view = (IGameViews)GamesViews.View.CurrentItem;
+            view.GameView.Start();
+        }
+
+        private void OnUndoClick(object sender, RoutedEventArgs e)
+        {
+            var view = (IGameViews)GamesViews.View.CurrentItem;
+            view.GameView.Undo();
+        }
+
+        private void OnRedoClick(object sender, RoutedEventArgs e)
+        {
+            var view = (IGameViews)GamesViews.View.CurrentItem;
+            view.GameView.Redo();
+        }
+
+        private void OnPlayClick(object sender, RoutedEventArgs e)
+        {
+            var view = (IGameViews)GamesViews.View.CurrentItem;
+            view.GameView.SolutionStart();
+        }
+
+        private void OnPauseClick(object sender, RoutedEventArgs e)
+        {
+            var view = (IGameViews)GamesViews.View.CurrentItem;
+            view.GameView.SolutionPause();
+        }
+
+        private void OnStopClick(object sender, RoutedEventArgs e)
+        {
+            var view = (IGameViews)GamesViews.View.CurrentItem;
+            view.GameView.SolutionStop();
+        }
+
+        private void OnCloseClick(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
