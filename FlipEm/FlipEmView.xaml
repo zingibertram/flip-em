@@ -27,9 +27,8 @@
 
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <telerik:RadToggleButton Margin="2"
-                                                             Width="16"
-                                                             Height="16"
+                                    <telerik:RadToggleButton Width="24"
+                                                             Height="24"
                                                              IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                                              Command="{x:Static root:FlipEmCommands.ChipClickedCommand}"
                                                              CommandParameter="{Binding}"/>

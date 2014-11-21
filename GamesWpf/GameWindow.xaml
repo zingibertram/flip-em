@@ -33,10 +33,11 @@
                         </telerik:RadListBox>
                     </telerik:RadRibbonBackstageItem>
 
-                    <telerik:RadRibbonBackstageItem Header="Separator"
-                                                    IsGroupSeparator="True"/>
+                    <telerik:RadRibbonBackstageItem IsGroupSeparator="True"/>
 
                     <telerik:RadRibbonBackstageItem Header="Выход"
+                                                    CloseOnClick="True"
+                                                    IsSelectable="False"
                                                     Click="OnCloseClick"/>
                 </telerik:RadRibbonBackstage>
             </telerik:RadRibbonView.Backstage>
@@ -91,41 +92,57 @@
             </telerik:RadRibbonTab>
         </telerik:RadRibbonView>
 
-        <ContentControl x:Name="GameView"
-                        Grid.Row="1"
-                        Content="{Binding /GameView}"
-                        Visibility="Collapsed"/>
-
-        <Grid x:Name="SettingsView"
-              Grid.Row="1">
+        <Grid Grid.Row="1"
+              x:Name="GameView"
+              Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <ContentControl Grid.Row="0"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Left"
-                            Content="{Binding /SettingsView}"/>
+                            Content="{Binding /GameView}"/>
 
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <StatusBar Grid.Row="1">
+                <StatusBarItem Content="123"></StatusBarItem>
+            </StatusBar>
+        </Grid>
 
-                <TextBlock Grid.Column="0"
+        <telerik:RadTileView x:Name="SettingsView"
+                             Grid.Row="1">
+            <telerik:RadTileViewItem Header="Настройки игры">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <ContentControl Grid.Row="0"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Left"
+                                    Content="{Binding /SettingsView}"/>
+
+                    <Button Grid.Row="1"
+                            Content="Ok"
+                            Click="OnApplySettingsButtonClick"/>
+                </Grid>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem Header="Общие настройки">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
                            Text="Стиль"/>
 
-                <telerik:RadComboBox Grid.Column="1"
+                    <telerik:RadComboBox Grid.Column="1"
                                      ItemsSource="{Binding Styles, ElementName=Window}"
                                      SelectedItem="{Binding CurrentStyle, ElementName=Window}"/>
-            </Grid>
-
-            <Button Grid.Row="2"
-                    Content="Ok"
-                    Click="OnApplySettingsButtonClick"/>
-        </Grid>
+                </Grid>
+            </telerik:RadTileViewItem>
+        </telerik:RadTileView>
     </Grid>
 </telerik:RadRibbonWindow>
