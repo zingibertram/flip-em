@@ -2,6 +2,7 @@
 using Games.Core;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ using System.Windows.Shapes;
 using Telerik.Windows.Controls;
 using TestGame;
 
-namespace Games
+namespace GamesWpf
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -39,29 +40,36 @@ namespace Games
             "Telerik.Windows.Controls.Navigation.xaml", "Telerik.Windows.Controls.RibbonView.xaml"
         };
 
-        public static readonly DependencyProperty GamesViewsProperty =
-            DependencyProperty.Register("GamesViews", typeof(CollectionViewSource),
+        public static readonly DependencyProperty GamesProperty =
+            DependencyProperty.Register("Games", typeof(ObservableCollection<Type>),
+            typeof(GameWindow), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty CurrentGameProperty =
+            DependencyProperty.Register("CurrentGame", typeof(IGameViews),
             typeof(GameWindow), new PropertyMetadata(null));
 
         public GameWindow()
         {
             InitializeComponent();
 
-            GamesViews = new CollectionViewSource
+            Games = new ObservableCollection<Type>
             {
-                Source = new List<IGameViews>
-                {
-                    new FlipEmContent(),
-                    new TestContent(),
-                }
+                typeof(FlipEmContent),
+                typeof(TestContent),
             };
-            GamesViews.View.CurrentChanged += OnCurrentGameChanged;
+            CurrentGame = (IGameViews)Activator.CreateInstance(Games[0]);
         }
 
-        public CollectionViewSource GamesViews
+        public ObservableCollection<Type> Games
         {
-            get { return (CollectionViewSource)GetValue(GamesViewsProperty); }
-            set { SetValue(GamesViewsProperty, value); }
+            get { return (ObservableCollection<Type>)GetValue(GamesProperty); }
+            set { SetValue(GamesProperty, value); }
+        }
+
+        public IGameViews CurrentGame
+        {
+            get { return (IGameViews)GetValue(CurrentGameProperty); }
+            set { SetValue(CurrentGameProperty, value); }
         }
 
         public List<string> Styles
@@ -84,10 +92,9 @@ namespace Games
         
         private void OnApplySettingsButtonClick(object sender, RoutedEventArgs e)
         {
+            CurrentGame.GameView.Settings = CurrentGame.SettingsView.Settings;
+            CurrentGame.GameView.Start();
 
-            var view = (IGameViews)GamesViews.View.CurrentItem;
-            view.GameView.Settings = view.SettingsView.Settings;
-            view.GameView.Start();
             OpenGame();
         }
 
@@ -106,10 +113,6 @@ namespace Games
         {
             GameView.Visibility = Visibility.Visible;
             SettingsView.Visibility = Visibility.Collapsed;
-        }
-
-        private void OnCurrentGameChanging(object sender, CurrentChangingEventArgs e)
-        {
         }
 
         private void OnCurrentGameChanged(object sender, EventArgs e)
@@ -140,43 +143,43 @@ namespace Games
 
         private void OnRestartClick(object sender, RoutedEventArgs e)
         {
-            var view = (IGameViews)GamesViews.View.CurrentItem;
-            view.GameView.Start();
+            CurrentGame.GameView.Start();
         }
 
         private void OnUndoClick(object sender, RoutedEventArgs e)
         {
-            var view = (IGameViews)GamesViews.View.CurrentItem;
-            view.GameView.Undo();
+            CurrentGame.GameView.Undo();
         }
 
         private void OnRedoClick(object sender, RoutedEventArgs e)
         {
-            var view = (IGameViews)GamesViews.View.CurrentItem;
-            view.GameView.Redo();
+            CurrentGame.GameView.Redo();
         }
 
         private void OnPlayClick(object sender, RoutedEventArgs e)
         {
-            var view = (IGameViews)GamesViews.View.CurrentItem;
-            view.GameView.SolutionStart();
+            CurrentGame.GameView.SolutionStart();
         }
 
         private void OnPauseClick(object sender, RoutedEventArgs e)
         {
-            var view = (IGameViews)GamesViews.View.CurrentItem;
-            view.GameView.SolutionPause();
+            CurrentGame.GameView.SolutionPause();
         }
 
         private void OnStopClick(object sender, RoutedEventArgs e)
         {
-            var view = (IGameViews)GamesViews.View.CurrentItem;
-            view.GameView.SolutionStop();
+            CurrentGame.GameView.SolutionStop();
         }
 
         private void OnCloseClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void OnGameClick(object sender, MouseButtonEventArgs e)
+        {
+            MainTab.IsSelected = true;
+            OpenSettings();
         }
     }
 }

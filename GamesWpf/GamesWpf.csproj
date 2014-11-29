@@ -7,7 +7,7 @@
     <ProjectGuid>{BA119429-F93B-46B9-BB16-31E6D5DC1D34}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WpfTest</RootNamespace>
+    <RootNamespace>GamesWpf</RootNamespace>
     <AssemblyName>GamesWpf</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TypeToGameConverter.cs" />
     <Page Include="GameWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

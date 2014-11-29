@@ -19,5 +19,10 @@ namespace TestGame
         {
             get { return "Test game 1.0"; }
         }
+
+        ~TestContent()
+        {
+            Console.WriteLine("Test game content desttructed");
+        }
     }
 }
