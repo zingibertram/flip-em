@@ -33,6 +33,10 @@
                         </telerik:RadListBox>
                     </telerik:RadRibbonBackstageItem>
 
+                    <telerik:RadRibbonBackstageItem Header="О программе"
+                                                    CloseOnClick="True"
+                                                    IsSelectable="True"/>
+
                     <telerik:RadRibbonBackstageItem IsGroupSeparator="True"/>
 
                     <telerik:RadRibbonBackstageItem Header="Выход"
@@ -104,7 +108,10 @@
                             Content="{Binding /GameView}"/>
 
             <StatusBar Grid.Row="1">
-                <StatusBarItem Content="123"></StatusBarItem>
+                <StatusBarItem Content="Количество ходов: "/>
+                <StatusBarItem Content="Количество ходов: "/>
+                <StatusBarItem Content="Последний ход: "/>
+                <StatusBarItem Content="Количество ходов: "/>
             </StatusBar>
         </Grid>
 
@@ -136,11 +143,11 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Column="0"
-                           Text="Стиль"/>
+                               Text="Стиль"/>
 
                     <telerik:RadComboBox Grid.Column="1"
-                                     ItemsSource="{Binding Styles, ElementName=Window}"
-                                     SelectedItem="{Binding CurrentStyle, ElementName=Window}"/>
+                                         ItemsSource="{Binding Styles, ElementName=Window}"
+                                         SelectedItem="{Binding CurrentStyle, ElementName=Window}"/>
                 </Grid>
             </telerik:RadTileViewItem>
         </telerik:RadTileView>

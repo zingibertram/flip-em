@@ -17,18 +17,16 @@ using System.Windows.Shapes;
 
 namespace FlipEm
 {
-    /// <summary>
-    /// Логика взаимодействия для FlipEmView.xaml
-    /// </summary>
-    public partial class FlipEmView : IGame
+    public partial class FlipEmGameView : IGame
     {
         private FlipEmSettings _settings;
         public event GameStepEventHandler GameStep;
 
         public static readonly DependencyProperty FieldProperty =
-            DependencyProperty.Register("Field", typeof(Field), typeof(FlipEmView), new PropertyMetadata(null));
+            DependencyProperty.Register("Field", typeof(Field),
+            typeof(FlipEmGameView), new PropertyMetadata(null));
         
-        public FlipEmView()
+        public FlipEmGameView()
         {
             InitializeComponent();
 
@@ -38,7 +36,7 @@ namespace FlipEm
         public Field Field
         {
             get { return (Field)GetValue(FieldProperty); }
-            set { SetValue(FieldProperty, value); }
+            private set { SetValue(FieldProperty, value); }
         }
 
         public FrameworkElement View
@@ -48,10 +46,7 @@ namespace FlipEm
         
         public object Settings
         {
-            set
-            {
-                _settings = (FlipEmSettings)value;
-            }
+            set { _settings = (FlipEmSettings)value; }
         }
 
         public void OnGameStep()

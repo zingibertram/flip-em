@@ -78,7 +78,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="GameContent.cs" />
     <Page Include="GameWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -367,6 +366,10 @@
     <ProjectReference Include="..\Games.Core\Games.Core.csproj">
       <Project>{d850e5b2-8486-45e1-b691-04e7728eae32}</Project>
       <Name>Games.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestGame\TestGame.csproj">
+      <Project>{3f75dc34-2a08-4d3a-81ff-57bf215f6c02}</Project>
+      <Name>TestGame</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -5,10 +5,21 @@ using System.Text;
 
 namespace Games.Core
 {
-    public interface IGameViews
+    public abstract class IGameViews
     {
-        IGame GameView { get; }
-        ISettings SettingsView { get; }
-        string Text { get; }
+        protected ISettings _settings;
+        protected IGame _game;
+
+        public IGame GameView
+        {
+            get { return _game; }
+        }
+
+        public ISettings SettingsView
+        {
+            get { return _settings; }
+        }
+
+        public virtual string Text { get; set; }
     }
 }

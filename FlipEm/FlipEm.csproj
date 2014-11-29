@@ -70,8 +70,8 @@
     <Compile Include="FlipEmSettingsView.xaml.cs">
       <DependentUpon>FlipEmSettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FlipEmView.xaml.cs">
-      <DependentUpon>FlipEmView.xaml</DependentUpon>
+    <Compile Include="FlipEmGameView.xaml.cs">
+      <DependentUpon>FlipEmGameView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,7 +80,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FlipEmView.xaml">
+    <Page Include="FlipEmGameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

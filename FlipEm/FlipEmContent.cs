@@ -8,24 +8,15 @@ namespace FlipEm
 {
     public class FlipEmContent : IGameViews
     {
-        private static IGame game = new FlipEmView();
-        private static ISettings settings = new FlipEmSettingsView();
-        private static string text = "FlipEm 3.0";
-
-        public IGame GameView
+        public FlipEmContent()
         {
-            get { return game; }
+            _game = new FlipEmGameView();
+            _settings = new FlipEmSettingsView();
         }
 
-        public ISettings SettingsView
+        public override string Text
         {
-            get { return settings; }
-        }
-
-
-        public string Text
-        {
-            get { return text; }
+            get { return "FlipEm 3.0"; }
         }
     }
 }

@@ -10,8 +10,13 @@ namespace Games.Core
 
     public class GameStepEventArgs : EventArgs
     {
-        public GameStepEventArgs()
+        public GameStepEventArgs(int num, string msg)
         {
+            StepNumber = num;
+            StepMessage = msg;
         }
+
+        public int StepNumber { get; private set; }
+        public string StepMessage { get; private set; }
     }
 }

@@ -1,6 +1,8 @@
-﻿using Games.Core;
+﻿using FlipEm;
+using Games.Core;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telerik.Windows.Controls;
+using TestGame;
 
 namespace Games
 {
@@ -48,7 +51,8 @@ namespace Games
             {
                 Source = new List<IGameViews>
                 {
-                    new FlipEm.FlipEmContent(),
+                    new FlipEmContent(),
+                    new TestContent(),
                 }
             };
             GamesViews.View.CurrentChanged += OnCurrentGameChanged;
@@ -80,11 +84,11 @@ namespace Games
         
         private void OnApplySettingsButtonClick(object sender, RoutedEventArgs e)
         {
-            OpenGame();
 
             var view = (IGameViews)GamesViews.View.CurrentItem;
             view.GameView.Settings = view.SettingsView.Settings;
             view.GameView.Start();
+            OpenGame();
         }
 
         private void OnOpenSettingsClick(object sender, RoutedEventArgs e)
@@ -102,6 +106,10 @@ namespace Games
         {
             GameView.Visibility = Visibility.Visible;
             SettingsView.Visibility = Visibility.Collapsed;
+        }
+
+        private void OnCurrentGameChanging(object sender, CurrentChangingEventArgs e)
+        {
         }
 
         private void OnCurrentGameChanged(object sender, EventArgs e)
