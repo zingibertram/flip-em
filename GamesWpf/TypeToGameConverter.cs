@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Data;
+using Games.Core;
 
 namespace GamesWpf
 {
@@ -7,14 +8,14 @@ namespace GamesWpf
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return value.GetType();
+            throw new NotImplementedException();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            var type = value as Type;
+            var type = value as IGameInfo;
             if (type != null)
-                return Activator.CreateInstance(type);
+                return Activator.CreateInstance(type.ContentType);
             return null;
         }
     }

@@ -12,11 +12,6 @@ namespace FlipEm
             Console.WriteLine("FlipEm game created");
         }
 
-        public override string Text
-        {
-            get { return "FlipEm 3.0"; }
-        }
-
         ~FlipEmContent()
         {
             Console.WriteLine("FlipEm game content desttructed");

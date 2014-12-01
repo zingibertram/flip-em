@@ -51,6 +51,7 @@
     <Compile Include="TestGameView.xaml.cs">
       <DependentUpon>TestGameView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestInfo.cs" />
     <Compile Include="TestSettingsView.xaml.cs">
       <DependentUpon>TestSettingsView.xaml</DependentUpon>
     </Compile>

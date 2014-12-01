@@ -48,6 +48,7 @@
     <Compile Include="EnumViewModel.cs" />
     <Compile Include="GameStepEvent.cs" />
     <Compile Include="IGame.cs" />
+    <Compile Include="IGameInfo.cs" />
     <Compile Include="IGameViews.cs" />
     <Compile Include="ISettings.cs" />
     <Compile Include="IView.cs" />

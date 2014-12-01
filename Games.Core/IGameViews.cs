@@ -1,6 +1,6 @@
 ﻿namespace Games.Core
 {
-    public abstract class IGameViews
+    public class IGameViews
     {
         protected ISettings _settings;
         protected IGame _game;
@@ -14,7 +14,5 @@
         {
             get { return _settings; }
         }
-
-        public virtual string Text { get; set; }
     }
 }

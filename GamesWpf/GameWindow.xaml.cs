@@ -26,7 +26,7 @@ namespace GamesWpf
         };
 
         public static readonly DependencyProperty GamesProperty =
-            DependencyProperty.Register("Games", typeof(ObservableCollection<Type>),
+            DependencyProperty.Register("Games", typeof(ObservableCollection<IGameInfo>),
             typeof(GameWindow), new PropertyMetadata(null));
 
         public static readonly DependencyProperty CurrentGameProperty =
@@ -37,17 +37,17 @@ namespace GamesWpf
         {
             InitializeComponent();
 
-            Games = new ObservableCollection<Type>
+            Games = new ObservableCollection<IGameInfo>
             {
-                typeof(FlipEmContent),
-                typeof(TestContent),
+                new FlipEmInfo(),
+                new TestInfo(),
             };
-            CurrentGame = (IGameViews)Activator.CreateInstance(Games[0]);
+            CurrentGame = (IGameViews)Activator.CreateInstance(Games[0].ContentType);
         }
 
-        public ObservableCollection<Type> Games
+        public ObservableCollection<IGameInfo> Games
         {
-            get { return (ObservableCollection<Type>)GetValue(GamesProperty); }
+            get { return (ObservableCollection<IGameInfo>)GetValue(GamesProperty); }
             set { SetValue(GamesProperty, value); }
         }
 

@@ -31,10 +31,11 @@
                                                     IsDefault="True"
                                                     CloseOnClick="True">
                         <telerik:RadListBox ItemsSource="{Binding Games}"
-                                            SelectedItem="{Binding CurrentGame, Converter={StaticResource TypeToGameConverter}, Mode=TwoWay}">
+                                            SelectedIndex="0"
+                                            SelectedItem="{Binding CurrentGame, Converter={StaticResource TypeToGameConverter}, Mode=OneWayToSource}">
                             <telerik:RadListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding}"
+                                    <TextBlock Text="{Binding Name}"
                                                MouseLeftButtonUp="OnGameClick"/>
                                 </DataTemplate>
                             </telerik:RadListBox.ItemTemplate>
@@ -154,8 +155,8 @@
                                Text="Стиль"/>
 
                     <telerik:RadComboBox Grid.Column="1"
-                                         ItemsSource="{Binding Styles, ElementName=Window}"
-                                         SelectedItem="{Binding CurrentStyle, ElementName=Window}"/>
+                                         ItemsSource="{Binding Styles}"
+                                         SelectedItem="{Binding CurrentStyle}"/>
                 </Grid>
             </telerik:RadTileViewItem>
         </telerik:RadTileView>
