@@ -1,30 +1,14 @@
-﻿using FlipEm;
-using Games.Core;
+﻿using Games.Core;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
-using TestGame;
 
 namespace GamesWpf
 {
     public partial class GameWindow
     {
-        private string _currentStyle;
-        private static readonly List<string> _styles = new List<string>
-        {
-            "ExpressionDark", "Office2013", "OfficeBlack", "OfficeBlue",
-            "OfficeSilver", "Summer", "Tranceparent", "Vista",
-            "VisualStudio2013", "Windows7", "Windows8", "Windows8Touch"
-        };
-
-        private static readonly List<string> _styleDicts = new List<string>
-        {
-            "System.Windows.xaml", "Telerik.Windows.Controls.xaml", "Telerik.Windows.Controls.Input.xaml",
-            "Telerik.Windows.Controls.Navigation.xaml", "Telerik.Windows.Controls.RibbonView.xaml"
-        };
-
         public static readonly DependencyProperty GamesProperty =
             DependencyProperty.Register("Games", typeof(ObservableCollection<IGameInfo>),
             typeof(GameWindow), new PropertyMetadata(null));
@@ -36,13 +20,7 @@ namespace GamesWpf
         public GameWindow()
         {
             InitializeComponent();
-
-            Games = new ObservableCollection<IGameInfo>
-            {
-                new FlipEmInfo(),
-                new TestInfo(),
-            };
-            CurrentGame = (IGameViews)Activator.CreateInstance(Games[0].ContentType);
+            Games = GamesLoader.Load();
         }
 
         public ObservableCollection<IGameInfo> Games
@@ -55,24 +33,6 @@ namespace GamesWpf
         {
             get { return (IGameViews)GetValue(CurrentGameProperty); }
             set { SetValue(CurrentGameProperty, value); }
-        }
-
-        public List<string> Styles
-        {
-            get { return _styles; }
-        }
-
-        public string CurrentStyle
-        {
-            get { return _currentStyle; }
-            set
-            {
-                _currentStyle = value;
-                if (value != null)
-                {
-                    ChangeStyle(value);
-                }
-            }
         }
         
         private void OnApplySettingsButtonClick(object sender, RoutedEventArgs e)
@@ -109,20 +69,6 @@ namespace GamesWpf
         private void OnOpenGameCkick(object sender, RoutedEventArgs e)
         {
             OpenGame();
-        }
-
-        private void ChangeStyle(string style)
-        {
-            Application.Current.Resources.MergedDictionaries.Clear();
-
-            foreach (var sfile in _styleDicts)
-            {
-                var file = string.Format(@"/GamesWpf;component/Themes/{0}/{1}", style, sfile);
-                Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
-                {
-                    Source = new Uri(file, UriKind.Relative)
-                });
-            }
         }
 
         private void OnRestartClick(object sender, RoutedEventArgs e)

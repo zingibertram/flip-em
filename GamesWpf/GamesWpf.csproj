@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GamesLoader.cs" />
     <Compile Include="TypeToGameConverter.cs" />
     <Page Include="GameWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -360,17 +361,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlipEm\FlipEm.csproj">
-      <Project>{32b57688-602b-482e-b36c-7bf0518a6df6}</Project>
-      <Name>FlipEm</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Games.Core\Games.Core.csproj">
       <Project>{d850e5b2-8486-45e1-b691-04e7728eae32}</Project>
       <Name>Games.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestGame\TestGame.csproj">
-      <Project>{3f75dc34-2a08-4d3a-81ff-57bf215f6c02}</Project>
-      <Name>TestGame</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -143,22 +143,6 @@
                             Click="OnApplySettingsButtonClick"/>
                 </Grid>
             </telerik:RadTileViewItem>
-
-            <telerik:RadTileViewItem Header="Общие настройки">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Grid.Column="0"
-                               Text="Стиль"/>
-
-                    <telerik:RadComboBox Grid.Column="1"
-                                         ItemsSource="{Binding Styles}"
-                                         SelectedItem="{Binding CurrentStyle}"/>
-                </Grid>
-            </telerik:RadTileViewItem>
         </telerik:RadTileView>
     </Grid>
 </telerik:RadRibbonWindow>
