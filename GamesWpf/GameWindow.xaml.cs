@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Win32;
 
 namespace GamesWpf
 {
@@ -104,6 +105,21 @@ namespace GamesWpf
         private void OnCloseClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void OnLoadGameClicked(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                RestoreDirectory = true,
+                CheckFileExists = true,
+                Filter = "Библиотека игр|*.dll"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                Games.Add(GamesLoader.LoadGame(dialog.FileName));
+            }
         }
     }
 }

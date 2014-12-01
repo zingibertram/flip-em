@@ -42,6 +42,11 @@
                         </telerik:RadListBox>
                     </telerik:RadRibbonBackstageItem>
 
+                    <telerik:RadRibbonBackstageItem Header="Загрузить игру"
+                                                    CloseOnClick="True"
+                                                    IsSelectable="False"
+                                                    Click="OnLoadGameClicked"/>
+
                     <telerik:RadRibbonBackstageItem Header="О программе"
                                                     CloseOnClick="True"
                                                     IsSelectable="True"/>
@@ -114,7 +119,7 @@
             </Grid.RowDefinitions>
 
             <ContentControl Grid.Row="0"
-                            Content="{Binding CurrentGame.GameView}"/>
+                            Content="{Binding CurrentGame.GameView.View}"/>
 
             <StatusBar Grid.Row="1">
                 <StatusBarItem Content="Количество ходов: "/>
@@ -136,7 +141,7 @@
                     <ContentControl Grid.Row="0"
                                     VerticalAlignment="Top"
                                     HorizontalAlignment="Left"
-                                    Content="{Binding CurrentGame.SettingsView}"/>
+                                    Content="{Binding CurrentGame.SettingsView.View}"/>
 
                     <Button Grid.Row="1"
                             Content="Ok"

@@ -21,27 +21,28 @@ namespace GamesWpf
             var gamesLibs = Directory.GetFiles(_appDir, "*.dll");
             foreach (var glibFile in gamesLibs)
             {
-                var glib = Assembly.LoadFile(glibFile);
-
-                foreach (var type in glib.GetExportedTypes())
+                var info = LoadGame(glibFile);
+                if (info != null)
                 {
-                    if (type.BaseType == _gameInfoType)
-                    {
-                        var info = Activator.CreateInstance(type) as IGameInfo;
-                        if (info != null)
-                        {
-                            games.Add(info);
-                        }
-                    }
+                    games.Add(info);
                 }
-
             }
 
             return games;
         }
 
-        public static IGameInfo LoadGame()
+        public static IGameInfo LoadGame(string path)
         {
+            var glib = Assembly.LoadFile(path);
+
+            foreach (var type in glib.GetExportedTypes())
+            {
+                if (type.BaseType == _gameInfoType)
+                {
+                    return Activator.CreateInstance(type) as IGameInfo;
+                }
+            }
+
             return null;
         }
     }
