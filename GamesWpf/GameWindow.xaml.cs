@@ -3,38 +3,23 @@ using Games.Core;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Telerik.Windows.Controls;
 using TestGame;
 
 namespace GamesWpf
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
-    public partial class GameWindow : RadRibbonWindow
+    public partial class GameWindow
     {
         private string _currentStyle;
-        private static List<string> _styles = new List<string>
+        private static readonly List<string> _styles = new List<string>
         {
             "ExpressionDark", "Office2013", "OfficeBlack", "OfficeBlue",
             "OfficeSilver", "Summer", "Tranceparent", "Vista",
             "VisualStudio2013", "Windows7", "Windows8", "Windows8Touch"
         };
 
-        private static List<string> _styleDicts = new List<string>
+        private static readonly List<string> _styleDicts = new List<string>
         {
             "System.Windows.xaml", "Telerik.Windows.Controls.xaml", "Telerik.Windows.Controls.Input.xaml",
             "Telerik.Windows.Controls.Navigation.xaml", "Telerik.Windows.Controls.RibbonView.xaml"
@@ -115,7 +100,7 @@ namespace GamesWpf
             SettingsView.Visibility = Visibility.Collapsed;
         }
 
-        private void OnCurrentGameChanged(object sender, EventArgs e)
+        private void OnGameClick(object sender, MouseButtonEventArgs e)
         {
             MainTab.IsSelected = true;
             OpenSettings();
@@ -130,13 +115,12 @@ namespace GamesWpf
         {
             Application.Current.Resources.MergedDictionaries.Clear();
 
-            string file;
             foreach (var sfile in _styleDicts)
             {
-                file = string.Format("pack://application:,,,/Themes/{0}/{1}", style, sfile);
+                var file = string.Format(@"/GamesWpf;component/Themes/{0}/{1}", style, sfile);
                 Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
                 {
-                    Source = new Uri(file)
+                    Source = new Uri(file, UriKind.Relative)
                 });
             }
         }
@@ -174,12 +158,6 @@ namespace GamesWpf
         private void OnCloseClick(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void OnGameClick(object sender, MouseButtonEventArgs e)
-        {
-            MainTab.IsSelected = true;
-            OpenSettings();
         }
     }
 }

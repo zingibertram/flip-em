@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Windows;
 
 namespace FlipEm.Core
 {
     public class Field
     {
-        private List<List<Chip>> _chips;
-        private IDictionary<Chip, IEnumerable<Chip>> _neighboursByChips;
+        private readonly List<List<Chip>> _chips;
+        private readonly IDictionary<Chip, IEnumerable<Chip>> _neighboursByChips;
 
         public Field(int size, StepType type)
         {
             _chips = new List<List<Chip>>();
 
-            List<Chip> chipsRow;
             for (int i = 0; i < size; ++i)
             {
-                chipsRow = new List<Chip>();
+                List<Chip> chipsRow = new List<Chip>();
                 _chips.Add(chipsRow);
                 for (int j = 0; j < size; ++j)
                 {
