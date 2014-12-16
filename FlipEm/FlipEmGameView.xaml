@@ -34,8 +34,7 @@
                                                              Height="24"
                                                              IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                                              Command="{x:Static root:FlipEmCommands.ChipClickedCommand}"
-                                                             CommandParameter="{Binding}"
-                                                             Margin="0 0 -1 -1"/>
+                                                             CommandParameter="{Binding}"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>

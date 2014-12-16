@@ -1,5 +1,9 @@
-﻿using System.IO;
-using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Windows.Documents;
+using System.Windows.Threading;
 using FlipEm.Core;
 using Games.Core;
 using System.Windows;
@@ -10,6 +14,9 @@ namespace FlipEm
     public partial class FlipEmGameView : IGame
     {
         private FlipEmSettings _settings;
+        private IEnumerator<Point> _solutionSteps;
+        private readonly DispatcherTimer _solutionTimer;
+
         public event GameStepEventHandler GameStep;
 
         public static readonly DependencyProperty FieldProperty =
@@ -20,7 +27,11 @@ namespace FlipEm
         {
             InitializeComponent();
 
-            Field = new Field(6, StepType.BorderCross);
+            _solutionTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(500) };
+            _solutionTimer.Tick += OnSolutionTimerTick;
+
+            _settings = new FlipEmSettings { Size = 3, Step = StepType.Cross };
+            Start();
         }
 
         public Field Field
@@ -46,24 +57,22 @@ namespace FlipEm
 
         public void SolutionStart()
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "MyCompany.MyProduct.MyFile.txt";
-
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream))
+            SetStepsEnumerator();
+            if (_solutionSteps != null)
             {
-                string result = reader.ReadToEnd();
+                _solutionTimer.Start();
             }
         }
 
         public void SolutionPause()
         {
-            ;
+            _solutionTimer.Stop();
         }
 
         public void SolutionStop()
         {
-            ;
+            _solutionTimer.Stop();
+            _solutionSteps = null;
         }
 
         public void Redo()
@@ -90,6 +99,54 @@ namespace FlipEm
         private void CanChipClicked(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = Field.CanClick();
+        }
+
+        private void OnSolutionTimerTick(object sender, EventArgs eventArgs)
+        {
+            var chip = Field.Chips[(int)_solutionSteps.Current.X][(int)_solutionSteps.Current.Y];
+            if (NeighbourHelper.IsSelfChecked(_settings.Step))
+            {
+                chip.IsChecked = !chip.IsChecked;
+            }
+
+            Field.Click(chip);
+
+            if (!_solutionSteps.MoveNext())
+            {
+                SolutionStop();
+            }
+        }
+
+        private void SetStepsEnumerator()
+        {
+            if (_solutionSteps != null)
+                return;
+
+            var type = typeof(Res.Resource);
+            var propertyName = string.Format("{0}_{1}", _settings.Step.ToString(), _settings.Size);
+            var property = type.GetProperty(propertyName);
+            if (property != null)
+            {
+                var solution = property.GetValue(null, null) as string;
+                if (string.IsNullOrEmpty(solution))
+                    return;
+
+                using (var reader = new StringReader(solution))
+                {
+                    var steps = new List<Point>();
+
+                    var num = int.Parse(reader.ReadLine());
+                    for (int i = 0; i < num; ++i)
+                    {
+                        var row = reader.ReadLine().Split(' ');
+                        steps.Add(new Point(int.Parse(row[0]), int.Parse(row[1])));
+                    }
+
+                    Start();
+                    _solutionSteps = steps.GetEnumerator();
+                    _solutionSteps.MoveNext();
+                }
+            }
         }
     }
 }

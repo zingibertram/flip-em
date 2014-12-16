@@ -15,5 +15,10 @@ namespace FlipEm.Core
                 OnPropertyChanged("IsChecked");
             }
         }
+
+        public override string ToString()
+        {
+            return _isChecked ? "1" : "0";
+        }
     }
 }
