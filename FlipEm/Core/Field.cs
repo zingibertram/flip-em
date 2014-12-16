@@ -45,5 +45,12 @@ namespace FlipEm.Core
                 neighbourChip.IsChecked = !neighbourChip.IsChecked;
             }
         }
+
+        public bool CanClick()
+        {
+            return !_chips.Aggregate(true,
+                (acc, row) => row.Aggregate(acc,
+                    (res, chip) => res && chip.IsChecked));
+        }
     }
 }

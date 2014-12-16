@@ -43,15 +43,19 @@
     <Reference Include="System.Data" />
     <Reference Include="Telerik.Windows.Controls">
       <HintPath>..\lib\Telerik.Windows.Controls.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Telerik.Windows.Controls.Data">
       <HintPath>..\lib\Telerik.Windows.Controls.Data.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Telerik.Windows.Controls.Input">
       <HintPath>..\lib\Telerik.Windows.Controls.Input.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Telerik.Windows.Data">
       <HintPath>..\lib\Telerik.Windows.Data.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -63,11 +67,6 @@
     <Compile Include="FlipEmContent.cs" />
     <Compile Include="FlipEmCommands.cs" />
     <Compile Include="FlipEmInfo.cs" />
-    <Compile Include="FlipEmResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlipEmResources.resx</DependentUpon>
-    </Compile>
     <Compile Include="FlipEmSettingsView.xaml.cs">
       <DependentUpon>FlipEmSettingsView.xaml</DependentUpon>
     </Compile>
@@ -90,124 +89,48 @@
     <ProjectReference Include="..\Games.Core\Games.Core.csproj">
       <Project>{d850e5b2-8486-45e1-b691-04e7728eae32}</Project>
       <Name>Games.Core</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="FlipEmResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>FlipEmResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\fcheck.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][cross][3].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][cross][4].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][cross][6].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][cross][8].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][cross][10].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][cross][12].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][diagonal][cross][3].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][diagonal][cross][4].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][diagonal][cross][7].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][diagonal][cross][8].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][diagonal][cross][11].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][diagonal][cross][12].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [border][square][4].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][3].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][4].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][5].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][6].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][7].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][8].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][9].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][10].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][11].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [cross][12].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [diagonal][cross][3].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [diagonal][cross][4].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][3].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][4].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][5].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][6].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][7].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][8].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][9].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][10].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][11].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence [square][12].txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Solutions\Steps sequence.txt" />
+    <Resource Include="Res\Solutions\fcheck.txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][cross][10].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][cross][12].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][cross][3].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][cross][4].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][cross][6].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][cross][8].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][diagonal][cross][11].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][diagonal][cross][12].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][diagonal][cross][3].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][diagonal][cross][4].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][diagonal][cross][7].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][diagonal][cross][8].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [border][square][4].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][10].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][11].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][12].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][3].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][4].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][5].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][6].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][7].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][8].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [cross][9].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [diagonal][cross][3].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [diagonal][cross][4].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][10].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][11].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][12].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][3].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][4].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][5].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][6].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][7].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][8].txt" />
+    <Resource Include="Res\Solutions\Steps sequence [square][9].txt" />
+    <Resource Include="Res\Solutions\Steps sequence.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

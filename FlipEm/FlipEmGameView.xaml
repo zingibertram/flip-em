@@ -8,10 +8,13 @@
              xmlns:root="clr-namespace:FlipEm"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
+
     <UserControl.CommandBindings>
         <CommandBinding Command="{x:Static root:FlipEmCommands.ChipClickedCommand}"
-                        Executed="OnChipClicked"/>
+                        Executed="OnChipClicked"
+                        CanExecute="CanChipClicked"/>
     </UserControl.CommandBindings>
+
     <Grid HorizontalAlignment="Center"
           VerticalAlignment="Center">
         <ItemsControl ItemsSource="{Binding ElementName=Control, Path=Field.Chips, Mode=OneWay}">
@@ -31,7 +34,8 @@
                                                              Height="24"
                                                              IsChecked="{Binding IsChecked, Mode=TwoWay}"
                                                              Command="{x:Static root:FlipEmCommands.ChipClickedCommand}"
-                                                             CommandParameter="{Binding}"/>
+                                                             CommandParameter="{Binding}"
+                                                             Margin="0 0 -1 -1"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>

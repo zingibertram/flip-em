@@ -1,4 +1,6 @@
-﻿using FlipEm.Core;
+﻿using System.IO;
+using System.Reflection;
+using FlipEm.Core;
 using Games.Core;
 using System.Windows;
 using System.Windows.Input;
@@ -44,7 +46,14 @@ namespace FlipEm
 
         public void SolutionStart()
         {
-            ;
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "MyCompany.MyProduct.MyFile.txt";
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                string result = reader.ReadToEnd();
+            }
         }
 
         public void SolutionPause()
@@ -76,6 +85,11 @@ namespace FlipEm
         {
             Field.Click(e.Parameter as Chip);
             e.Handled = true;
+        }
+
+        private void CanChipClicked(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = Field.CanClick();
         }
     }
 }
