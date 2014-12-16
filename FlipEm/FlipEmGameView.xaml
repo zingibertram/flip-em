@@ -9,6 +9,7 @@
              xmlns:core="clr-namespace:Games.Core;assembly=Games.Core"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
+
     <UserControl.CommandBindings>
         <CommandBinding Command="{x:Static local:FlipEmCommands.ChipClickedCommand}"
                         Executed="OnChipClicked"
@@ -16,6 +17,7 @@
         <CommandBinding Command="{x:Static core:GameCommands.StartCommand}"
                         Executed="OnStart"/>
     </UserControl.CommandBindings>
+
     <Grid HorizontalAlignment="Center"
           VerticalAlignment="Center">
         <ItemsControl ItemsSource="{Binding ElementName=Control, Path=Field.Chips, Mode=OneWay}">

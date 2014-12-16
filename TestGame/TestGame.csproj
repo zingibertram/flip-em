@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\release\games\</OutputPath>
+    <OutputPath>..\bin\debug\games\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -60,6 +60,7 @@
     <ProjectReference Include="..\Games.Core\Games.Core.csproj">
       <Project>{d850e5b2-8486-45e1-b691-04e7728eae32}</Project>
       <Name>Games.Core</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

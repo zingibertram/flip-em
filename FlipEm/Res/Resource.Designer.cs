@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FlipEm {
+namespace FlipEm.Res {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace FlipEm {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class FlipEmResources {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal FlipEmResources() {
+        internal Resource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace FlipEm {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FlipEm.FlipEmResources", typeof(FlipEmResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FlipEm.Res.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,37 +61,19 @@ namespace FlipEm {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 15
+        ///   Ищет локализованную строку, похожую на 8
+        ///0 0
+        ///0 2
         ///0 3
-        ///0 4
         ///1 0
-        ///1 1
-        ///1 3
-        ///1 4
-        ///2 0
-        ///2 1
-        ///2 2
+        ///2 3
+        ///3 0
         ///3 1
-        ///3 2
-        ///3 3
-        ///4 0
-        ///4 2
-        ///4 3
-        ///.
+        ///3 3.
         /// </summary>
-        public static string fcheck {
+        public static string Border_4 {
             get {
-                return ResourceManager.GetString("fcheck", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на 0
-        ///.
-        /// </summary>
-        public static string Steps_sequence {
-            get {
-                return ResourceManager.GetString("Steps_sequence", resourceCulture);
+                return ResourceManager.GetString("Border_4", resourceCulture);
             }
         }
         
@@ -157,9 +139,9 @@ namespace FlipEm {
         ///9 9
         ///.
         /// </summary>
-        public static string Steps_sequence__border__cross__10_ {
+        public static string BorderCross_10 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__cross__10_", resourceCulture);
+                return ResourceManager.GetString("BorderCross_10", resourceCulture);
             }
         }
         
@@ -249,9 +231,9 @@ namespace FlipEm {
         ///11 11
         ///.
         /// </summary>
-        public static string Steps_sequence__border__cross__12_ {
+        public static string BorderCross_12 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__cross__12_", resourceCulture);
+                return ResourceManager.GetString("BorderCross_12", resourceCulture);
             }
         }
         
@@ -264,9 +246,9 @@ namespace FlipEm {
         ///2 1
         ///.
         /// </summary>
-        public static string Steps_sequence__border__cross__3_ {
+        public static string BorderCross_3 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__cross__3_", resourceCulture);
+                return ResourceManager.GetString("BorderCross_3", resourceCulture);
             }
         }
         
@@ -280,9 +262,9 @@ namespace FlipEm {
         ///3 1
         ///.
         /// </summary>
-        public static string Steps_sequence__border__cross__4_ {
+        public static string BorderCross_4 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__cross__4_", resourceCulture);
+                return ResourceManager.GetString("BorderCross_4", resourceCulture);
             }
         }
         
@@ -312,9 +294,9 @@ namespace FlipEm {
         ///5 4
         ///.
         /// </summary>
-        public static string Steps_sequence__border__cross__6_ {
+        public static string BorderCross_6 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__cross__6_", resourceCulture);
+                return ResourceManager.GetString("BorderCross_6", resourceCulture);
             }
         }
         
@@ -362,9 +344,9 @@ namespace FlipEm {
         ///7 7
         ///.
         /// </summary>
-        public static string Steps_sequence__border__cross__8_ {
+        public static string BorderCross_8 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__cross__8_", resourceCulture);
+                return ResourceManager.GetString("BorderCross_8", resourceCulture);
             }
         }
         
@@ -407,9 +389,9 @@ namespace FlipEm {
         ///10 9
         ///10 10.
         /// </summary>
-        public static string Steps_sequence__border__diagonal__cross__11_ {
+        public static string BorderDiagonalCross_11 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__diagonal__cross__11_", resourceCulture);
+                return ResourceManager.GetString("BorderDiagonalCross_11", resourceCulture);
             }
         }
         
@@ -453,9 +435,9 @@ namespace FlipEm {
         ///10 10
         ///.
         /// </summary>
-        public static string Steps_sequence__border__diagonal__cross__12_ {
+        public static string BorderDiagonalCross_12 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__diagonal__cross__12_", resourceCulture);
+                return ResourceManager.GetString("BorderDiagonalCross_12", resourceCulture);
             }
         }
         
@@ -467,9 +449,9 @@ namespace FlipEm {
         ///2 1
         ///.
         /// </summary>
-        public static string Steps_sequence__border__diagonal__cross__3_ {
+        public static string BorderDiagonalCross_3 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__diagonal__cross__3_", resourceCulture);
+                return ResourceManager.GetString("BorderDiagonalCross_3", resourceCulture);
             }
         }
         
@@ -481,9 +463,9 @@ namespace FlipEm {
         ///2 2
         ///.
         /// </summary>
-        public static string Steps_sequence__border__diagonal__cross__4_ {
+        public static string BorderDiagonalCross_4 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__diagonal__cross__4_", resourceCulture);
+                return ResourceManager.GetString("BorderDiagonalCross_4", resourceCulture);
             }
         }
         
@@ -506,9 +488,9 @@ namespace FlipEm {
         ///6 5
         ///6 6.
         /// </summary>
-        public static string Steps_sequence__border__diagonal__cross__7_ {
+        public static string BorderDiagonalCross_7 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__diagonal__cross__7_", resourceCulture);
+                return ResourceManager.GetString("BorderDiagonalCross_7", resourceCulture);
             }
         }
         
@@ -531,26 +513,9 @@ namespace FlipEm {
         ///6 5
         ///6 6.
         /// </summary>
-        public static string Steps_sequence__border__diagonal__cross__8_ {
+        public static string BorderDiagonalCross_8 {
             get {
-                return ResourceManager.GetString("Steps_sequence__border__diagonal__cross__8_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на 8
-        ///0 0
-        ///0 2
-        ///0 3
-        ///1 0
-        ///2 3
-        ///3 0
-        ///3 1
-        ///3 3.
-        /// </summary>
-        public static string Steps_sequence__border__square__4_ {
-            get {
-                return ResourceManager.GetString("Steps_sequence__border__square__4_", resourceCulture);
+                return ResourceManager.GetString("BorderDiagonalCross_8", resourceCulture);
             }
         }
         
@@ -602,9 +567,9 @@ namespace FlipEm {
         ///9 9
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__10_ {
+        public static string Cross_10 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__10_", resourceCulture);
+                return ResourceManager.GetString("Cross_10", resourceCulture);
             }
         }
         
@@ -675,9 +640,9 @@ namespace FlipEm {
         ///10 8
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__11_ {
+        public static string Cross_11 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__11_", resourceCulture);
+                return ResourceManager.GetString("Cross_11", resourceCulture);
             }
         }
         
@@ -757,9 +722,9 @@ namespace FlipEm {
         ///11 11
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__12_ {
+        public static string Cross_12 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__12_", resourceCulture);
+                return ResourceManager.GetString("Cross_12", resourceCulture);
             }
         }
         
@@ -772,9 +737,9 @@ namespace FlipEm {
         ///2 2
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__3_ {
+        public static string Cross_3 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__3_", resourceCulture);
+                return ResourceManager.GetString("Cross_3", resourceCulture);
             }
         }
         
@@ -786,9 +751,9 @@ namespace FlipEm {
         ///3 1
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__4_ {
+        public static string Cross_4 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__4_", resourceCulture);
+                return ResourceManager.GetString("Cross_4", resourceCulture);
             }
         }
         
@@ -811,9 +776,9 @@ namespace FlipEm {
         ///4 3
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__5_ {
+        public static string Cross_5 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__5_", resourceCulture);
+                return ResourceManager.GetString("Cross_5", resourceCulture);
             }
         }
         
@@ -849,9 +814,9 @@ namespace FlipEm {
         ///5 5
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__6_ {
+        public static string Cross_6 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__6_", resourceCulture);
+                return ResourceManager.GetString("Cross_6", resourceCulture);
             }
         }
         
@@ -892,9 +857,9 @@ namespace FlipEm {
         ///6 6
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__7_ {
+        public static string Cross_7 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__7_", resourceCulture);
+                return ResourceManager.GetString("Cross_7", resourceCulture);
             }
         }
         
@@ -942,9 +907,9 @@ namespace FlipEm {
         ///7 7
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__8_ {
+        public static string Cross_8 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__8_", resourceCulture);
+                return ResourceManager.GetString("Cross_8", resourceCulture);
             }
         }
         
@@ -993,9 +958,9 @@ namespace FlipEm {
         ///8 8
         ///.
         /// </summary>
-        public static string Steps_sequence__cross__9_ {
+        public static string Cross_9 {
             get {
-                return ResourceManager.GetString("Steps_sequence__cross__9_", resourceCulture);
+                return ResourceManager.GetString("Cross_9", resourceCulture);
             }
         }
         
@@ -1007,9 +972,9 @@ namespace FlipEm {
         ///1 2
         ///.
         /// </summary>
-        public static string Steps_sequence__diagonal__cross__3_ {
+        public static string DiagonalCross_3 {
             get {
-                return ResourceManager.GetString("Steps_sequence__diagonal__cross__3_", resourceCulture);
+                return ResourceManager.GetString("DiagonalCross_3", resourceCulture);
             }
         }
         
@@ -1021,9 +986,34 @@ namespace FlipEm {
         ///2 2
         ///.
         /// </summary>
-        public static string Steps_sequence__diagonal__cross__4_ {
+        public static string DiagonalCross_4 {
             get {
-                return ResourceManager.GetString("Steps_sequence__diagonal__cross__4_", resourceCulture);
+                return ResourceManager.GetString("DiagonalCross_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 15
+        ///0 3
+        ///0 4
+        ///1 0
+        ///1 1
+        ///1 3
+        ///1 4
+        ///2 0
+        ///2 1
+        ///2 2
+        ///3 1
+        ///3 2
+        ///3 3
+        ///4 0
+        ///4 2
+        ///4 3
+        ///.
+        /// </summary>
+        public static string fcheck {
+            get {
+                return ResourceManager.GetString("fcheck", resourceCulture);
             }
         }
         
@@ -1047,9 +1037,9 @@ namespace FlipEm {
         ///9 9
         ///.
         /// </summary>
-        public static string Steps_sequence__square__10_ {
+        public static string Square_10 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__10_", resourceCulture);
+                return ResourceManager.GetString("Square_10", resourceCulture);
             }
         }
         
@@ -1073,9 +1063,9 @@ namespace FlipEm {
         ///10 9
         ///.
         /// </summary>
-        public static string Steps_sequence__square__11_ {
+        public static string Square_11 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__11_", resourceCulture);
+                return ResourceManager.GetString("Square_11", resourceCulture);
             }
         }
         
@@ -1099,9 +1089,9 @@ namespace FlipEm {
         ///10 10
         ///.
         /// </summary>
-        public static string Steps_sequence__square__12_ {
+        public static string Square_12 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__12_", resourceCulture);
+                return ResourceManager.GetString("Square_12", resourceCulture);
             }
         }
         
@@ -1110,9 +1100,9 @@ namespace FlipEm {
         ///1 1
         ///.
         /// </summary>
-        public static string Steps_sequence__square__3_ {
+        public static string Square_3 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__3_", resourceCulture);
+                return ResourceManager.GetString("Square_3", resourceCulture);
             }
         }
         
@@ -1124,9 +1114,9 @@ namespace FlipEm {
         ///3 3
         ///.
         /// </summary>
-        public static string Steps_sequence__square__4_ {
+        public static string Square_4 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__4_", resourceCulture);
+                return ResourceManager.GetString("Square_4", resourceCulture);
             }
         }
         
@@ -1138,9 +1128,9 @@ namespace FlipEm {
         ///3 3
         ///.
         /// </summary>
-        public static string Steps_sequence__square__5_ {
+        public static string Square_5 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__5_", resourceCulture);
+                return ResourceManager.GetString("Square_5", resourceCulture);
             }
         }
         
@@ -1152,9 +1142,9 @@ namespace FlipEm {
         ///4 4
         ///.
         /// </summary>
-        public static string Steps_sequence__square__6_ {
+        public static string Square_6 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__6_", resourceCulture);
+                return ResourceManager.GetString("Square_6", resourceCulture);
             }
         }
         
@@ -1171,9 +1161,9 @@ namespace FlipEm {
         ///6 6
         ///.
         /// </summary>
-        public static string Steps_sequence__square__7_ {
+        public static string Square_7 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__7_", resourceCulture);
+                return ResourceManager.GetString("Square_7", resourceCulture);
             }
         }
         
@@ -1190,9 +1180,9 @@ namespace FlipEm {
         ///7 7
         ///.
         /// </summary>
-        public static string Steps_sequence__square__8_ {
+        public static string Square_8 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__8_", resourceCulture);
+                return ResourceManager.GetString("Square_8", resourceCulture);
             }
         }
         
@@ -1209,9 +1199,19 @@ namespace FlipEm {
         ///7 7
         ///.
         /// </summary>
-        public static string Steps_sequence__square__9_ {
+        public static string Square_9 {
             get {
-                return ResourceManager.GetString("Steps_sequence__square__9_", resourceCulture);
+                return ResourceManager.GetString("Square_9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 0
+        ///.
+        /// </summary>
+        public static string Steps_sequence {
+            get {
+                return ResourceManager.GetString("Steps_sequence", resourceCulture);
             }
         }
     }
