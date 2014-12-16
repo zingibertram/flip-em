@@ -15,6 +15,7 @@ namespace FlipEm
     {
         private FlipEmSettings _settings;
         private IEnumerator<Point> _solutionSteps;
+        private IEnumerable<Point> _solutionStepsPoints;
         private readonly DispatcherTimer _solutionTimer;
 
         public event GameStepEventHandler GameStep;
@@ -87,7 +88,35 @@ namespace FlipEm
 
         public void Start()
         {
-            Field = new Field(_settings.Size, _settings.Step);
+            ResetField();
+
+            var propertyName = string.Format("{0}_{1}", _settings.Step.ToString(), _settings.Size);
+
+            var type = typeof(Res.Resource);
+            var property = type.GetProperty(propertyName);
+
+            _solutionStepsPoints = null;
+
+            if (property != null)
+            {
+                var solution = property.GetValue(null, null) as string;
+                if (string.IsNullOrEmpty(solution))
+                    return;
+
+                using (var reader = new StringReader(solution))
+                {
+                    var steps = new List<Point>();
+
+                    var num = int.Parse(reader.ReadLine());
+                    for (int i = 0; i < num; ++i)
+                    {
+                        var row = reader.ReadLine().Split(' ');
+                        steps.Add(new Point(int.Parse(row[0]), int.Parse(row[1])));
+                    }
+
+                    _solutionStepsPoints = steps;
+                }
+            }
         }
 
         private void OnChipClicked(object sender, ExecutedRoutedEventArgs e)
@@ -122,31 +151,17 @@ namespace FlipEm
             if (_solutionSteps != null)
                 return;
 
-            var type = typeof(Res.Resource);
-            var propertyName = string.Format("{0}_{1}", _settings.Step.ToString(), _settings.Size);
-            var property = type.GetProperty(propertyName);
-            if (property != null)
+            if (_solutionStepsPoints != null)
             {
-                var solution = property.GetValue(null, null) as string;
-                if (string.IsNullOrEmpty(solution))
-                    return;
-
-                using (var reader = new StringReader(solution))
-                {
-                    var steps = new List<Point>();
-
-                    var num = int.Parse(reader.ReadLine());
-                    for (int i = 0; i < num; ++i)
-                    {
-                        var row = reader.ReadLine().Split(' ');
-                        steps.Add(new Point(int.Parse(row[0]), int.Parse(row[1])));
-                    }
-
-                    Start();
-                    _solutionSteps = steps.GetEnumerator();
-                    _solutionSteps.MoveNext();
-                }
+                ResetField();
+                _solutionSteps = _solutionStepsPoints.GetEnumerator();
+                _solutionSteps.MoveNext();
             }
+        }
+
+        private void ResetField()
+        {
+            Field = new Field(_settings.Size, _settings.Step);
         }
     }
 }

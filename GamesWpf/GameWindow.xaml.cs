@@ -123,3 +123,7 @@ namespace GamesWpf
         }
     }
 }
+
+//но можно указать CommandTarget
+//[16:36:08] Рустам Сафин: <Button Command="Save" 
+//  CommandTarget="{Binding ElementName=uc1}"
