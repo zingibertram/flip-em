@@ -10,7 +10,7 @@ namespace Games.Core
 
         public static RoutedUICommand RedoCommand { get; private set; }
         public static RoutedUICommand UndoCommand { get; private set; }
-        public static RoutedUICommand StartCommand { get; private set; }
+        public static RoutedUICommand RestartCommand { get; private set; }
 
         static GameCommands()
         {
@@ -20,7 +20,7 @@ namespace Games.Core
 
             RedoCommand = new RoutedUICommand();
             UndoCommand = new RoutedUICommand();
-            StartCommand = new RoutedUICommand();
+            RestartCommand = new RoutedUICommand();
         }
     }
 }

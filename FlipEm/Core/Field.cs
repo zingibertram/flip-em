@@ -48,9 +48,12 @@ namespace FlipEm.Core
 
         public bool CanClick()
         {
-            return !_chips.Aggregate(true,
-                (acc, row) => row.Aggregate(acc,
-                    (res, chip) => res && chip.IsChecked));
+            return _chips.All(row => row.All(chip => chip.IsChecked));
+        }
+
+        public bool CanRestart()
+        {
+            return _chips.Any(row => row.Any(chip => chip.IsChecked));
         }
     }
 }

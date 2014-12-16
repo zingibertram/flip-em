@@ -66,6 +66,7 @@
     <Compile Include="Core\Field.cs" />
     <Compile Include="FlipEmContent.cs" />
     <Compile Include="FlipEmCommands.cs" />
+    <Compile Include="FlipEmGameView.Commands.cs" />
     <Compile Include="FlipEmGameView.xaml.cs">
       <DependentUpon>FlipEmGameView.xaml</DependentUpon>
       <SubType>Code</SubType>

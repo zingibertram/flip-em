@@ -30,7 +30,7 @@ namespace FlipEm
             _solutionTimer.Tick += OnSolutionTimerTick;
 
             _settings = new FlipEmSettings { Size = 3, Step = StepType.Cross };
-            Start();
+            StartNew();
         }
 
         public Field Field
@@ -54,21 +54,6 @@ namespace FlipEm
             ;
         }
 
-        private void OnChipClicked(object sender, ExecutedRoutedEventArgs e)
-        {
-            Field.Click(e.Parameter as Chip);
-            e.Handled = true;
-        }
-
-        public void SolutionStart()
-        {
-            SetStepsEnumerator();
-            if (_solutionSteps != null)
-            {
-                _solutionTimer.Start();
-            }
-        }
-
         public void SolutionPause()
         {
             _solutionTimer.Stop();
@@ -90,12 +75,7 @@ namespace FlipEm
             ;
         }
 
-        private void OnStart(object sender, ExecutedRoutedEventArgs e)
-        {
-            Start();
-        }
-
-        private void Start()
+        public void StartNew()
         {
             ResetField();
 
@@ -126,11 +106,6 @@ namespace FlipEm
                     _solutionStepsPoints = steps;
                 }
             }
-        }
-
-        private void CanChipClicked(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = Field.CanClick();
         }
 
         private void OnSolutionTimerTick(object sender, EventArgs eventArgs)
