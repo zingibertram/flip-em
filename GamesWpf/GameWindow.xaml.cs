@@ -39,7 +39,7 @@ namespace GamesWpf
         private void OnApplySettingsButtonClick(object sender, RoutedEventArgs e)
         {
             CurrentGame.GameView.Settings = CurrentGame.SettingsView.Settings;
-            //CurrentGame.GameView.Start();
+            GameCommands.StartCommand.Execute(null, CurrentGame.GameView.View);
 
             OpenGame();
         }

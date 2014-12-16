@@ -1,7 +1,7 @@
-﻿using FlipEm.Core;
+﻿using System.Windows.Input;
+using FlipEm.Core;
 using Games.Core;
 using System.Windows;
-using System.Windows.Input;
 
 namespace FlipEm
 {
@@ -18,7 +18,7 @@ namespace FlipEm
         {
             InitializeComponent();
 
-            Field = new Field(6, StepType.BorderCross);
+            Field = new Field(6, StepType.Cross);
         }
 
         public Field Field
@@ -41,41 +41,20 @@ namespace FlipEm
         {
             ;
         }
-
-        public void SolutionStart()
-        {
-            ;
-        }
-
-        public void SolutionPause()
-        {
-            ;
-        }
-
-        public void SolutionStop()
-        {
-            ;
-        }
-
-        public void Redo()
-        {
-            ;
-        }
-
-        public void Undo()
-        {
-            ;
-        }
-
-        public void Start()
-        {
-            Field = new Field(_settings.Size, _settings.Step);
-        }
-
         private void OnChipClicked(object sender, ExecutedRoutedEventArgs e)
         {
             Field.Click(e.Parameter as Chip);
             e.Handled = true;
+        }
+
+        private void OnStart(object sender, ExecutedRoutedEventArgs e)
+        {
+            Field = new Field(_settings.Size, _settings.Step);
+        }
+
+        private void CanChipClicked(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = Field.CanClick();
         }
     }
 }
