@@ -33,19 +33,6 @@ namespace GamesWpf
             get { return (IGameViews)GetValue(CurrentGameProperty); }
             set { SetValue(CurrentGameProperty, value); }
         }
-        
-        private void OnApplySettingsButtonClick(object sender, RoutedEventArgs e)
-        {
-            CurrentGame.GameView.Settings = CurrentGame.SettingsView.Settings;
-            CurrentGame.GameView.StartNew();
-
-            OpenGame();
-        }
-
-        private void OnOpenSettingsClick(object sender, RoutedEventArgs e)
-        {
-            OpenSettings();
-        }
 
         private void OpenSettings()
         {
@@ -65,16 +52,6 @@ namespace GamesWpf
             OpenSettings();
         }
 
-        private void OnOpenGameCkick(object sender, RoutedEventArgs e)
-        {
-            OpenGame();
-        }
-
-        private void OnCloseClick(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         private void OnLoadGameClicked(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog
@@ -88,6 +65,11 @@ namespace GamesWpf
             {
                 Games.Add(GamesLoader.LoadGame(dialog.FileName));
             }
+        }
+
+        private void OnSolutionTabVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            OpenGame();
         }
     }
 }

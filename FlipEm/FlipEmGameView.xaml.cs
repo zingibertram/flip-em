@@ -54,15 +54,11 @@ namespace FlipEm
             ;
         }
 
-        public void SolutionPause()
-        {
-            _solutionTimer.Stop();
-        }
-
         public void SolutionStop()
         {
             _solutionTimer.Stop();
             _solutionSteps = null;
+            ItemsPanel.IsEnabled = true;
         }
 
         public void Redo()

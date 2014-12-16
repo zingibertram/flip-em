@@ -79,6 +79,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="GamesLoader.cs" />
+    <Compile Include="GameWindow.Commands.cs" />
     <Compile Include="TypeToGameConverter.cs" />
     <Page Include="GameWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

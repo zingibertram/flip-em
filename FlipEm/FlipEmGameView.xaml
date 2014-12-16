@@ -20,11 +20,18 @@
         <CommandBinding Command="{x:Static core:GameCommands.SolutionStartCommand}"
                         Executed="OnSolutionStart"
                         CanExecute="CanSolutionStart"/>
+        <CommandBinding Command="{x:Static core:GameCommands.SolutionPauseCommand}"
+                        Executed="OnSolutionPause"
+                        CanExecute="CanSolutionPauseStop"/>
+        <CommandBinding Command="{x:Static core:GameCommands.SolutionStopCommand}"
+                        Executed="OnSolutionStop"
+                        CanExecute="CanSolutionPauseStop"/>
     </UserControl.CommandBindings>
 
     <Grid HorizontalAlignment="Center"
           VerticalAlignment="Center">
-        <ItemsControl ItemsSource="{Binding ElementName=Control, Path=Field.Chips, Mode=OneWay}">
+        <ItemsControl x:Name="ItemsPanel"
+                      ItemsSource="{Binding ElementName=Control, Path=Field.Chips, Mode=OneWay}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

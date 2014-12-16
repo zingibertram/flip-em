@@ -26,28 +26,34 @@ namespace FlipEm
             e.CanExecute = Field.CanRestart();
         }
 
+        private void OnSolutionStart(object sender, ExecutedRoutedEventArgs e)
+        {
+            SetStepsEnumerator();
+            if (_solutionSteps != null)
+            {
+                ItemsPanel.IsEnabled = false;
+                _solutionTimer.Start();
+            }
+        }
+
+        private void CanSolutionStart(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _solutionStepsPoints != null && !_solutionTimer.IsEnabled;
+        }
+
         private void OnSolutionPause(object sender, ExecutedRoutedEventArgs e)
         {
            _solutionTimer.Stop();
         }
 
-        private void CanSolutionPause(object sender, CanExecuteRoutedEventArgs e)
-        {
-            //e.CanExecute = _solutionStepsPoints != null && _solutionSteps != null && _solutionTimer;
-        }
-
         private void OnSolutionStop(object sender, ExecutedRoutedEventArgs e)
         {
-            SetStepsEnumerator();
-            if (_solutionSteps != null)
-            {
-                _solutionTimer.Start();
-            }
+            SolutionStop();
         }
 
-        private void CanSolutionStop(object sender, CanExecuteRoutedEventArgs e)
+        private void CanSolutionPauseStop(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = _solutionStepsPoints != null;
+            e.CanExecute = _solutionStepsPoints != null && _solutionSteps != null && _solutionTimer.IsEnabled;
         }
     }
 }

@@ -48,7 +48,7 @@ namespace FlipEm.Core
 
         public bool CanClick()
         {
-            return _chips.All(row => row.All(chip => chip.IsChecked));
+            return !_chips.All(row => row.All(chip => chip.IsChecked));
         }
 
         public bool CanRestart()

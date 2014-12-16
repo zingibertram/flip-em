@@ -16,27 +16,7 @@ namespace TestGame
         {
         }
 
-        public void SolutionStart()
-        {
-        }
-
-        public void SolutionPause()
-        {
-        }
-
-        public void SolutionStop()
-        {
-        }
-
-        public void Redo()
-        {
-        }
-
-        public void Undo()
-        {
-        }
-
-        public void Start()
+        public void StartNew()
         {
         }
 

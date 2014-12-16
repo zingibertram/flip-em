@@ -7,12 +7,25 @@
                          x:Name="Window"
                          Title="Игра"
                          Icon="/GamesWpf;component/Images/64x64/Table.png"
-                         Height="400"
-                         Width="600">
+                         Height="600"
+                         Width="400">
 
     <telerik:RadRibbonWindow.Resources>
         <local:TypeToGameConverter x:Key="TypeToGameConverter"/>
     </telerik:RadRibbonWindow.Resources>
+
+    <telerik:RadRibbonWindow.CommandBindings>
+        <CommandBinding Command="{x:Static local:GameWindowCommands.ShowGameCommand}"
+                        Executed="OnShowGame"
+                        CanExecute="CanShowGame"/>
+        <CommandBinding Command="{x:Static local:GameWindowCommands.ShowSettingsCommand}"
+                        Executed="OnShowSettings"
+                        CanExecute="CanShowSettings"/>
+        <CommandBinding Command="{x:Static local:GameWindowCommands.ApplySettingsCommand}"
+                        Executed="OnApplySettings"/>
+        <CommandBinding Command="{x:Static ApplicationCommands.Close}"
+                        Executed="OnClose"/>
+    </telerik:RadRibbonWindow.CommandBindings>
 
     <Grid DataContext="{Binding ElementName=Window}">
         <Grid.RowDefinitions>
@@ -57,7 +70,7 @@
                     <telerik:RadRibbonBackstageItem Header="Выход"
                                                     CloseOnClick="True"
                                                     IsSelectable="False"
-                                                    Click="OnCloseClick"/>
+                                                    Command="{x:Static ApplicationCommands.Close}"/>
                 </telerik:RadRibbonBackstage>
             </telerik:RadRibbonView.Backstage>
 
@@ -67,7 +80,7 @@
                     <telerik:RadRibbonButton Text="Игра"
                                              LargeImage="/GamesWpf;component/Images/64x64/Table.png"
                                              Size="Large"
-                                             Click="OnOpenGameCkick"/>
+                                             Command="{x:Static local:GameWindowCommands.ShowGameCommand}"/>
                     <telerik:RadRibbonButton Text="Рестарт"
                                              LargeImage="/GamesWpf;component/Images/32x32/Repeat.png"
                                              Size="Large"
@@ -79,7 +92,7 @@
                     <telerik:RadRibbonButton Text="Настройки" 
                                              LargeImage="/GamesWpf;component/Images/32x32/Design.png"
                                              Size="Large"
-                                             Click="OnOpenSettingsClick"/>
+                                             Command="{x:Static local:GameWindowCommands.ShowSettingsCommand}"/>
                 </telerik:RadRibbonGroup>
 
                 <telerik:RadRibbonGroup Header="Шаг">
@@ -97,7 +110,8 @@
             </telerik:RadRibbonTab>
 
             <telerik:RadRibbonTab Header="Решение">
-                <telerik:RadRibbonGroup Header="Решение">
+                <telerik:RadRibbonGroup Header="Решение"
+                                        IsVisibleChanged="OnSolutionTabVisibleChanged">
                     <telerik:RadRibbonButton Text="Старт"
                                              LargeImage="/GamesWpf;component/Images/32x32/Play.png"
                                              Size="Large"
@@ -152,7 +166,7 @@
 
                     <Button Grid.Row="1"
                             Content="Ok"
-                            Click="OnApplySettingsButtonClick"/>
+                            Command="{x:Static local:GameWindowCommands.ApplySettingsCommand}"/>
                 </Grid>
             </telerik:RadTileViewItem>
         </telerik:RadTileView>
