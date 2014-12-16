@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Changeable.cs" />
     <Compile Include="EnumViewModel.cs" />
+    <Compile Include="GameCommands.cs" />
     <Compile Include="GameStepEvent.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="IGameInfo.cs" />

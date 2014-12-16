@@ -3,6 +3,7 @@
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
                          xmlns:local="clr-namespace:GamesWpf"
+                         xmlns:core="clr-namespace:Games.Core;assembly=Games.Core"
                          x:Name="Window"
                          Title="Игра"
                          Icon="/GamesWpf;component/Images/64x64/Table.png"
@@ -70,7 +71,7 @@
                     <telerik:RadRibbonButton Text="Рестарт"
                                              LargeImage="/GamesWpf;component/Images/32x32/Repeat.png"
                                              Size="Large"
-                                             Click="OnRestartClick"/>
+                                             Command="core:GameCommands.StartCommand"/>
                 </telerik:RadRibbonGroup>
 
                 <telerik:RadRibbonGroup Header="Настройки">
@@ -84,11 +85,11 @@
                     <telerik:RadRibbonButton Text="Отменить"
                                              LargeImage="/GamesWpf;component/Images/32x32/Undo.png"
                                              Size="Large"
-                                             Click="OnUndoClick"/>
+                                             Command="core:GameCommands.UndoCommand"/>
                     <telerik:RadRibbonButton Text="Повторить"
                                              LargeImage="/GamesWpf;component/Images/32x32/Redo.png"
                                              Size="Large"
-                                             Click="OnRedoClick"/>
+                                             Command="core:GameCommands.RedoCommand"/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 
@@ -97,15 +98,15 @@
                     <telerik:RadRibbonButton Text="Старт"
                                              LargeImage="/GamesWpf;component/Images/32x32/Play.png"
                                              Size="Large"
-                                             Click="OnPlayClick"/>
+                                             Command="core:GameCommands.SolutionStartCommand"/>
                     <telerik:RadRibbonButton Text="Пауза"
                                              LargeImage="/GamesWpf;component/Images/32x32/Pause.png"
                                              Size="Large"
-                                             Click="OnPauseClick"/>
+                                             Command="core:GameCommands.SolutionPauseCommand"/>
                     <telerik:RadRibbonButton Text="Стоп"
                                              LargeImage="/GamesWpf;component/Images/32x32/Stop.png"
                                              Size="Large"
-                                             Click="OnStopClick"/>
+                                             Command="core:GameCommands.SolutionStopCommand"/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
         </telerik:RadRibbonView>

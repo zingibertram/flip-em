@@ -39,7 +39,7 @@ namespace GamesWpf
         private void OnApplySettingsButtonClick(object sender, RoutedEventArgs e)
         {
             CurrentGame.GameView.Settings = CurrentGame.SettingsView.Settings;
-            CurrentGame.GameView.Start();
+            //CurrentGame.GameView.Start();
 
             OpenGame();
         }
@@ -72,35 +72,35 @@ namespace GamesWpf
             OpenGame();
         }
 
-        private void OnRestartClick(object sender, RoutedEventArgs e)
-        {
-            CurrentGame.GameView.Start();
-        }
+        //private void OnRestartClick(object sender, RoutedEventArgs e)
+        //{
+        //    CurrentGame.GameView.Start();
+        //}
 
-        private void OnUndoClick(object sender, RoutedEventArgs e)
-        {
-            CurrentGame.GameView.Undo();
-        }
+        //private void OnUndoClick(object sender, RoutedEventArgs e)
+        //{
+        //    CurrentGame.GameView.Undo();
+        //}
 
-        private void OnRedoClick(object sender, RoutedEventArgs e)
-        {
-            CurrentGame.GameView.Redo();
-        }
+        //private void OnRedoClick(object sender, RoutedEventArgs e)
+        //{
+        //    CurrentGame.GameView.Redo();
+        //}
 
-        private void OnPlayClick(object sender, RoutedEventArgs e)
-        {
-            CurrentGame.GameView.SolutionStart();
-        }
+        //private void OnPlayClick(object sender, RoutedEventArgs e)
+        //{
+        //    CurrentGame.GameView.SolutionStart();
+        //}
 
-        private void OnPauseClick(object sender, RoutedEventArgs e)
-        {
-            CurrentGame.GameView.SolutionPause();
-        }
+        //private void OnPauseClick(object sender, RoutedEventArgs e)
+        //{
+        //    CurrentGame.GameView.SolutionPause();
+        //}
 
-        private void OnStopClick(object sender, RoutedEventArgs e)
-        {
-            CurrentGame.GameView.SolutionStop();
-        }
+        //private void OnStopClick(object sender, RoutedEventArgs e)
+        //{
+        //    CurrentGame.GameView.SolutionStop();
+        //}
 
         private void OnCloseClick(object sender, RoutedEventArgs e)
         {

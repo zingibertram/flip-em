@@ -4,12 +4,12 @@
     {
         event GameStepEventHandler GameStep;
         void OnGameStep();
-        void SolutionStart();
-        void SolutionPause();
-        void SolutionStop();
-        void Redo();
-        void Undo();
-        void Start();
+        //void SolutionStart();
+        //void SolutionPause();
+        //void SolutionStop();
+        //void Redo();
+        //void Undo();
+        //void Start();
         object Settings { set; }
     }
 }
