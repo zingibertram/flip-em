@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="TestContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestGameView.Commands.cs" />
     <Compile Include="TestGameView.xaml.cs">
       <DependentUpon>TestGameView.xaml</DependentUpon>
     </Compile>

@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
+using Games.Core.Actions;
 using Microsoft.Win32;
 
 namespace GamesWpf
@@ -34,6 +35,11 @@ namespace GamesWpf
             set { SetValue(CurrentGameProperty, value); }
         }
 
+        public ActionService ActionService
+        {
+            get { return ActionService.Instance; }
+        }
+
         private void OpenSettings()
         {
             GameView.Visibility = Visibility.Collapsed;
@@ -46,26 +52,26 @@ namespace GamesWpf
             SettingsView.Visibility = Visibility.Collapsed;
         }
 
-        private void OnGameClick(object sender, MouseButtonEventArgs e)
-        {
-            MainTab.IsSelected = true;
-            OpenSettings();
-        }
+        //private void OnGameClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    MainTab.IsSelected = true;
+        //    OpenSettings();
+        //}
 
-        private void OnLoadGameClicked(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog
-            {
-                RestoreDirectory = true,
-                CheckFileExists = true,
-                Filter = "Библиотека игр|*.dll"
-            };
+        //private void OnLoadGameClicked(object sender, RoutedEventArgs e)
+        //{
+        //    OpenFileDialog dialog = new OpenFileDialog
+        //    {
+        //        RestoreDirectory = true,
+        //        CheckFileExists = true,
+        //        Filter = "Библиотека игр|*.dll"
+        //    };
 
-            if (dialog.ShowDialog() == true)
-            {
-                Games.Add(GamesLoader.LoadGame(dialog.FileName));
-            }
-        }
+        //    if (dialog.ShowDialog() == true)
+        //    {
+        //        Games.Add(GamesLoader.LoadGame(dialog.FileName));
+        //    }
+        //}
 
         private void OnSolutionTabVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

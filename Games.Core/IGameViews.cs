@@ -14,5 +14,7 @@
         {
             get { return _settings; }
         }
+
+        public string Title { get; set; }
     }
 }

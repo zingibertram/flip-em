@@ -1,5 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using FlipEm.Core;
+using Games.Core.Actions;
 
 namespace FlipEm
 {
@@ -7,7 +9,16 @@ namespace FlipEm
     {
         private void OnChipClicked(object sender, ExecutedRoutedEventArgs e)
         {
-            Field.Click(e.Parameter as Chip);
+            var chip = e.Parameter as Chip;
+            if (chip == null)
+                return;
+
+            Field.Click(chip);
+
+            var action = new Action(() => Field.ClickProgrammatically(chip));
+            var message = string.Format("({0}, {1})", chip.X, chip.Y);
+            ActionService.Instance.Add(new StepAction(message, action, action));
+
             e.Handled = true;
         }
 
@@ -19,6 +30,9 @@ namespace FlipEm
         private void OnRestart(object sender, ExecutedRoutedEventArgs e)
         {
             ResetField();
+            ActionService.Instance.Clear();
+
+            e.Handled = true;
         }
 
         private void CanRestart(object sender, CanExecuteRoutedEventArgs e)
@@ -33,7 +47,10 @@ namespace FlipEm
             {
                 ItemsPanel.IsEnabled = false;
                 _solutionTimer.Start();
+                ActionService.Instance.Clear();
             }
+
+            e.Handled = true;
         }
 
         private void CanSolutionStart(object sender, CanExecuteRoutedEventArgs e)
@@ -43,12 +60,16 @@ namespace FlipEm
 
         private void OnSolutionPause(object sender, ExecutedRoutedEventArgs e)
         {
-           _solutionTimer.Stop();
+            _solutionTimer.Stop();
+
+            e.Handled = true;
         }
 
         private void OnSolutionStop(object sender, ExecutedRoutedEventArgs e)
         {
             SolutionStop();
+
+            e.Handled = true;
         }
 
         private void CanSolutionPauseStop(object sender, CanExecuteRoutedEventArgs e)

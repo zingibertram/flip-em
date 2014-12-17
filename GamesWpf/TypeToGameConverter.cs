@@ -15,7 +15,14 @@ namespace GamesWpf
         {
             var type = value as IGameInfo;
             if (type != null)
-                return Activator.CreateInstance(type.ContentType);
+            {
+                var content = Activator.CreateInstance(type.ContentType) as IGameViews;
+                if (content == null)
+                    return null;
+
+                content.Title = type.Name;
+                return content;
+            }
             return null;
         }
     }

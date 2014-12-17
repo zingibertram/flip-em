@@ -7,8 +7,8 @@
                          x:Name="Window"
                          Title="Игра"
                          Icon="/GamesWpf;component/Images/64x64/Table.png"
-                         Height="600"
-                         Width="400">
+                         Height="520"
+                         Width="500">
 
     <telerik:RadRibbonWindow.Resources>
         <local:TypeToGameConverter x:Key="TypeToGameConverter"/>
@@ -23,8 +23,18 @@
                         CanExecute="CanShowSettings"/>
         <CommandBinding Command="{x:Static local:GameWindowCommands.ApplySettingsCommand}"
                         Executed="OnApplySettings"/>
+        <CommandBinding Command="{x:Static local:GameWindowCommands.OpenGameCommand}"
+                        Executed="OnOpenGame"/>
+        <CommandBinding Command="{x:Static local:GameWindowCommands.LoadGameCommand}"
+                        Executed="OnLoadGame"/>
         <CommandBinding Command="{x:Static ApplicationCommands.Close}"
                         Executed="OnClose"/>
+        <CommandBinding Command="{x:Static core:GameCommands.RedoCommand}"
+                        Executed="OnRedo"
+                        CanExecute="CanRedo"/>
+        <CommandBinding Command="{x:Static core:GameCommands.UndoCommand}"
+                        Executed="OnUndo"
+                        CanExecute="CanUndo"/>
     </telerik:RadRibbonWindow.CommandBindings>
 
     <Grid DataContext="{Binding ElementName=Window}">
@@ -35,7 +45,7 @@
         
         <telerik:RadRibbonView Grid.Row="0"
                                x:Name="Ribbon"
-                               Title="FlipEm"
+                               Title="{Binding CurrentGame.Title}"
                                ApplicationName="Игра"
                                ApplicationButtonContent="Файл">
             <telerik:RadRibbonView.Backstage>
@@ -49,8 +59,14 @@
                                             SelectedItem="{Binding CurrentGame, Converter={StaticResource TypeToGameConverter}, Mode=OneWayToSource}">
                             <telerik:RadListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"
-                                               MouseLeftButtonUp="OnGameClick"/>
+                                    <ContentControl>
+                                        <telerik:EventToCommandBehavior.EventBindings>
+                                            <telerik:EventBinding Command="{x:Static local:GameWindowCommands.OpenGameCommand}"
+                                                                  EventName="MouseLeftButtonUp"/>
+                                        </telerik:EventToCommandBehavior.EventBindings>
+
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </ContentControl>
                                 </DataTemplate>
                             </telerik:RadListBox.ItemTemplate>
                         </telerik:RadListBox>
@@ -59,7 +75,7 @@
                     <telerik:RadRibbonBackstageItem Header="Загрузить игру"
                                                     CloseOnClick="True"
                                                     IsSelectable="False"
-                                                    Click="OnLoadGameClicked"/>
+                                                    Command="{x:Static local:GameWindowCommands.LoadGameCommand}"/>
 
                     <telerik:RadRibbonBackstageItem Header="О программе"
                                                     CloseOnClick="True"
@@ -99,13 +115,12 @@
                     <telerik:RadRibbonButton Text="Отменить"
                                              LargeImage="/GamesWpf;component/Images/32x32/Undo.png"
                                              Size="Large"
-                                             Command="core:GameCommands.UndoCommand"
-                                             CommandTarget="{Binding CurrentGame.GameView.View}"/>
+                                             Command="{x:Static core:GameCommands.UndoCommand}"/>
+
                     <telerik:RadRibbonButton Text="Повторить"
                                              LargeImage="/GamesWpf;component/Images/32x32/Redo.png"
                                              Size="Large"
-                                             Command="core:GameCommands.RedoCommand"
-                                             CommandTarget="{Binding CurrentGame.GameView.View}"/>
+                                             Command="{x:Static core:GameCommands.RedoCommand}"/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 
@@ -144,9 +159,9 @@
 
             <StatusBar Grid.Row="1">
                 <StatusBarItem Content="Количество ходов: "/>
-                <StatusBarItem Content="Количество ходов: "/>
+                <StatusBarItem Content="{Binding ActionService.UndoActions.Count}"/>
                 <StatusBarItem Content="Последний ход: "/>
-                <StatusBarItem Content="Количество ходов: "/>
+                <StatusBarItem Content="{Binding ActionService.LastAction.Text}"/>
             </StatusBar>
         </Grid>
 

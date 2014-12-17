@@ -16,8 +16,6 @@ namespace FlipEm
         private IEnumerable<Point> _solutionStepsPoints;
         private readonly DispatcherTimer _solutionTimer;
 
-        public event GameStepEventHandler GameStep;
-
         public static readonly DependencyProperty FieldProperty =
             DependencyProperty.Register("Field", typeof(Field),
             typeof(FlipEmGameView), new PropertyMetadata(null));
@@ -49,11 +47,6 @@ namespace FlipEm
             set { _settings = (FlipEmSettings)value; }
         }
 
-        public void OnGameStep()
-        {
-            ;
-        }
-
         public void SolutionStop()
         {
             _solutionTimer.Stop();
@@ -61,58 +54,16 @@ namespace FlipEm
             ItemsPanel.IsEnabled = true;
         }
 
-        public void Redo()
-        {
-            ;
-        }
-
-        public void Undo()
-        {
-            ;
-        }
-
         public void StartNew()
         {
             ResetField();
 
-            var propertyName = string.Format("{0}_{1}", _settings.Step.ToString(), _settings.Size);
-
-            var type = typeof(Res.Resource);
-            var property = type.GetProperty(propertyName);
-
-            _solutionStepsPoints = null;
-
-            if (property != null)
-            {
-                var solution = property.GetValue(null, null) as string;
-                if (string.IsNullOrEmpty(solution))
-                    return;
-
-                using (var reader = new StringReader(solution))
-                {
-                    var steps = new List<Point>();
-
-                    var num = int.Parse(reader.ReadLine());
-                    for (int i = 0; i < num; ++i)
-                    {
-                        var row = reader.ReadLine().Split(' ');
-                        steps.Add(new Point(int.Parse(row[0]), int.Parse(row[1])));
-                    }
-
-                    _solutionStepsPoints = steps;
-                }
-            }
+            _solutionStepsPoints = FlipEmSolutionLoader.GetSolution(_settings);
         }
 
         private void OnSolutionTimerTick(object sender, EventArgs eventArgs)
         {
-            var chip = Field.Chips[(int)_solutionSteps.Current.X][(int)_solutionSteps.Current.Y];
-            if (NeighbourHelper.IsSelfChecked(_settings.Step))
-            {
-                chip.IsChecked = !chip.IsChecked;
-            }
-
-            Field.Click(chip);
+            Field.ClickProgrammatically(_solutionSteps.Current);
 
             if (!_solutionSteps.MoveNext())
             {

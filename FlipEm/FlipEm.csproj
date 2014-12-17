@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Core\Chip.cs" />
     <Compile Include="Core\FlipEmSettings.cs" />
+    <Compile Include="Core\FlipEmSolutionLoader.cs" />
     <Compile Include="Core\GameTypes.cs" />
     <Compile Include="Core\Field.cs" />
     <Compile Include="FlipEmContent.cs" />

@@ -10,12 +10,6 @@ namespace TestGame
             InitializeComponent();
         }
 
-        public event GameStepEventHandler GameStep;
-
-        public void OnGameStep()
-        {
-        }
-
         public void StartNew()
         {
         }
