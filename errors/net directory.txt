@@ -1,0 +1,38 @@
+System.Windows.Markup.XamlParseException: Вызов конструктора для типа "GamesWpf.GameWindow", удовлетворяющего указанным ограничениям привязки,
+ привел к выдаче исключения. ---> System.NotSupportedException: Предпринята попытка загрузить сборку из сетевого ресурса, что в предыдущих версиях
+ .NET Framework могло привести к помещению сборки в "песочницу". Этот выпуск .NET Framework не включает политику CAS по умолчанию,
+ поэтому данная загрузка может быть опасной. Если эта нагрузка не предназначена для изоляции сборки, включите переключатель loadFromRemoteSources.
+ Дополнительные сведения см. на странице http://go.microsoft.com/fwlink/?LinkId=155569.
+   в System.Reflection.RuntimeAssembly.nLoadFile(String path, Evidence evidence)
+   в System.Reflection.Assembly.LoadFile(String path)
+   в GamesWpf.GamesLoader.LoadGame(String path)
+   в GamesWpf.GamesLoader.Load()
+   в GamesWpf.GameWindow..ctor()
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   в System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   в System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   в System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   в System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   в System.Windows.Application.DoStartup()
+   в System.Windows.Application.<.ctor>b__1(Object unused)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   в System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   в System.Windows.Threading.DispatcherOperation.Invoke()
+   в System.Windows.Threading.Dispatcher.ProcessQueue()
+   в System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   в MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   в MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   в System.Windows.Threading.Dispatcher.LegacyInvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   в MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   в MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   в System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   в System.Windows.Application.RunInternal(Window window)
+   в System.Windows.Application.Run()
+   в GamesWpf.App.Main()

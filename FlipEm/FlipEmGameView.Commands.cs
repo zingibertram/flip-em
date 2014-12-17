@@ -65,6 +65,11 @@ namespace FlipEm
             e.Handled = true;
         }
 
+        private void CanSolutionPause(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _solutionStepsPoints != null && _solutionSteps != null && _solutionTimer.IsEnabled;
+        }
+
         private void OnSolutionStop(object sender, ExecutedRoutedEventArgs e)
         {
             SolutionStop();
@@ -72,9 +77,9 @@ namespace FlipEm
             e.Handled = true;
         }
 
-        private void CanSolutionPauseStop(object sender, CanExecuteRoutedEventArgs e)
+        private void CanSolutionStop(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = _solutionStepsPoints != null && _solutionSteps != null && _solutionTimer.IsEnabled;
+            e.CanExecute = _solutionStepsPoints != null && _solutionSteps != null && _solutionTimer != null;
         }
     }
 }

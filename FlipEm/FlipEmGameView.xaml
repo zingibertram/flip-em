@@ -22,10 +22,10 @@
                         CanExecute="CanSolutionStart"/>
         <CommandBinding Command="{x:Static core:GameCommands.SolutionPauseCommand}"
                         Executed="OnSolutionPause"
-                        CanExecute="CanSolutionPauseStop"/>
+                        CanExecute="CanSolutionPause"/>
         <CommandBinding Command="{x:Static core:GameCommands.SolutionStopCommand}"
                         Executed="OnSolutionStop"
-                        CanExecute="CanSolutionPauseStop"/>
+                        CanExecute="CanSolutionStop"/>
     </UserControl.CommandBindings>
 
     <Grid HorizontalAlignment="Center"

@@ -52,27 +52,6 @@ namespace GamesWpf
             SettingsView.Visibility = Visibility.Collapsed;
         }
 
-        //private void OnGameClick(object sender, MouseButtonEventArgs e)
-        //{
-        //    MainTab.IsSelected = true;
-        //    OpenSettings();
-        //}
-
-        //private void OnLoadGameClicked(object sender, RoutedEventArgs e)
-        //{
-        //    OpenFileDialog dialog = new OpenFileDialog
-        //    {
-        //        RestoreDirectory = true,
-        //        CheckFileExists = true,
-        //        Filter = "Библиотека игр|*.dll"
-        //    };
-
-        //    if (dialog.ShowDialog() == true)
-        //    {
-        //        Games.Add(GamesLoader.LoadGame(dialog.FileName));
-        //    }
-        //}
-
         private void OnSolutionTabVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             OpenGame();
