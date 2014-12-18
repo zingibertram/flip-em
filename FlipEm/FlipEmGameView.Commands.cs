@@ -37,7 +37,9 @@ namespace FlipEm
 
         private void CanRestart(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = Field.CanRestart();
+            e.CanExecute = Field.CanRestart()
+                || ActionService.Instance.RedoActions.Count > 0
+                || ActionService.Instance.UndoActions.Count > 0;
         }
 
         private void OnSolutionStart(object sender, ExecutedRoutedEventArgs e)
@@ -55,7 +57,8 @@ namespace FlipEm
 
         private void CanSolutionStart(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = _solutionStepsPoints != null && !_solutionTimer.IsEnabled;
+            e.CanExecute = _solutionStepsPoints != null
+                && !_solutionTimer.IsEnabled;
         }
 
         private void OnSolutionPause(object sender, ExecutedRoutedEventArgs e)
@@ -67,7 +70,9 @@ namespace FlipEm
 
         private void CanSolutionPause(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = _solutionStepsPoints != null && _solutionSteps != null && _solutionTimer.IsEnabled;
+            e.CanExecute = _solutionStepsPoints != null
+                && _solutionSteps != null
+                && _solutionTimer.IsEnabled;
         }
 
         private void OnSolutionStop(object sender, ExecutedRoutedEventArgs e)
@@ -79,7 +84,9 @@ namespace FlipEm
 
         private void CanSolutionStop(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = _solutionStepsPoints != null && _solutionSteps != null && _solutionTimer != null;
+            e.CanExecute = _solutionStepsPoints != null
+                && _solutionSteps != null
+                && _solutionTimer != null;
         }
     }
 }

@@ -14,16 +14,39 @@
         <vm:EnumViewModel x:Key="EnumValues"
                           EnumType="local_core:StepType"/>
     </UserControl.Resources>
-    <UniformGrid DataContext="{Binding ElementName=Control, Path=Settings}"
-                 Columns="2">
-        <TextBlock Text="Тип хода"/>
-        <telerik:RadComboBox ItemsSource="{Binding Source={StaticResource EnumValues}, Path=Values}"
-                             SelectedItem="{Binding Step, Mode=TwoWay}"/>
+    <Grid DataContext="{Binding ElementName=Control, Path=Settings}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-        <TextBlock Text="Размер поля"/>
-        <telerik:RadNumericUpDown Minimum="3"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0"
+                   Grid.Row="0"
+                   Text="Тип хода"
+                   Margin="2"/>
+
+        <telerik:RadComboBox Grid.Column="1"
+                             Grid.Row="0"
+                             ItemsSource="{Binding Source={StaticResource EnumValues}, Path=Values}"
+                             SelectedItem="{Binding Step, Mode=TwoWay}"
+                             Margin="2"/>
+
+        <TextBlock Grid.Column="0"
+                   Grid.Row="1"
+                   Text="Размер поля"
+                   Margin="2"/>
+
+        <telerik:RadNumericUpDown Grid.Column="1"
+                                  Grid.Row="1"
+                                  Minimum="3"
                                   Maximum="12"
                                   IsInteger="True"
-                                  Value="{Binding Size, Mode=TwoWay}"/>
-    </UniformGrid>
+                                  Value="{Binding Size, Mode=TwoWay}"
+                                  Margin="2"/>
+    </Grid>
 </UserControl>

@@ -56,7 +56,7 @@ namespace FlipEm.Core
 
         public void ClickProgrammatically(Chip chip)
         {
-            if (_isSelChecked)
+            if (!_isSelChecked)
             {
                 chip.Click();
             }
