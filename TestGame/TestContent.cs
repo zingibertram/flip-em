@@ -10,10 +10,5 @@ namespace TestGame
             _settings = new TestSettingsView();
             _game = new TestGameView();
         }
-
-        ~TestContent()
-        {
-            Console.WriteLine("Test game content desttructed");
-        }
     }
 }
