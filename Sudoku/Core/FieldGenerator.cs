@@ -17,7 +17,7 @@ namespace Sudoku.Core
         public static Field Generate(int num = 10)
         {
             _field = new Field();
-            var rng = Enumerable.Range(0, S.F);
+            var rng = Enumerable.Range(0, S.F).ToList();
             foreach (var k in rng)
             {
                 foreach (var l in rng)
@@ -120,7 +120,7 @@ namespace Sudoku.Core
         {
             for (int i = 0; i < num; ++i)
             {
-                var k = _rand.Next(0, num);
+                var k = _rand.Next(0, _mixActions.Count);
                 _mixActions[k]();
             }
         }
@@ -128,24 +128,28 @@ namespace Sudoku.Core
 
     public class FieldStriker
     {
-        public static Field StrikeOut()
+        private static Field _field;
+
+        public static Field StrikeOut(Field f)
         {
-            var look = new bool[S.N, S.N];
-            for (int i = 0; i < S.F; ++i)
-            {
-                for (int j = 0; j < S.F; ++j)
-                {
-                    look[i, j] = false;
-                }
-            }
+            _field = f;
 
-            var iter = 0;
-            var difficult = S.F*S.F;
+            //var look = new bool[S.N, S.N];
+            //for (int i = 0; i < S.F; ++i)
+            //{
+            //    for (int j = 0; j < S.F; ++j)
+            //    {
+            //        look[i, j] = false;
+            //    }
+            //}
 
-            while (iter < S.F*S.F)
-            {
+            //var iter = 0;
+            //var difficult = S.F*S.F;
 
-            }
+            //while (iter < S.F*S.F)
+            //{
+
+            //}
             return null;
         }
     }

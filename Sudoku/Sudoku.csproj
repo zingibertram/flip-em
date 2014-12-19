@@ -48,6 +48,9 @@
     <Compile Include="Core\FieldGenerator.cs" />
     <Compile Include="Core\FieldSolver.cs" />
     <Compile Include="Core\S.cs" />
+    <Compile Include="Helpers\Itertools.cs" />
+    <Compile Include="Helpers\Synonymous.cs" />
+    <Compile Include="Models\FieldViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SudokuContent.cs" />
     <Compile Include="SudokuView.Commands.cs" />

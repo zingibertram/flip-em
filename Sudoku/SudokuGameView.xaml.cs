@@ -1,6 +1,6 @@
-﻿using Games.Core;
-using System.Windows;
-using Sudoku.Core;
+﻿using System.Windows;
+using Games.Core;
+using Sudoku.Models;
 
 namespace Sudoku
 {
@@ -10,7 +10,7 @@ namespace Sudoku
         {
             InitializeComponent();
 
-            FieldGenerator.Generate();
+            var field = new FieldViewModel();
         }
 
         public void StartNew()
