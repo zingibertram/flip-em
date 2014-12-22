@@ -128,29 +128,54 @@ namespace Sudoku.Core
 
     public class FieldStriker
     {
-        private static Field _field;
+        private static readonly Random _rand = new Random();
 
         public static Field StrikeOut(Field f)
         {
-            _field = f;
+            var field = new Field(f);
 
-            //var look = new bool[S.N, S.N];
-            //for (int i = 0; i < S.F; ++i)
-            //{
-            //    for (int j = 0; j < S.F; ++j)
-            //    {
-            //        look[i, j] = false;
-            //    }
-            //}
+            var look = new bool[S.F, S.F];
+            for (int i = 0; i < S.F; ++i)
+            {
+                for (int j = 0; j < S.F; ++j)
+                {
+                    look[i, j] = false;
+                }
+            }
 
-            //var iter = 0;
-            //var difficult = S.F*S.F;
+            var iter = 0;
+            var difficult = S.F * S.F;
 
-            //while (iter < S.F*S.F)
-            //{
+            while (iter < S.F * S.F)
+            {
+                var i = _rand.Next(0, S.F);
+                var j = _rand.Next(0, S.F);
 
-            //}
-            return null;
+                if (!look[i, j])
+                {
+                    iter++;
+                    look[i, j] = true;
+
+                    var tmp = field[i, j];
+                    field[i, j] = 0;
+                    difficult--;
+
+                    var resolved = new Field(field);
+
+                    var solutionCount = 0;
+                    foreach (var solution in FieldSolver.Solve(resolved))
+                    {
+                        solutionCount++;
+                    }
+
+                    if (solutionCount > 1)
+                    {
+                        field[i, j] = tmp;
+                        difficult--;
+                    }
+                }
+            }
+            return f;
         }
     }
 }

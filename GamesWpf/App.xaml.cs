@@ -1,15 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
-using System.Windows.Threading;
 
 namespace GamesWpf
 {
-    public partial class App : Application
+    public partial class App
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             base.OnStartup(e);
         }
 

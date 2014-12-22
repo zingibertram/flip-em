@@ -6,10 +6,12 @@ using System.Windows.Media.Media3D;
 using Sudoku.Helpers;
 
 using StrP = System.Tuple<string, System.Windows.Point>;
-using StrPColl = System.Collections.Generic.IEnumerable<System.Tuple<string, System.Windows.Point>>;
-using StrPCollDict = System.Collections.Generic.Dictionary<System.Windows.Media.Media3D.Point3D, System.Collections.Generic.IEnumerable<System.Tuple<string, System.Windows.Point>>>;
+using StrPColl = System.Collections.Generic.List<System.Tuple<string, System.Windows.Point>>;
+using StrPCollDict = System.Collections.Generic.Dictionary<System.Windows.Media.Media3D.Point3D, System.Collections.Generic.List<System.Tuple<string, System.Windows.Point>>>;
 using StrPSetDict = System.Collections.Generic.Dictionary<System.Tuple<string, System.Windows.Point>, System.Collections.Generic.HashSet<System.Windows.Media.Media3D.Point3D>>;
-using TuplePSetPcoll = System.Tuple<System.Collections.Generic.Dictionary<System.Tuple<string, System.Windows.Point>, System.Collections.Generic.HashSet<System.Windows.Media.Media3D.Point3D>>, System.Collections.Generic.Dictionary<System.Windows.Media.Media3D.Point3D, System.Collections.Generic.IEnumerable<System.Tuple<string, System.Windows.Point>>>>;
+using TuplePSetPcoll = System.Tuple<System.Collections.Generic.Dictionary<System.Tuple<string, System.Windows.Point>, System.Collections.Generic.HashSet<System.Windows.Media.Media3D.Point3D>>, System.Collections.Generic.Dictionary<System.Windows.Media.Media3D.Point3D, System.Collections.Generic.List<System.Tuple<string, System.Windows.Point>>>>;
+using P3DSet = System.Collections.Generic.HashSet<System.Windows.Media.Media3D.Point3D>;
+using P3DSetColl = System.Collections.Generic.List<System.Collections.Generic.HashSet<System.Windows.Media.Media3D.Point3D>>;
 
 namespace Sudoku.Core
 {
@@ -18,8 +20,9 @@ namespace Sudoku.Core
         private static readonly IEnumerable<int> _indicies = Enumerable.Range(0, S.F);
         private static readonly IEnumerable<int> _numbers = Enumerable.Range(1, S.F);
 
-        public static Field Solve(Field source)
+        public static IEnumerable<Field> Solve(Field source)
         {
+            var field = new Field(source);
 
             var xList = CreateXList();
             var yDict = CreateYDict();
@@ -28,7 +31,19 @@ namespace Sudoku.Core
             var x = xy.Item1;
             var y = xy.Item2;
 
-            return null;
+            Selection(field, x, y);
+
+            foreach (var solution in Solve(x, y, new List<Point3D>()))
+            {
+                foreach (var point3D in solution)
+                {
+                    var r = (int)point3D.X;
+                    var c = (int)point3D.Y;
+                    var n = (int)point3D.Z;
+                    field[r, c] = n;
+                }
+                yield return field;
+            }
         }
 
         private static StrPColl CreateXList()
@@ -38,7 +53,7 @@ namespace Sudoku.Core
             var cnList = from cn in Itertools.Product(_indicies, _numbers) select new Tuple<string, Point>("cn", cn);
             var bnList = from bn in Itertools.Product(_indicies, _numbers) select new Tuple<string, Point>("bn", bn);
 
-            return rcList.Concat(rnList).Concat(cnList).Concat(bnList);
+            return rcList.Concat(rnList).Concat(cnList).Concat(bnList).ToList();
         }
 
         private static StrPCollDict CreateYDict()
@@ -83,13 +98,90 @@ namespace Sudoku.Core
             return x.ToDictionary(elem => elem, elem => new HashSet<Point3D>());
         }
 
-        private static void Selection()
+        private static void Selection(Field f, StrPSetDict xDict, StrPCollDict yDict)
         {
             for (int i = 0; i < S.F; ++i)
             {
                 for (int j = 0; j < S.F; ++j)
                 {
-                    
+                    if (f[i, j] != 0)
+                    {
+                        Select(xDict, yDict, new Point3D(i, j, f[i, j]));
+                    }
+                }
+            }
+        }
+
+        private static P3DSetColl Select(StrPSetDict xDict, StrPCollDict yDict, Point3D row)
+        {
+            var cols = new P3DSetColl();
+            foreach (var j in yDict[row])
+            {
+                foreach (var i in xDict[j])
+                {
+                    foreach (var k in yDict[i])
+                    {
+                        if (!k.Equals(j))
+                        {
+                            xDict[k].Remove(i);
+                        }
+                    }
+                }
+                cols.Add(xDict[j]);
+                xDict.Remove(j);
+            }
+            return cols;
+        }
+
+        private static void Deselect(StrPSetDict xDict, StrPCollDict yDict, Point3D row, P3DSetColl cols)
+        {
+            for (int l = yDict[row].Count - 1; l >= 0; --l)
+            {
+                var j = yDict[row][l];
+                xDict[j] = cols.Last();
+                cols.Remove(xDict[j]);
+                foreach (var i in xDict[j])
+                {
+                    foreach (var k in yDict[i])
+                    {
+                        if (!k.Equals(j))
+                        {
+                            xDict[k].Add(i);
+                        }
+                    }
+                }
+            }
+        }
+
+        private static IEnumerable<IEnumerable<Point3D>> Solve(StrPSetDict xDict, StrPCollDict yDict, List<Point3D> solution)
+        {
+            if (xDict == null || xDict.Count == 0)
+            {
+                yield return solution;
+            }
+            else
+            {
+                var c = xDict.Min(elem => elem.Value.Count);
+                P3DSet row = null;
+                foreach (var x in xDict)
+                {
+                    if (c == 0)
+                    {
+                        row = x.Value;
+                        break;
+                    }
+                    c--;
+                }
+                foreach (var r in row)
+                {
+                    solution.Add(r);
+                    var cols = Select(xDict, yDict, r);
+                    foreach (var s in Solve(xDict, yDict, solution))
+                    {
+                        yield return s;
+                    }
+                    Deselect(xDict, yDict, r, cols);
+                    solution.RemoveAt(solution.Count - 1);
                 }
             }
         }
