@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media.Media3D;
@@ -20,21 +21,20 @@ namespace Sudoku.Core
         private static readonly IEnumerable<int> _indicies = Enumerable.Range(0, S.F);
         private static readonly IEnumerable<int> _numbers = Enumerable.Range(1, S.F);
         public static Int64 iterCnt;
+        private static StrPSetDict xDict;
+        private static StrPCollDict yDict;
 
         public static IEnumerable<Field> Solve(Field source)
         {
             var field = new Field(source);
 
             var xList = CreateXList();
-            var yDict = CreateYDict();
+            yDict = CreateYDict();
+            xDict = CreateXDict(xList);
 
-            var xy = ExactCover(xList, yDict);
-            var x = xy.Item1;
-            var y = xy.Item2;
-
-            Selection(field, x, y);
-
-            foreach (var solution in Solve(x, y, new List<Point3D>()))
+            Selection(field);
+            
+            foreach (var solution in Solve(new List<Point3D>()))
             {
                 foreach (var point3D in solution)
                 {
@@ -59,7 +59,7 @@ namespace Sudoku.Core
 
         private static StrPCollDict CreateYDict()
         {
-            var yDict = new StrPCollDict();
+            yDict = new StrPCollDict();
             foreach (var p in Itertools.Product(_indicies, _indicies, _numbers))
             {
                 var r = (int)p.X;
@@ -79,9 +79,9 @@ namespace Sudoku.Core
             return yDict;
         }
 
-        private static TuplePSetPcoll ExactCover(StrPColl xList, StrPCollDict yDict)
+        private static StrPSetDict CreateXDict(IEnumerable<Tuple<string, Point>> x)
         {
-            var xDict = CreateXDict(xList);
+            var xDict = x.ToDictionary(elem => elem, elem => new HashSet<Point3D>());
 
             foreach (var y in yDict)
             {
@@ -91,15 +91,10 @@ namespace Sudoku.Core
                 }
             }
 
-            return new TuplePSetPcoll(xDict, yDict);
+            return xDict;
         }
 
-        private static StrPSetDict CreateXDict(IEnumerable<Tuple<string, Point>> x)
-        {
-            return x.ToDictionary(elem => elem, elem => new HashSet<Point3D>());
-        }
-
-        private static void Selection(Field f, StrPSetDict xDict, StrPCollDict yDict)
+        private static void Selection(Field f)
         {
             for (int i = 0; i < S.F; ++i)
             {
@@ -107,14 +102,14 @@ namespace Sudoku.Core
                 {
                     if (f[i, j] != 0)
                     {
-                        Select(xDict, yDict, new Point3D(i, j, f[i, j]));
+                        Select(new Point3D(i, j, f[i, j]));
                         iterCnt++;
                     }
                 }
             }
         }
 
-        private static P3DSetColl Select(StrPSetDict xDict, StrPCollDict yDict, Point3D row)
+        private static P3DSetColl Select(Point3D row)
         {
             var cols = new P3DSetColl();
             foreach (var j in yDict[row])
@@ -136,7 +131,7 @@ namespace Sudoku.Core
             return cols;
         }
 
-        private static void Deselect(StrPSetDict xDict, StrPCollDict yDict, Point3D row, P3DSetColl cols)
+        private static void Deselect(Point3D row, P3DSetColl cols)
         {
             for (int l = yDict[row].Count - 1; l >= 0; --l)
             {
@@ -157,7 +152,7 @@ namespace Sudoku.Core
             }
         }
 
-        private static IEnumerable<IEnumerable<Point3D>> Solve(StrPSetDict xDict, StrPCollDict yDict, List<Point3D> solution)
+        private static IEnumerable<IEnumerable<Point3D>> Solve(List<Point3D> solution)
         {
             if (xDict == null || xDict.Count == 0)
             {
@@ -179,12 +174,12 @@ namespace Sudoku.Core
                 foreach (var r in row)
                 {
                     solution.Add(r);
-                    var cols = Select(xDict, yDict, r);
-                    foreach (var s in Solve(xDict, yDict, solution))
+                    var cols = Select(r);
+                    foreach (var s in Solve(solution))
                     {
                         yield return s;
                     }
-                    Deselect(xDict, yDict, r, cols);
+                    Deselect(r, cols);
                     solution.RemoveAt(solution.Count - 1);
                     iterCnt++;
                 }
@@ -192,3 +187,12 @@ namespace Sudoku.Core
         }
     }
 }
+
+
+//sw.Start();
+
+
+//sw.Stop();
+//var t = (double)sw.ElapsedMilliseconds;
+//Console.WriteLine("Time " + t / 1000 + " sec");
+

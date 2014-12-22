@@ -119,7 +119,6 @@ namespace Sudoku.Core
             {
                 var k = _rand.Next(0, _mixActions.Count);
                 _mixActions[k]();
-                _field.WriteToConsole();
 
                 if (!_field.IsValid())
                 {

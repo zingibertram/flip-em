@@ -60,6 +60,7 @@
     <Compile Include="SudokuSettingsView.xaml.cs">
       <DependentUpon>SudokuSettingsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tests\TestFieldGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="SudokuGameView.xaml">

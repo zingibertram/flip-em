@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Games.Core;
 using Sudoku.Models;
+using Sudoku.Tests;
 
 namespace Sudoku
 {
@@ -11,6 +12,7 @@ namespace Sudoku
             InitializeComponent();
 
             var field = new FieldViewModel();
+            TestFieldGenerator.TestFielfdGenerator();
         }
 
         public void StartNew()

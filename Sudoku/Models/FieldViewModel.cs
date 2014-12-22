@@ -10,7 +10,6 @@ namespace Sudoku.Models
         public FieldViewModel()
         {
             _source = FieldGenerator.Generate();
-            _source.WriteToConsole();
             _field = FieldStriker.StrikeOut(_source);
 
             //_field = new Field(new int[,]
