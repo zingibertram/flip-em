@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows.Documents;
 
 namespace Sudoku.Core
 {
@@ -39,15 +43,81 @@ namespace Sudoku.Core
 
         public void WriteToConsole()
         {
+            Console.WriteLine(ToString());
+        }
+
+        public override string ToString()
+        {
+            var num = S.F.ToString().Length;
+
+            var s = string.Format("{0}+-", new string('-', S.N * (num + 1)));
+            var res = string.Concat(Enumerable.Repeat(s, S.N));
+            var lineSep = string.Format("\n{0}", res);
+            lineSep = lineSep.Remove(lineSep.Length - 3);
+
+            var builder = new StringBuilder();
+
             for (int i = 0; i < S.F; i++)
             {
                 for (int j = 0; j < S.F; j++)
                 {
-                    Console.Write(_field[i, j] + " ");
+                    var v = _field[i, j];
+                    builder.Append(string.Format("{0} ", v));
+                    if (j % S.N == S.N - 1 && j != S.F - 1)
+                    {
+                        builder.Append("| ");
+                    }
                 }
-                Console.Write("\n");
+
+                builder.Remove(builder.Length - 1, 1);
+
+                if (i % S.N == S.N - 1 && i != S.F - 1)
+                {
+                    builder.Append(lineSep);
+                }
+                builder.Append("\n");
             }
-            Console.Write("\n");
+            builder.Append("\n");
+
+            return builder.ToString();
+        }
+
+        public bool IsValid()
+        {
+            var rows = new List<HashSet<int>>();
+            var cols = new List<HashSet<int>>();
+            var blos = new List<HashSet<int>>();
+
+            for (int i = 0; i < S.F; ++i)
+            {
+                rows.Add(new HashSet<int>());
+                cols.Add(new HashSet<int>());
+                blos.Add(new HashSet<int>());
+            }
+
+            for (int i = 0; i < S.F; ++i)
+            {
+                for (int j = 0; j < S.F; ++j)
+                {
+                    var v = this[i, j];
+                    if (v == 0)
+                        return false;
+
+                    rows[i].Add(v);
+                    cols[j].Add(v);
+                    blos[(i / S.N) * S.N + j / S.N].Add(v);
+                }
+            }
+
+            for (int i = 0; i < S.F; ++i)
+            {
+                if (rows[i].Count != S.F
+                    || cols[i].Count != S.F
+                    || blos[i].Count != S.F)
+                    return false;
+            }
+
+            return true;
         }
     }
 }

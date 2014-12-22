@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace Sudoku.Core
@@ -18,13 +19,11 @@ namespace Sudoku.Core
         {
             _field = new Field();
             var rng = Enumerable.Range(0, S.F).ToList();
-            foreach (var k in rng)
+            foreach (var i in rng)
             {
-                foreach (var l in rng)
+                foreach (var j in rng)
                 {
-                    var i = k + 1;
-                    var j = l + 1;
-                    _field[k, l] = (i * S.N + i / S.N + j) % S.F + 1;
+                    _field[i, j] = (i * S.N + i / S.N + j) % S.F + 1;
                 }
             }
 
@@ -99,20 +98,18 @@ namespace Sudoku.Core
         private static void SwapAreasRows()
         {
             var p = GetPair(false);
-            p = new[] { p[0] * S.N, p[1] * S.N};
             for (int i = 0; i < S.N; ++i)
             {
-                SwapRows(p[0] + i, p[1] + i);
+                SwapRows(p[0] * S.N + i, p[1] * S.N + i);
             }
         }
 
         private static void SwapAreasColumns()
         {
             var p = GetPair(false);
-            p = new[] { p[0] * S.N, p[1] * S.N};
             for (int i = 0; i < S.N; ++i)
             {
-                SwapColumns(p[0] + i, p[1] + i);
+                SwapColumns(p[0] * S.N + i, p[1] * S.N + i);
             }
         }
 
@@ -122,6 +119,12 @@ namespace Sudoku.Core
             {
                 var k = _rand.Next(0, _mixActions.Count);
                 _mixActions[k]();
+                _field.WriteToConsole();
+
+                if (!_field.IsValid())
+                {
+                    throw new InvalidConstraintException(_field.ToString());
+                }
             }
         }
     }
@@ -146,6 +149,7 @@ namespace Sudoku.Core
             var iter = 0;
             var difficult = S.F * S.F;
 
+            FieldSolver.iterCnt = 0;
             while (iter < S.F * S.F)
             {
                 var i = _rand.Next(0, S.F);
@@ -171,7 +175,7 @@ namespace Sudoku.Core
                     if (solutionCount > 1)
                     {
                         field[i, j] = tmp;
-                        difficult--;
+                        difficult++;
                     }
                 }
             }

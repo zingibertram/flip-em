@@ -19,6 +19,7 @@ namespace Sudoku.Core
     {
         private static readonly IEnumerable<int> _indicies = Enumerable.Range(0, S.F);
         private static readonly IEnumerable<int> _numbers = Enumerable.Range(1, S.F);
+        public static Int64 iterCnt;
 
         public static IEnumerable<Field> Solve(Field source)
         {
@@ -107,6 +108,7 @@ namespace Sudoku.Core
                     if (f[i, j] != 0)
                     {
                         Select(xDict, yDict, new Point3D(i, j, f[i, j]));
+                        iterCnt++;
                     }
                 }
             }
@@ -124,6 +126,7 @@ namespace Sudoku.Core
                         if (!k.Equals(j))
                         {
                             xDict[k].Remove(i);
+                            iterCnt++;
                         }
                     }
                 }
@@ -147,6 +150,7 @@ namespace Sudoku.Core
                         if (!k.Equals(j))
                         {
                             xDict[k].Add(i);
+                            iterCnt++;
                         }
                     }
                 }
@@ -162,12 +166,12 @@ namespace Sudoku.Core
             else
             {
                 var c = xDict.Min(elem => elem.Value.Count);
-                P3DSet row = null;
+                List<Point3D> row = null;
                 foreach (var x in xDict)
                 {
                     if (c == 0)
                     {
-                        row = x.Value;
+                        row = x.Value.ToList();
                         break;
                     }
                     c--;
@@ -182,6 +186,7 @@ namespace Sudoku.Core
                     }
                     Deselect(xDict, yDict, r, cols);
                     solution.RemoveAt(solution.Count - 1);
+                    iterCnt++;
                 }
             }
         }
