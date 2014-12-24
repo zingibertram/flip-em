@@ -82,7 +82,18 @@
       <Name>Games.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Res\Fields\field_0.sfd" />
+    <Resource Include="Res\Fields\field_1.sfd" />
+    <Resource Include="Res\Fields\field_2.sfd" />
+    <Resource Include="Res\Fields\field_3.sfd" />
+    <Resource Include="Res\Fields\field_4.sfd" />
+    <Resource Include="Res\Fields\field_5.sfd" />
+    <Resource Include="Res\Fields\field_6.sfd" />
+    <Resource Include="Res\Fields\field_7.sfd" />
+    <Resource Include="Res\Fields\field_8.sfd" />
+    <Resource Include="Res\Fields\field_9.sfd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
