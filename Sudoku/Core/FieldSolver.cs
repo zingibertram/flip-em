@@ -18,8 +18,8 @@ namespace Sudoku.Core
 {
     public class FieldSolver
     {
-        private static readonly IEnumerable<int> _indicies = Enumerable.Range(0, S.F);
-        private static readonly IEnumerable<int> _numbers = Enumerable.Range(1, S.F);
+        private static readonly IEnumerable<int> _indicies = Enumerable.Range(0, S.N);
+        private static readonly IEnumerable<int> _numbers = Enumerable.Range(1, S.N);
         public static Int64 iterCnt;
         private static StrPSetDict xDict;
         private static StrPCollDict yDict;
@@ -27,12 +27,7 @@ namespace Sudoku.Core
         public static IEnumerable<Field> Solve(Field source)
         {
             var field = new Field(source);
-
-            var xList = CreateXList();
-            yDict = CreateYDict();
-            xDict = CreateXDict(xList);
-
-            Selection(field);
+            PrepareDicts(field);
             
             foreach (var solution in Solve(new List<Point3D>()))
             {
@@ -45,6 +40,15 @@ namespace Sudoku.Core
                 }
                 yield return field;
             }
+        }
+
+        private static void PrepareDicts(Field field)
+        {
+            var xList = CreateXList();
+            yDict = CreateYDict();
+            xDict = CreateXDict(xList);
+
+            Selection(field);
         }
 
         private static StrPColl CreateXList()
@@ -66,7 +70,7 @@ namespace Sudoku.Core
                 var c = (int)p.Y;
                 var n = (int)p.Z;
 
-                var b = (r / S.N) * S.N + c / S.N;
+                var b = (r / S.B) * S.B + c / S.B;
 
                 yDict[p] = new List<Tuple<string, Point>>
                 {
@@ -96,9 +100,9 @@ namespace Sudoku.Core
 
         private static void Selection(Field f)
         {
-            for (int i = 0; i < S.F; ++i)
+            for (int i = 0; i < S.N; ++i)
             {
-                for (int j = 0; j < S.F; ++j)
+                for (int j = 0; j < S.N; ++j)
                 {
                     if (f[i, j] != 0)
                     {
@@ -187,12 +191,3 @@ namespace Sudoku.Core
         }
     }
 }
-
-
-//sw.Start();
-
-
-//sw.Stop();
-//var t = (double)sw.ElapsedMilliseconds;
-//Console.WriteLine("Time " + t / 1000 + " sec");
-

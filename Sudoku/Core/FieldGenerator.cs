@@ -15,15 +15,15 @@ namespace Sudoku.Core
             Transposing, SwapRowsInArea, SwapColumnsInArea, SwapAreasRows, SwapAreasColumns
         };
 
-        public static Field Generate(int num = 10)
+        public static Field Generate(int num = 16)
         {
             _field = new Field();
-            var rng = Enumerable.Range(0, S.F).ToList();
+            var rng = Enumerable.Range(0, S.N).ToList();
             foreach (var i in rng)
             {
                 foreach (var j in rng)
                 {
-                    _field[i, j] = (i * S.N + i / S.N + j) % S.F + 1;
+                    _field[i, j] = (i * S.B + i / S.B + j) % S.N + 1;
                 }
             }
 
@@ -34,9 +34,9 @@ namespace Sudoku.Core
 
         private static void Transposing()
         {
-            for (int i = 0; i < S.F; ++i)
+            for (int i = 0; i < S.N; ++i)
             {
-                for (int j = 0; j < S.F; ++j)
+                for (int j = 0; j < S.N; ++j)
                 {
                     var tmp = _field[i, j];
                     _field[i, j] = _field[j, i];
@@ -47,7 +47,7 @@ namespace Sudoku.Core
 
         private static void SwapRows(int i, int j)
         {
-            for (int k = 0; k < S.F; ++k)
+            for (int k = 0; k < S.N; ++k)
             {
                 var tmp = _field[k, i];
                 _field[k, i] = _field[k, j];
@@ -57,7 +57,7 @@ namespace Sudoku.Core
 
         private static void SwapColumns(int i, int j)
         {
-            for (int k = 0; k < S.F; ++k)
+            for (int k = 0; k < S.N; ++k)
             {
                 var tmp = _field[i, k];
                 _field[i, k] = _field[j, k];
@@ -67,17 +67,17 @@ namespace Sudoku.Core
 
         private static int[] GetPair(bool addArea = true)
         {
-            var p = new[] { _rand.Next(0, S.N), _rand.Next(0, S.N) };
+            var p = new[] { _rand.Next(0, S.B), _rand.Next(0, S.B) };
             while (p[0] == p[1])
             {
-                p[1] = _rand.Next(0, S.N);
+                p[1] = _rand.Next(0, S.B);
             }
 
             if (addArea)
             {
-                var area = _rand.Next(0, S.N);
-                p[0] += area * S.N;
-                p[1] += area * S.N;
+                var area = _rand.Next(0, S.B);
+                p[0] += area * S.B;
+                p[1] += area * S.B;
             }
 
             return p;
@@ -98,18 +98,18 @@ namespace Sudoku.Core
         private static void SwapAreasRows()
         {
             var p = GetPair(false);
-            for (int i = 0; i < S.N; ++i)
+            for (int i = 0; i < S.B; ++i)
             {
-                SwapRows(p[0] * S.N + i, p[1] * S.N + i);
+                SwapRows(p[0] * S.B + i, p[1] * S.B + i);
             }
         }
 
         private static void SwapAreasColumns()
         {
             var p = GetPair(false);
-            for (int i = 0; i < S.N; ++i)
+            for (int i = 0; i < S.B; ++i)
             {
-                SwapColumns(p[0] * S.N + i, p[1] * S.N + i);
+                SwapColumns(p[0] * S.B + i, p[1] * S.B + i);
             }
         }
 
@@ -136,23 +136,23 @@ namespace Sudoku.Core
         {
             var field = new Field(f);
 
-            var look = new bool[S.F, S.F];
-            for (int i = 0; i < S.F; ++i)
+            var look = new bool[S.N, S.N];
+            for (int i = 0; i < S.N; ++i)
             {
-                for (int j = 0; j < S.F; ++j)
+                for (int j = 0; j < S.N; ++j)
                 {
                     look[i, j] = false;
                 }
             }
 
             var iter = 0;
-            var difficult = S.F * S.F;
+            var difficult = S.N * S.N;
 
             FieldSolver.iterCnt = 0;
-            while (iter < S.F * S.F)
+            while (iter < S.N * S.N)
             {
-                var i = _rand.Next(0, S.F);
-                var j = _rand.Next(0, S.F);
+                var i = _rand.Next(0, S.N);
+                var j = _rand.Next(0, S.N);
 
                 if (!look[i, j])
                 {
@@ -164,13 +164,7 @@ namespace Sudoku.Core
                     difficult--;
 
                     var resolved = new Field(field);
-
-                    var solutionCount = 0;
-                    foreach (var solution in FieldSolver.Solve(resolved))
-                    {
-                        solutionCount++;
-                    }
-
+                    var solutionCount = FieldSolver.Solve(resolved).Count();
                     if (solutionCount > 1)
                     {
                         field[i, j] = tmp;

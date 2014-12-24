@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Documents;
 
 namespace Sudoku.Core
 {
+    [Serializable]
     public class Field
     {
         private readonly int[,] _field;
 
         public Field()
         {
-            _field = new int[S.F, S.F];
+            _field = new int[S.N, S.N];
         }
 
         public Field(int[,] f)
             : this()
         {
-            if (f.Length != S.F * S.F)
+            if (f.Length != S.N * S.N)
                 throw new ArgumentException();
 
-            for (int i = 0; i < S.F; ++i)
+            for (int i = 0; i < S.N; ++i)
             {
-                for (int j = 0; j < S.F; ++j)
+                for (int j = 0; j < S.N; ++j)
                 {
                     _field[i, j] = f[i, j];
                 }
@@ -48,22 +48,22 @@ namespace Sudoku.Core
 
         public override string ToString()
         {
-            var num = S.F.ToString().Length;
+            var num = S.N.ToString().Length;
 
-            var s = string.Format("{0}+-", new string('-', S.N * (num + 1)));
-            var res = string.Concat(Enumerable.Repeat(s, S.N));
+            var s = string.Format("{0}+-", new string('-', S.B * (num + 1)));
+            var res = string.Concat(Enumerable.Repeat(s, S.B));
             var lineSep = string.Format("\n{0}", res);
             lineSep = lineSep.Remove(lineSep.Length - 3);
 
             var builder = new StringBuilder();
 
-            for (int i = 0; i < S.F; i++)
+            for (int i = 0; i < S.N; i++)
             {
-                for (int j = 0; j < S.F; j++)
+                for (int j = 0; j < S.N; j++)
                 {
                     var v = _field[i, j];
                     builder.Append(string.Format("{0} ", v));
-                    if (j % S.N == S.N - 1 && j != S.F - 1)
+                    if (j % S.B == S.B - 1 && j != S.N - 1)
                     {
                         builder.Append("| ");
                     }
@@ -71,7 +71,7 @@ namespace Sudoku.Core
 
                 builder.Remove(builder.Length - 1, 1);
 
-                if (i % S.N == S.N - 1 && i != S.F - 1)
+                if (i % S.B == S.B - 1 && i != S.N - 1)
                 {
                     builder.Append(lineSep);
                 }
@@ -88,16 +88,16 @@ namespace Sudoku.Core
             var cols = new List<HashSet<int>>();
             var blos = new List<HashSet<int>>();
 
-            for (int i = 0; i < S.F; ++i)
+            for (int i = 0; i < S.N; ++i)
             {
                 rows.Add(new HashSet<int>());
                 cols.Add(new HashSet<int>());
                 blos.Add(new HashSet<int>());
             }
 
-            for (int i = 0; i < S.F; ++i)
+            for (int i = 0; i < S.N; ++i)
             {
-                for (int j = 0; j < S.F; ++j)
+                for (int j = 0; j < S.N; ++j)
                 {
                     var v = this[i, j];
                     if (v == 0)
@@ -105,19 +105,32 @@ namespace Sudoku.Core
 
                     rows[i].Add(v);
                     cols[j].Add(v);
-                    blos[(i / S.N) * S.N + j / S.N].Add(v);
+                    blos[(i / S.B) * S.B + j / S.B].Add(v);
                 }
             }
 
-            for (int i = 0; i < S.F; ++i)
+            for (int i = 0; i < S.N; ++i)
             {
-                if (rows[i].Count != S.F
-                    || cols[i].Count != S.F
-                    || blos[i].Count != S.F)
+                if (rows[i].Count != S.N
+                    || cols[i].Count != S.N
+                    || blos[i].Count != S.N)
                     return false;
             }
 
             return true;
+        }
+
+        public int[,] GetFieldCopy()
+        {
+            var copy = new int[S.N, S.N];
+            for (int i = 0; i < S.N; i++)
+            {
+                for (int j = 0; j < S.N; j++)
+                {
+                    copy[i, j] = _field[i, j];
+                }
+            }
+            return copy;
         }
     }
 }
