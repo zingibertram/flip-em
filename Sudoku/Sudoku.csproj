@@ -65,6 +65,9 @@
       <DependentUpon>SudokuSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tests\TestFieldGenerator.cs" />
+    <Compile Include="Views\FieldCell.xaml.cs">
+      <DependentUpon>FieldCell.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="SudokuGameView.xaml">
@@ -74,6 +77,10 @@
     <Page Include="SudokuSettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FieldCell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
