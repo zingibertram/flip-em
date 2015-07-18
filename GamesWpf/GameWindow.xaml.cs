@@ -23,11 +23,6 @@ namespace GamesWpf
         {
             InitializeComponent();
             Games = GamesLoader.Load();
-            foreach (var g in Games)
-            {
-                AddGamesMenuItem(g);
-            }
-            SetStartGame();
         }
 
         public ObservableCollection<IGameInfo> Games
@@ -62,31 +57,6 @@ namespace GamesWpf
         private void OnSolutionTabVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             OpenGame();
-        }
-
-        private void AddGamesMenuItem(IGameInfo g)
-        {
-            GamesMenu.Items.Add(new RibbonApplicationMenuItem
-            {
-                Header = g.Name,
-                Command = GameWindowCommands.SelectGameCommand,
-                CommandParameter = g
-            });
-        }
-
-        private void SetStartGame()
-        {
-            if (Games.Count > 0)
-            {
-                var game = Games[0];
-                SetCurrent(game);
-            }
-        }
-
-        private void SetCurrent(IGameInfo game)
-        {
-            var converter = new TypeToGameConverter();
-            CurrentGame = converter.ConvertBack(game, null, null, null) as IGameViews;
         }
     }
 }

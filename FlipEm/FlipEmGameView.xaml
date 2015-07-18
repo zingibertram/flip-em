@@ -14,8 +14,7 @@
                         Executed="OnChipClicked"
                         CanExecute="CanChipClicked"/>
         <CommandBinding Command="{x:Static core:GameCommands.RestartCommand}"
-                        Executed="OnRestart"
-                        CanExecute="CanRestart"/>
+                        Executed="OnRestart"/>
         <CommandBinding Command="{x:Static core:GameCommands.SolutionStartCommand}"
                         Executed="OnSolutionStart"
                         CanExecute="CanSolutionStart"/>

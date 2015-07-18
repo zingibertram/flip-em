@@ -2,7 +2,6 @@
     x:Class="GamesWpf.GameWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     xmlns:local="clr-namespace:GamesWpf"
     xmlns:core="clr-namespace:Games.Core;assembly=Games.Core"
     x:Name="Window"
@@ -36,8 +35,6 @@
         <CommandBinding Command="{x:Static core:GameCommands.UndoCommand}"
                         Executed="OnUndo"
                         CanExecute="CanUndo"/>
-        <CommandBinding Command="{x:Static local:GameWindowCommands.SelectGameCommand}"
-                        Executed="OnSelectGame"/>
     </Window.CommandBindings>
 
     <Grid DataContext="{Binding ElementName=Window}">
@@ -45,90 +42,105 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <Ribbon
-            Grid.Row="0"
-            x:Name="Ribbon"
-            Title="{Binding CurrentGame.Title}">
 
-            <Ribbon.ApplicationMenu>
-                <RibbonApplicationMenu>
-                    <RibbonApplicationSplitMenuItem
-                        x:Name="GamesMenu"
-                        Header="Игры"/>
+        <DockPanel
+            Grid.Row="0">
+            <ToolBar
+                x:Name="FileToolBar">
+                <ComboBox
+                    ItemsSource="{Binding Path=Games}"
+                    SelectedIndex="0"
+                    SelectedItem="{Binding Path=CurrentGame, Converter={StaticResource TypeToGameConverter}, Mode=OneWayToSource}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
 
-                    <RibbonApplicationMenuItem
-                        Header="Загрузить игру"
-                        Command="{x:Static local:GameWindowCommands.LoadGameCommand}"/>
+                <Button
+                    ToolTip="Загрузить игру"
+                    Command="{x:Static local:GameWindowCommands.LoadGameCommand}">
+                    <Image Source="/GamesWpf;component/Images/16x16/Open.png"/>
+                </Button>
 
-                    <RibbonApplicationMenuItem
-                        Header="О программе"/>
+                <Button
+                    ToolTip="О программе">
+                    <Image Source="/GamesWpf;component/Images/16x16/About.png"/>
+                </Button>
 
-                    <RibbonSeparator/>
+                <Separator/>
 
-                    <RibbonApplicationMenuItem
-                        Header="Выход"
-                        Command="{x:Static ApplicationCommands.Close}"/>
-                </RibbonApplicationMenu>
-            </Ribbon.ApplicationMenu>
 
-            <RibbonTab
-                Header="Игра"
-                x:Name="MainTab">
-                <RibbonGroup Header="Игра">
-                    <RibbonButton 
-                        Label="Игра"
-                        LargeImageSource="/GamesWpf;component/Images/64x64/Table.png"
-                        Command="{x:Static local:GameWindowCommands.ShowGameCommand}"/>
-                    <RibbonButton
-                        Label="Рестарт"
-                        LargeImageSource="/GamesWpf;component/Images/32x32/Repeat.png"
-                        Command="core:GameCommands.RestartCommand"
-                        CommandTarget="{Binding CurrentGame.GameView.View}"/>
-                </RibbonGroup>
+                <Button
+                    ToolTip="Выход"
+                    Command="{x:Static ApplicationCommands.Close}">
+                    <Image Source="/GamesWpf;component/Images/16x16/Exit.png"/>
+                </Button>
+            </ToolBar>
 
-                <RibbonGroup Header="Настройки">
-                    <RibbonButton
-                        Label="Настройки"
-                        LargeImageSource="/GamesWpf;component/Images/32x32/Design.png"
-                        Command="{x:Static local:GameWindowCommands.ShowSettingsCommand}"/>
-                </RibbonGroup>
+            <ToolBar
+                x:Name="MainToolBar">
+                <Button
+                    ToolTip="Игра"
+                    Command="{x:Static local:GameWindowCommands.ShowGameCommand}">
+                    <Image Source="/GamesWpf;component/Images/16x16/Game.png"/>
+                </Button>
 
-                <RibbonGroup Header="Шаг">
-                    <RibbonButton
-                        Label="Отменить"
-                        LargeImageSource="/GamesWpf;component/Images/32x32/Undo.png"
-                        Command="{x:Static core:GameCommands.UndoCommand}"/>
+                <Button
+                    ToolTip="Рестарт"
+                    CommandTarget="{Binding CurrentGame.GameView.View}"
+                    Command="core:GameCommands.RestartCommand">
+                    <Image Source="/GamesWpf;component/Images/16x16/Repeat.png"/>
+                </Button>
+                
+                <Separator/>
+                
+                <Button
+                    ToolTip="Настройки"
+                    Command="{x:Static local:GameWindowCommands.ShowSettingsCommand}">
+                    <Image Source="/GamesWpf;component/Images/16x16/Design.png"/>
+                </Button>
 
-                    <RibbonButton
-                        Label="Повторить"
-                        LargeImageSource="/GamesWpf;component/Images/32x32/Redo.png"
-                        Command="{x:Static core:GameCommands.RedoCommand}"/>
-                </RibbonGroup>
-            </RibbonTab>
+                <Separator/>
 
-            <RibbonTab Header="Решение">
-                <RibbonGroup
-                    Header="Решение"
-                    IsVisibleChanged="OnSolutionTabVisibleChanged">
-                    <RibbonButton
-                        Label="Старт"
-                        LargeImageSource="/GamesWpf;component/Images/32x32/Play.png"
-                        Command="core:GameCommands.SolutionStartCommand"
-                        CommandTarget="{Binding CurrentGame.GameView.View}"/>
-                    <RibbonButton
-                        Label="Пауза"
-                        LargeImageSource="/GamesWpf;component/Images/32x32/Pause.png"
-                        Command="core:GameCommands.SolutionPauseCommand"
-                        CommandTarget="{Binding CurrentGame.GameView.View}"/>
-                    <RibbonButton
-                        Label="Стоп"
-                        LargeImageSource="/GamesWpf;component/Images/32x32/Stop.png"
-                        Command="core:GameCommands.SolutionStopCommand"
-                        CommandTarget="{Binding CurrentGame.GameView.View}"/>
-                </RibbonGroup>
-            </RibbonTab>
-        </Ribbon>
+                <Button
+                    ToolTip="Отменить"
+                    Command="{x:Static core:GameCommands.UndoCommand}">
+                    <Image Source="/GamesWpf;component/Images/16x16/Undo.png"/>
+                </Button>
+
+                <Button
+                    ToolTip="Повторить"
+                    Command="{x:Static core:GameCommands.RedoCommand}">
+                    <Image Source="/GamesWpf;component/Images/16x16/Redo.png"/>
+                </Button>
+            </ToolBar>
+
+            <ToolBar
+                x:Name="SolutionToolBar">
+                <Button
+                    ToolTip="Старт"
+                    Command="core:GameCommands.SolutionStartCommand"
+                    CommandTarget="{Binding CurrentGame.GameView.View}">
+                    <Image Source="/GamesWpf;component/Images/16x16/Play.png"/>
+                </Button>
+
+                <Button
+                    ToolTip="Пауза"
+                    Command="core:GameCommands.SolutionPauseCommand"
+                    CommandTarget="{Binding CurrentGame.GameView.View}">
+                    <Image Source="/GamesWpf;component/Images/16x16/Pause.png"/>
+                </Button>
+
+                <Button
+                    ToolTip="Стоп"
+                    Command="core:GameCommands.SolutionStopCommand"
+                    CommandTarget="{Binding CurrentGame.GameView.View}">
+                    <Image Source="/GamesWpf;component/Images/16x16/Stop.png"/>
+                </Button>
+            </ToolBar>
+        </DockPanel>
 
         <Grid Grid.Row="1"
               x:Name="GameView"

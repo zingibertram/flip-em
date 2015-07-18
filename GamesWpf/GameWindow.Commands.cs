@@ -94,7 +94,7 @@ namespace GamesWpf
 
         private void OnOpenGame(object sender, ExecutedRoutedEventArgs e)
         {
-            MainTab.IsSelected = true;
+            //MainTab.IsSelected = true;
             OpenSettings();
 
             e.Handled = true;
@@ -113,19 +113,9 @@ namespace GamesWpf
             {
                 var game = GamesLoader.LoadGame(dialog.FileName);
                 Games.Add(game);
-                AddGamesMenuItem(game);
             }
 
             e.Handled = true;
-        }
-
-        private void OnSelectGame(object sender, ExecutedRoutedEventArgs e)
-        {
-            var game = e.Parameter as IGameInfo;
-            if (game != null)
-            {
-                SetCurrent(game);
-            }
         }
     }
 }

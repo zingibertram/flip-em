@@ -144,6 +144,24 @@
   <ItemGroup>
     <SplashScreen Include="Images\SplashScreen.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\About.png" />
+    <Resource Include="Images\16x16\Design.png" />
+    <Resource Include="Images\16x16\Exit.png" />
+    <Resource Include="Images\16x16\Help.png" />
+    <Resource Include="Images\16x16\Pause.png" />
+    <Resource Include="Images\16x16\Play.png" />
+    <Resource Include="Images\16x16\Redo.png" />
+    <Resource Include="Images\16x16\Repeat.png" />
+    <Resource Include="Images\16x16\Stop.png" />
+    <Resource Include="Images\16x16\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16x16\Game.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
