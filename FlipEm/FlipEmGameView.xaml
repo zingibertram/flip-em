@@ -13,17 +13,6 @@
         <CommandBinding Command="{x:Static local:FlipEmCommands.ChipClickedCommand}"
                         Executed="OnChipClicked"
                         CanExecute="CanChipClicked"/>
-        <CommandBinding Command="{x:Static core:GameCommands.RestartCommand}"
-                        Executed="OnRestart"/>
-        <CommandBinding Command="{x:Static core:GameCommands.SolutionStartCommand}"
-                        Executed="OnSolutionStart"
-                        CanExecute="CanSolutionStart"/>
-        <CommandBinding Command="{x:Static core:GameCommands.SolutionPauseCommand}"
-                        Executed="OnSolutionPause"
-                        CanExecute="CanSolutionPause"/>
-        <CommandBinding Command="{x:Static core:GameCommands.SolutionStopCommand}"
-                        Executed="OnSolutionStop"
-                        CanExecute="CanSolutionStop"/>
     </UserControl.CommandBindings>
 
     <Grid HorizontalAlignment="Center"

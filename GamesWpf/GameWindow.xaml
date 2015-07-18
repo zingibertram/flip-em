@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:GamesWpf"
-    xmlns:core="clr-namespace:Games.Core;assembly=Games.Core"
     x:Name="Window"
     Title="Игра"
     Icon="/GamesWpf;component/Images/64x64/Table.png"
@@ -29,12 +28,24 @@
                         Executed="OnLoadGame"/>
         <CommandBinding Command="{x:Static ApplicationCommands.Close}"
                         Executed="OnClose"/>
-        <CommandBinding Command="{x:Static core:GameCommands.RedoCommand}"
+        <CommandBinding Command="{x:Static local:GameWindowCommands.RedoCommand}"
                         Executed="OnRedo"
                         CanExecute="CanRedo"/>
-        <CommandBinding Command="{x:Static core:GameCommands.UndoCommand}"
+        <CommandBinding Command="{x:Static local:GameWindowCommands.UndoCommand}"
                         Executed="OnUndo"
                         CanExecute="CanUndo"/>
+        <CommandBinding Command="{x:Static local:GameWindowCommands.RestartCommand}"
+                        Executed="OnRestart"
+                        CanExecute="CanRestart"/>
+        <CommandBinding Command="{x:Static local:GameWindowCommands.SolutionStartCommand}"
+                        Executed="OnSolutionStart"
+                        CanExecute="CanSolutionStart"/>
+        <CommandBinding Command="{x:Static local:GameWindowCommands.SolutionPauseCommand}"
+                        Executed="OnSolutionPause"
+                        CanExecute="CanSolutionPause"/>
+        <CommandBinding Command="{x:Static local:GameWindowCommands.SolutionStopCommand}"
+                        Executed="OnSolutionStop"
+                        CanExecute="CanSolutionStop"/>
     </Window.CommandBindings>
 
     <Grid DataContext="{Binding ElementName=Window}">
@@ -90,7 +101,7 @@
                 <Button
                     ToolTip="Рестарт"
                     CommandTarget="{Binding CurrentGame.GameView.View}"
-                    Command="core:GameCommands.RestartCommand">
+                    Command="local:GameWindowCommands.RestartCommand">
                     <Image Source="/GamesWpf;component/Images/16x16/Repeat.png"/>
                 </Button>
                 
@@ -106,13 +117,13 @@
 
                 <Button
                     ToolTip="Отменить"
-                    Command="{x:Static core:GameCommands.UndoCommand}">
+                    Command="{x:Static local:GameWindowCommands.UndoCommand}">
                     <Image Source="/GamesWpf;component/Images/16x16/Undo.png"/>
                 </Button>
 
                 <Button
                     ToolTip="Повторить"
-                    Command="{x:Static core:GameCommands.RedoCommand}">
+                    Command="{x:Static local:GameWindowCommands.RedoCommand}">
                     <Image Source="/GamesWpf;component/Images/16x16/Redo.png"/>
                 </Button>
             </ToolBar>
@@ -121,21 +132,21 @@
                 x:Name="SolutionToolBar">
                 <Button
                     ToolTip="Старт"
-                    Command="core:GameCommands.SolutionStartCommand"
+                    Command="local:GameWindowCommands.SolutionStartCommand"
                     CommandTarget="{Binding CurrentGame.GameView.View}">
                     <Image Source="/GamesWpf;component/Images/16x16/Play.png"/>
                 </Button>
 
                 <Button
                     ToolTip="Пауза"
-                    Command="core:GameCommands.SolutionPauseCommand"
+                    Command="local:GameWindowCommands.SolutionPauseCommand"
                     CommandTarget="{Binding CurrentGame.GameView.View}">
                     <Image Source="/GamesWpf;component/Images/16x16/Pause.png"/>
                 </Button>
 
                 <Button
                     ToolTip="Стоп"
-                    Command="core:GameCommands.SolutionStopCommand"
+                    Command="local:GameWindowCommands.SolutionStopCommand"
                     CommandTarget="{Binding CurrentGame.GameView.View}">
                     <Image Source="/GamesWpf;component/Images/16x16/Stop.png"/>
                 </Button>

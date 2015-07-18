@@ -4,37 +4,40 @@ namespace Sudoku
 {
     public partial class SudokuGameView
     {
-
-        private void OnRestart(object sender, ExecutedRoutedEventArgs e)
+        public void Restart()
         {
         }
 
-        private void CanRestart(object sender, CanExecuteRoutedEventArgs e)
+        public bool CanRestart()
+        {
+            return false;
+        }
+
+        public void SolutionStart()
         {
         }
 
-        private void OnSolutionStart(object sender, ExecutedRoutedEventArgs e)
+        public bool CanSolutionStart()
+        {
+            return false;
+        }
+
+        public void SolutionPause()
         {
         }
 
-        private void CanSolutionStart(object sender, CanExecuteRoutedEventArgs e)
+        public bool CanSolutionPause()
+        {
+            return false;
+        }
+
+        public void SolutionStop()
         {
         }
 
-        private void OnSolutionPause(object sender, ExecutedRoutedEventArgs e)
+        public bool CanSolutionStop()
         {
-        }
-
-        private void CanSolutionPause(object sender, CanExecuteRoutedEventArgs e)
-        {
-        }
-
-        private void OnSolutionStop(object sender, ExecutedRoutedEventArgs e)
-        {
-        }
-
-        private void CanSolutionStop(object sender, CanExecuteRoutedEventArgs e)
-        {
+            return false;
         }
     }
 }

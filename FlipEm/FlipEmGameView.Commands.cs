@@ -27,64 +27,58 @@ namespace FlipEm
             e.CanExecute = Field.CanClick();
         }
 
-        private void OnRestart(object sender, ExecutedRoutedEventArgs e)
+        public void Restart()
         {
             ResetField();
             ActionService.Instance.Clear();
-
-            e.Handled = true;
         }
 
-        private void CanRestart(object sender, CanExecuteRoutedEventArgs e)
+        public bool CanRestart()
         {
-            e.CanExecute = Field.CanRestart()
+            return Field.CanRestart()
                 || ActionService.Instance.RedoActions.Count > 0
                 || ActionService.Instance.UndoActions.Count > 0;
         }
 
-        private void OnSolutionStart(object sender, ExecutedRoutedEventArgs e)
+        public void SolutionStart()
         {
             SetStepsEnumerator();
             if (_solutionSteps != null)
             {
-                ItemsPanel.IsEnabled = false;
+                //ItemsPanel.IsEnabled = false;
                 _solutionTimer.Start();
                 ActionService.Instance.Clear();
             }
-
-            e.Handled = true;
         }
 
-        private void CanSolutionStart(object sender, CanExecuteRoutedEventArgs e)
+        public bool CanSolutionStart()
         {
-            e.CanExecute = _solutionStepsPoints != null
+            return _solutionStepsPoints != null
                 && !_solutionTimer.IsEnabled;
         }
 
-        private void OnSolutionPause(object sender, ExecutedRoutedEventArgs e)
+        public void SolutionPause()
         {
             _solutionTimer.Stop();
-
-            e.Handled = true;
         }
 
-        private void CanSolutionPause(object sender, CanExecuteRoutedEventArgs e)
+        public bool CanSolutionPause()
         {
-            e.CanExecute = _solutionStepsPoints != null
+            return _solutionStepsPoints != null
                 && _solutionSteps != null
                 && _solutionTimer.IsEnabled;
         }
 
-        private void OnSolutionStop(object sender, ExecutedRoutedEventArgs e)
+        public void SolutionStop()
         {
-            SolutionStop();
-
-            e.Handled = true;
+            _solutionTimer.Stop();
+            _solutionSteps = null;
+            ItemsPanel.IsEnabled = true;
         }
 
-        private void CanSolutionStop(object sender, CanExecuteRoutedEventArgs e)
+        public bool CanSolutionStop()
         {
-            e.CanExecute = _solutionStepsPoints != null
+            return _solutionStepsPoints != null
                 && _solutionSteps != null
                 && _solutionTimer != null;
         }

@@ -5,26 +5,6 @@ using Games.Core;
 
 namespace GamesWpf
 {
-    public static class GameWindowCommands
-    {
-        public static RoutedUICommand ShowGameCommand { get; private set; }
-        public static RoutedUICommand ShowSettingsCommand { get; private set; }
-        public static RoutedUICommand ApplySettingsCommand { get; private set; }
-        public static RoutedUICommand OpenGameCommand { get; private set; }
-        public static RoutedUICommand LoadGameCommand { get; private set; }
-        public static RoutedUICommand SelectGameCommand { get; private set; }
-
-        static GameWindowCommands()
-        {
-            ShowGameCommand = new RoutedUICommand();
-            ShowSettingsCommand = new RoutedUICommand();
-            ApplySettingsCommand = new RoutedUICommand();
-            OpenGameCommand = new RoutedUICommand();
-            LoadGameCommand = new RoutedUICommand();
-            SelectGameCommand = new RoutedUICommand();
-        }
-    }
-
     public partial class GameWindow
     {
         private void OnShowGame(object sender, ExecutedRoutedEventArgs e)
@@ -57,21 +37,18 @@ namespace GamesWpf
             CurrentGame.GameView.StartNew();
 
             OpenGame();
-
             e.Handled = true;
         }
 
         private void OnClose(object sender, ExecutedRoutedEventArgs e)
         {
             Close();
-
             e.Handled = true;
         }
 
         private void OnRedo(object sender, ExecutedRoutedEventArgs e)
         {
             ActionService.Redo();
-
             e.Handled = true;
         }
 
@@ -83,7 +60,6 @@ namespace GamesWpf
         private void OnUndo(object sender, ExecutedRoutedEventArgs e)
         {
             ActionService.Undo();
-
             e.Handled = true;
         }
 
@@ -94,9 +70,7 @@ namespace GamesWpf
 
         private void OnOpenGame(object sender, ExecutedRoutedEventArgs e)
         {
-            //MainTab.IsSelected = true;
             OpenSettings();
-
             e.Handled = true;
         }
 
@@ -116,6 +90,50 @@ namespace GamesWpf
             }
 
             e.Handled = true;
+        }
+
+        private void OnRestart(object sender, ExecutedRoutedEventArgs e)
+        {
+            CurrentGame.GameView.Restart();
+            e.Handled = true;
+        }
+
+        private void CanRestart(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = CurrentGame != null && CurrentGame.GameView.CanRestart();
+        }
+
+        private void OnSolutionStart(object sender, ExecutedRoutedEventArgs e)
+        {
+            CurrentGame.GameView.SolutionStart();
+            e.Handled = true;
+        }
+
+        private void CanSolutionStart(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = CurrentGame != null && CurrentGame.GameView.CanSolutionStart();
+        }
+
+        private void OnSolutionPause(object sender, ExecutedRoutedEventArgs e)
+        {
+            CurrentGame.GameView.SolutionPause();
+            e.Handled = true;
+        }
+
+        private void CanSolutionPause(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = CurrentGame != null && CurrentGame.GameView.CanSolutionPause();
+        }
+
+        private void OnSolutionStop(object sender, ExecutedRoutedEventArgs e)
+        {
+            CurrentGame.GameView.SolutionStop();
+            e.Handled = true;
+        }
+
+        private void CanSolutionStop(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = CurrentGame != null && CurrentGame.GameView.CanSolutionStop();
         }
     }
 }

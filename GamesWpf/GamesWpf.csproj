@@ -80,6 +80,7 @@
     </ApplicationDefinition>
     <Compile Include="GamesLoader.cs" />
     <Compile Include="GameWindow.Commands.cs" />
+    <Compile Include="GameWindowCommands.cs" />
     <Compile Include="TypeToGameConverter.cs" />
     <Page Include="GameWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +162,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\16x16\Game.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\32x32\About.png" />
+    <Resource Include="Images\32x32\Exit.png" />
+    <Resource Include="Images\32x32\Game.png" />
+    <Resource Include="Images\32x32\Help.png" />
+    <Resource Include="Images\32x32\Open.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

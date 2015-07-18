@@ -47,13 +47,6 @@ namespace FlipEm
             set { _settings = (FlipEmSettings)value; }
         }
 
-        public void SolutionStop()
-        {
-            _solutionTimer.Stop();
-            _solutionSteps = null;
-            ItemsPanel.IsEnabled = true;
-        }
-
         public void StartNew()
         {
             ResetField();
