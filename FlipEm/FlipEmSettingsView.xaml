@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:vm="clr-namespace:Games.Core;assembly=Games.Core"
              xmlns:local_core="clr-namespace:FlipEm.Core"
              x:Name="Control"
@@ -30,23 +29,34 @@
                    Text="Тип хода"
                    Margin="2"/>
 
-        <telerik:RadComboBox Grid.Column="1"
-                             Grid.Row="0"
-                             ItemsSource="{Binding Source={StaticResource EnumValues}, Path=Values}"
-                             SelectedItem="{Binding Step, Mode=TwoWay}"
-                             Margin="2"/>
+        <ComboBox Grid.Column="1"
+                  Grid.Row="0"
+                  ItemsSource="{Binding Source={StaticResource EnumValues}, Path=Values}"
+                  SelectedItem="{Binding Step, Mode=TwoWay}"
+                  Margin="2"/>
 
         <TextBlock Grid.Column="0"
                    Grid.Row="1"
                    Text="Размер поля"
                    Margin="2"/>
 
-        <telerik:RadNumericUpDown Grid.Column="1"
+        <!--<telerik:RadNumericUpDown Grid.Column="1"
                                   Grid.Row="1"
                                   Minimum="3"
                                   Maximum="12"
                                   IsInteger="True"
                                   Value="{Binding Size, Mode=TwoWay}"
-                                  Margin="2"/>
+                                  Margin="2"/>-->
+        <Slider 
+            Grid.Column="1"
+            Grid.Row="1"
+            Minimum="3"
+            Maximum="12"
+            TickFrequency="1"
+            TickPlacement="BottomRight"
+            IsSnapToTickEnabled="True"
+            Value="{Binding Path=Size, Mode=TwoWay}"
+            Margin="2"/>
+                
     </Grid>
 </UserControl>

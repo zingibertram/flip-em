@@ -4,7 +4,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:local="clr-namespace:FlipEm"
              xmlns:core="clr-namespace:Games.Core;assembly=Games.Core"
              mc:Ignorable="d"
@@ -44,11 +43,11 @@
 
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <telerik:RadToggleButton Width="24"
-                                                             Height="24"
-                                                             IsChecked="{Binding IsChecked, Mode=TwoWay}"
-                                                             Command="{x:Static local:FlipEmCommands.ChipClickedCommand}"
-                                                             CommandParameter="{Binding}"/>
+                                    <ToggleButton Width="24"
+                                                  Height="24"
+                                                  IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                                  Command="{x:Static local:FlipEmCommands.ChipClickedCommand}"
+                                                  CommandParameter="{Binding}"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>

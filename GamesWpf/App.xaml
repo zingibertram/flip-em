@@ -5,12 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Themes/Office2013/System.Windows.xaml" />
-                <ResourceDictionary Source="Themes/Office2013/Telerik.Windows.Controls.xaml" />
-                <ResourceDictionary Source="Themes/Office2013/Telerik.Windows.Controls.Input.xaml" />
-                <ResourceDictionary Source="Themes/Office2013/Telerik.Windows.Controls.Navigation.xaml" />
-                <ResourceDictionary Source="Themes/Office2013/Telerik.Windows.Controls.RibbonView.xaml" />
-                <ResourceDictionary Source="Themes/Office2013/Telerik.Windows.Controls.Spreedsheet.xaml" />
+                <ResourceDictionary Source="/PresentationFramework.AeroLite;component/themes/AeroLite.NormalColor.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

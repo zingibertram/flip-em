@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
+using Games.Core;
 
 namespace GamesWpf
 {
@@ -11,6 +12,7 @@ namespace GamesWpf
         public static RoutedUICommand ApplySettingsCommand { get; private set; }
         public static RoutedUICommand OpenGameCommand { get; private set; }
         public static RoutedUICommand LoadGameCommand { get; private set; }
+        public static RoutedUICommand SelectGameCommand { get; private set; }
 
         static GameWindowCommands()
         {
@@ -19,6 +21,7 @@ namespace GamesWpf
             ApplySettingsCommand = new RoutedUICommand();
             OpenGameCommand = new RoutedUICommand();
             LoadGameCommand = new RoutedUICommand();
+            SelectGameCommand = new RoutedUICommand();
         }
     }
 
@@ -108,10 +111,21 @@ namespace GamesWpf
 
             if (dialog.ShowDialog() == true)
             {
-                Games.Add(GamesLoader.LoadGame(dialog.FileName));
+                var game = GamesLoader.LoadGame(dialog.FileName);
+                Games.Add(game);
+                AddGamesMenuItem(game);
             }
 
             e.Handled = true;
+        }
+
+        private void OnSelectGame(object sender, ExecutedRoutedEventArgs e)
+        {
+            var game = e.Parameter as IGameInfo;
+            if (game != null)
+            {
+                SetCurrent(game);
+            }
         }
     }
 }
